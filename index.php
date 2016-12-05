@@ -31,11 +31,11 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
         <span class="icon-bar"></span>
       </button>
 			
-                 
+                 <li><a href= "?faqe=home" id="logo"></a></li>
 		   <div class="collapse navbar-collapse" id="navbar-collapse">
                        
 		   <ul class ="nav navbar-nav">
-			<li><a href= "?faqe=home" id="logo"></a></li>
+			
 			<li><a href="?faqe=home" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
 			<li><a href="?faqe=services" class="hvr-underline-from-left" id="links">SHERBIMET </a></li>
 			<li><a href="?faqe=contact" class="hvr-underline-from-left" id="links">KONTAKTI</a></li>
@@ -72,5 +72,12 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
     <a href="#" onclick="goToByScroll('top'); return false;" ></a>
     <p align="center"><strong>E-Dentist 2016 | All Rights Reserved</strong> </p>
 </div>
+                   <script src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jSlider.js"></script>
+    <script src="js/ism-2.2.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 	</body>
 </html>
