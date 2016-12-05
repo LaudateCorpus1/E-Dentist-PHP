@@ -35,7 +35,7 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
 		   <div class="collapse navbar-collapse" id="navbar-collapse">
                        
 		   <ul class ="nav navbar-nav">
-			   <li><a href= "?faqe=home" id="logo"></a></li>
+			  <li><a href= "?faqe=home" id="logo"></a></li>
 			<li><a href="?faqe=home" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
 			<li><a href="?faqe=services" class="hvr-underline-from-left" id="links">SHERBIMET </a></li>
 			<li><a href="?faqe=contact" class="hvr-underline-from-left" id="links">KONTAKTI</a></li>
