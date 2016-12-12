@@ -21,10 +21,10 @@
                 </div>
 
 <div class ="col-sm-12">
-    <div class="hr">
+    <div class="hr">	
 </div>
     <div class="col-sm-4">
-        <img src="images/phone.png" </img>
+			<img src="images/phone.png" </img>
         <h2> TELEFONONI</h2>
         <h4>049 - 123 - 456</h4>
         

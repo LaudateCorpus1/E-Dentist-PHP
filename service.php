@@ -7,7 +7,7 @@
 		
 		list($id, $photo, $description, $price)=$row;
                 echo '<div class="col-sm-4" id="services">';    
-                 echo'<img id="fotot" src="'.$photo.'"/>';
+                echo'<img id="fotot" src="'.$photo.'"/>';
                 echo'  <p> '.$description.'</p>';
                 echo '<p><b>Çmimi ' .$price. ' euro</b></p>';
                 echo '</div>';

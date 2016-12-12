@@ -19,9 +19,21 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
     <title>E-Dentist</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
-
-	<body>
-		<div class = "navbar navbar-inverse navbar-fixed-top " id="header" >
+<body>
+    
+    <?php
+    if(isset($_SESSION['logged_in']) ){
+           echo "<form  method=\"post\" action=\"logout.php\">
+					 <input class =\"logout\" type=\"submit\" value =\"Log out\">
+					</form>";   
+    }
+    else 
+    {
+          include 'login.php';  
+    }
+    
+        ?>
+		<div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
    <div class = "container">
   
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
@@ -39,6 +51,12 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
 			<li><a href="?faqe=home" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
 			<li><a href="?faqe=services" class="hvr-underline-from-left" id="links">SHERBIMET </a></li>
 			<li><a href="?faqe=contact" class="hvr-underline-from-left" id="links">KONTAKTI</a></li>
+                        <?php
+                            if(isset($_SESSION['logged_in']) && $_SESSION['admin'] == 1)
+                            {
+                                echo '<li><a href="admin/index.php" class="hvr-underline-from-left" id="links">MENAXHIMI</a></li>';
+                            }
+                            ?>
 		 </ul>
 		 </div>
 		 </div>
@@ -49,7 +67,7 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
 		</div>
 		
 			
-				 <div class ="container" id="content"align="center">
+				 <div class ="container" id="content" align="center">
 					<?php
 					switch (@$_GET['faqe'])
 					{
@@ -67,9 +85,10 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
 						break;
 					}
 					?>
+                                    
 				</div>
 					<div class=" navbar navbar-inner  navbar-bottom-fixed" id="footer">
-    <a href="#" onclick="goToByScroll('top'); return false;" ></a>
+
     <p align="center"><strong>E-Dentist 2016 | All Rights Reserved</strong> </p>
 </div>
                    <script src="js/jquery-1.11.3.min.js"></script>

@@ -14,7 +14,7 @@
 		{
 			//Shfaq nje mesazh qe te dhenat u rujten me sukses dhe ridrejto ne index.php pas 2 sekondave
 			echo"<h1>Te dhenat u ruajten me sukses</h1>";
-			header( "refresh:1;url=../index.php" );
+			header( "refresh;url=../index.php" );
 			
 			
 		}
