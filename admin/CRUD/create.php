@@ -47,8 +47,8 @@
   <li class="list-group-item">  <p>Emri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Emri mund te lihet i zbrazet</p></li>
   <li class="list-group-item"><p>Mbiemri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Mbiemri mund te lihet i zbrazet</p></li>
   <li class="list-group-item"> <p>Username duhet te jete i mbushur patjeter pasi kerkimi nuk mund te behet pa te. </p></li>
-  <li class="list-group-item"> <p>Data duhet te jepet ne formatin e caktuar: Dita/Muaji/Viti (Shembull: 25/10/2017). Data nuk pranohet nese i takon dates se sotme ose me heret</p> </li>
-  <li class="list-group-item"> <p>Ora duhet te jepet ne formatin e 24 oresh (Shembull: 14:00). Ora nuk guxon te jete jashte orarit te punes.</p></li>
+  <li class="list-group-item"> <p>Data duhet te jepet ne formatin e caktuar: Viti-Muaji-Dita (Shembull: 2016-10-25). Data nuk pranohet nese i takon dates se sotme ose me heret</p> </li>
+  <li class="list-group-item"> <p>Ora duhet te jepet ne formatin e 24 oresh me sekonda dhe nuk pranon (Shembull: 14:00:00). Ora nuk guxon te jete jashte orarit te punes.</p></li>
 </ul>
        
                 </div>

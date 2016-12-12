@@ -87,10 +87,10 @@
   <p>Vleresimi eshte nga nota 1 deri ne 5.</p>
   <form id ="rating_form" method="POST" action = "inc/rating_insert.php">
     <label><input type="radio" name="optradio" value="1">1</label>
-    <label><input type="radio" name="optradio"value="2">2</label>
-    <label><input type="radio" name="optradio"value="3">3</label>
-    <label><input type="radio" name="optradio"value="4">4</label>
-    <label><input type="radio" name="optradio"value="5">5</label>
+    <label><input type="radio" name="optradio" value="2">2</label>
+    <label><input type="radio" name="optradio" value="3">3</label>
+    <label><input type="radio" name="optradio" value="4">4</label>
+    <label><input type="radio" name="optradio" value="5">5</label>
     <button type="submit" value="Submit" form ="rating_form">Vlereso</button>
     
   </form>

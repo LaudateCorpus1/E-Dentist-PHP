@@ -40,7 +40,7 @@ if(mysql_num_rows($results) > 0){
 		{
 			$message = "Te dhenat u ruajten me sukses. Shtyp OK per tu kthyer";
                         echo "<script type='text/javascript'>alert('$message');</script>";
-                        header("refresh:1;url=../index.php");
+                        header("refresh: 0; url=../?admin=create");
                          
                         
 			
@@ -51,7 +51,7 @@ if(mysql_num_rows($results) > 0){
 			
 		$message = "Te dhenat nuk u ruajten me sukses. Vertetoni nese personi ekziston";
                         echo "<script type='text/javascript'>alert('$message');</script>" or die ('invalid query:'. mysql_error());
-			header(  "location:../?admin=create" );
+			header( "refresh: 0; url=../?admin=create" );
 		}
  
                             

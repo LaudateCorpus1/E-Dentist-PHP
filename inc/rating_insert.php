@@ -12,16 +12,17 @@
 		
 		if($query)
 		{
-			//Shfaq nje mesazh qe te dhenat u rujten me sukses dhe ridrejto ne index.php pas 2 sekondave
-			echo"<h1>Te dhenat u ruajten me sukses</h1>";
-			header( "refresh;url=../index.php" );
+			$message = "Te dhenat u ruajten me sukses. Shtyp OK per tu kthyer";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+			header( "refresh:0;url=../index.php" );
 			
 			
 		}
 		else{
 			
-				echo"<h1>Te dhenat nuk ruajten</h1>" or die ('invalid query:'. mysql_error());
-			
+				$message = "Te dhenat nuk u ruajten me sukses. Shtyp OK per tu kthyer";
+                        echo "<script type='text/javascript'>alert('$message');</script>" or die ('invalid query:'. mysql_error());
+			header( "refresh:0;url=../index.php" );   
 		}
 		?>
 	

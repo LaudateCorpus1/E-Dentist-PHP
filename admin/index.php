@@ -58,7 +58,11 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
         }
         else
         {
-            echo "Ju duhet te jeni i kyqur ose nuk keni privilegje qe te vizitoni kete faqe";
+           $message = "Ju nuk keni privilegje qe te vizitoni kete faqe";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        
+                        header("refresh: 0;url=../index.php");
+                        
         }
 	?>		
     </div>
