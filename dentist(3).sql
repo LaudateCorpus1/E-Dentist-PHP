@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2016 at 12:35 PM
+-- Generation Time: Dec 12, 2016 at 04:19 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -64,7 +64,12 @@ INSERT INTO `rating` (`ID`, `rating`) VALUES
 (4, 4),
 (5, 4),
 (6, 5),
-(7, 5);
+(7, 5),
+(8, 4),
+(9, 1),
+(10, 3),
+(11, 3),
+(12, 2);
 
 -- --------------------------------------------------------
 
@@ -105,6 +110,40 @@ CREATE TABLE `termini` (
   `id_users` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `termini`
+--
+
+INSERT INTO `termini` (`id_termini`, `date`, `time`, `id_users`) VALUES
+(1, '2016-12-21', '00:00:00', 2),
+(2, '2016-12-12', '10:00:00', 4),
+(7, '2016-12-12', '14:00:00', 2),
+(8, '2016-12-12', '10:00:00', 1),
+(9, '2016-12-12', '14:00:00', 1),
+(10, '0000-00-00', '00:00:00', 0),
+(11, '2016-12-12', '12:00:00', 1),
+(12, '2016-12-12', '15:00:00', 1),
+(13, '2016-12-12', '15:00:00', 1),
+(14, '2016-12-12', '15:00:00', 1),
+(15, '2016-12-12', '14:00:00', 1),
+(16, '2016-12-12', '09:00:00', 1),
+(17, '2016-12-12', '14:00:00', 1),
+(18, '2016-12-12', '10:00:00', 2),
+(19, '2016-12-12', '14:00:00', 2),
+(20, '2016-12-12', '14:00:00', 2),
+(21, '2016-12-12', '14:00:00', 2),
+(22, '2016-12-12', '14:00:00', 2),
+(23, '2016-12-12', '14:00:00', 2),
+(24, '2016-12-12', '14:00:00', 2),
+(25, '2016-12-12', '14:00:00', 2),
+(26, '2016-12-12', '14:00:00', 2),
+(27, '2016-12-12', '14:00:00', 2),
+(28, '2016-12-12', '14:00:00', 2),
+(29, '2016-12-12', '14:00:00', 2),
+(30, '2016-12-12', '14:00:00', 2),
+(31, '2016-12-12', '14:00:00', 2),
+(32, '2016-12-12', '16:00:00', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -117,8 +156,17 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `surname` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `password`, `name`, `surname`, `email`, `admin`) VALUES
+(1, 'admin', 'admin', 'Filan ', 'Fisteku', 'filan-fisteku@hotmail.com', 1),
+(2, 'filan', 'fisteku', 'Fistek', 'Filani', 'fistek-filani@hotmail.com', 0);
 
 --
 -- Indexes for dumped tables
@@ -167,7 +215,7 @@ ALTER TABLE `historiku`
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `services`
 --
@@ -177,12 +225,12 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `termini`
 --
 ALTER TABLE `termini`
-  MODIFY `id_termini` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_termini` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
