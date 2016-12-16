@@ -14,9 +14,24 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="edentist.ico">
 	<link rel="stylesheet" type="text/css" href="../css/mystyle.css">
-	<link rel="stylesheet" type="text/css" href="../css/hover.css">     
+	<link rel="stylesheet" type="text/css" href="../css/hover.css">  
+ 
+
     <title>E-Dentist</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+      <script type="text/javascript" src="../js/jquery.jSlider.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/script.js"></script>
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $( function() {
+    $( "#datepicker" ).datepicker({ minDate: +1, maxDate: +31, dateFormat: "yy-mm-dd" });
+  } );
+          </script>     
     </head>
     <body>
     <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
@@ -42,6 +57,7 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
         if(isset($_SESSION['logged_in']) ){ 
             switch (@$_GET['admin'])
             {
+              
                 case "terminet":
                     include('terminet.php');
                     break;
@@ -66,16 +82,10 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
         }
 	?>		
     </div>
-    <div class=" navbar navbar-inner  navbar-bottom-fixed" id="footer">
+        <div id="footer" class=" navbar navbar-inner  navbar-bottom-fixed" >
         <p align="center"><strong>E-Dentist 2016 | All Rights Reserved</strong> </p>
     </div>
-    <script src="../js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.jSlider.js"></script>
-    <script src="../js/ism-2.2.min.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/script.js"></script>
+
+  
 </body>    
 </html>

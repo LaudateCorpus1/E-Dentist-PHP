@@ -5,8 +5,17 @@
 		$username = $_POST['username'];
                 $date = $_POST['datepicker'];
                 $time =  $_POST['time'];
-                $id = NULL;
-         $query= "SELECT * FROM termini WHERE date='".$date."' AND time='".$time."'";
+                $termini_id = $_POST['termini_id'];
+            
+    if ( null==$termini_id ) {
+        $message = "Te dhenat nuk u ruajten me sukses.";
+                        echo "<script type='text/javascript'>alert('$message');</script>" ;
+        
+        header("refresh:0 url=../index.php");
+    }
+        
+    
+    $query= "SELECT * FROM termini WHERE date='".$date."' AND time='".$time."'";
        
         $results = mysql_query($query);
         
@@ -19,27 +28,10 @@ if(mysql_num_rows($results) > 0){
                         echo "<script type='text/javascript'>alert('$message');</script>";
                         header("refresh:0;url=../index.php");
         }
-   else{
-        $selektimi ="SELECT user_id FROM user WHERE  username ='".$username."'  OR name ='".$name."' OR  surname = '".$surname ."'";
-	$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
-        if(mysql_num_rows($result) == 0){
-
-            $message = "Useri nuk eshte gjendur. Ju lutem shtoni userin";
-                        echo "<script type='text/javascript'>alert('$message');</script>";
-                        header("refresh:0;url=../index.php");
-        }
-        else {
-	while($row = mysql_fetch_row($result))
-	{
+    else {
 		
-		list($user_id)=$row;
-                $id = $user_id;
-           
-                      
-    
-	}
-        	 $sql_insert = "INSERT INTO termini (date, time, id_users)
-				VALUE ('$date','$time', '$id') ";
+		
+        	 $sql_insert = "UPDATE termini SET date = '".$date."', time = '".$time."' WHERE `termini`.`id_termini` = ".$termini_id."" ;
 		
 		$query=mysql_query($sql_insert);
 		
@@ -47,7 +39,7 @@ if(mysql_num_rows($results) > 0){
 		{
 			$message = "Te dhenat u ruajten me sukses. Shtyp OK per tu kthyer";
                         echo "<script type='text/javascript'>alert('$message');</script>";
-                        header("refresh: 0; url=../?admin=create");
+                        header("refresh: 0; url=../index.php");
                          
                         
 			
@@ -58,11 +50,11 @@ if(mysql_num_rows($results) > 0){
 			
 		$message = "Te dhenat nuk u ruajten me sukses. Vertetoni nese personi ekziston";
                         echo "<script type='text/javascript'>alert('$message');</script>" or die ('invalid query:'. mysql_error());
-			header( "refresh: 0; url=../?admin=create" );
+			header( "refresh: 0; url=../index.php" );
 		}
  
         }         
              
 		
-   }
+   
 	
