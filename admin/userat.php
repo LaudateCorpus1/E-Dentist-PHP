@@ -1,6 +1,6 @@
  <div class="container">
             <div class="row">
-                <h3>Terminet</h3>
+                <h3>Perdoruesit</h3>
             </div>
             <div class="row">
                 <table class="table table-striped table-bordered">

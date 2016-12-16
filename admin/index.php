@@ -47,7 +47,7 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
                     <li><a href="../index.php" id="logo"></a></li>
                     <li><a href="../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
                     <li><a href="?admin=terminet" class="hvr-underline-from-left" id="links">TERMINET</a></li>
-                    <li><a href="?admin=userat" class="hvr-underline-from-left" id="links">USERAT </a></li>
+                    <li><a href="?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT </a></li>
                  </ul>
              </div>
         </div>
@@ -82,9 +82,7 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
         }
 	?>		
     </div>
-        <div id="footer" class=" navbar navbar-inner  navbar-bottom-fixed" >
-        <p align="center"><strong>E-Dentist 2016 | All Rights Reserved</strong> </p>
-    </div>
+       
 
   
 </body>    
