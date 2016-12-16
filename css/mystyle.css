@@ -43,20 +43,15 @@ body
     background-color: #848484;
     margin: 1.2%  0px 0px 0px;
     border-radius: 0px;
+    
+    
 }
 #footer p
 {
     color: #DDDDDD;
 	margin: 1.2% 0px 0px 0px;
 }
-#footer a
-{
-    background: url(../images/totop.png) 0 0 no-repeat;
-    left: 50%;
-    height: 5.7%;
-    position: absolute;
-    display: block;
-}
+
 #logo
 {
     position: relative;
@@ -159,10 +154,7 @@ body
         height: 350px;
         
  }
- label
- {
-    float: left;
- }
+
   .form-group input
   {
       display: inline;
