@@ -3,8 +3,6 @@
 
 $inTwoMonths = 60 * 60 * 24 * 60 + time(); 
 setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths); 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,19 +19,8 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
 </head>
 <body>
     
-    <?php
-    if(isset($_SESSION['logged_in']) ){
-           echo "<form  method=\"post\" action=\"logout.php\">
-					 <input class =\"logout\" type=\"submit\" value =\"Log out\">
-					</form>";   
-    }
-    else 
-    {
-          include 'login.php';  
-    }
-    
-        ?>
-		<div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
+   
+<div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
    <div class = "container">
   
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
@@ -48,16 +35,49 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
                        
 		   <ul class ="nav navbar-nav">
 			  <li><a href= "?faqe=home" id="logo"></a></li>
-			<li><a href="?faqe=home" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
-			<li><a href="?faqe=services" class="hvr-underline-from-left" id="links">SHERBIMET </a></li>
-			<li><a href="?faqe=contact" class="hvr-underline-from-left" id="links">KONTAKTI</a></li>
+                          <li><a href="?faqe=home" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "home")
+                                 echo' id="active"';
+                          else echo 'id="links"';?>
+                     
+                              >KRYEFAQJA</a></li>
+			<li><a href="?faqe=services" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "services")
+echo' id="active"';else echo 'id="links"';?>>SHERBIMET </a></li>
+			<li><a href="?faqe=contact" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "contact")
+echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                         <?php
-                            if(isset($_SESSION['logged_in']) && $_SESSION['admin'] == 1)
+                            if(isset($_SESSION['logged_in']) && $_SESSION['mof'] == 1   )
                             {
-                                echo '<li><a href="admin/index.php" class="hvr-underline-from-left" id="links">MENAXHIMI</a></li>';
+                                echo '<li><a href="admin/?admin=terminet" class="hvr-underline-from-left" id="links">MENAXHIMI</a></li>';
                             }
                             ?>
 		 </ul>
+                       <ul class="nav pull-right" style="margin-top:5px;">
+                           <li class="dropdown" id="menuLogin">
+                               <a class="dropdown-toggle hvr-pulse" href="#" data-toggle="dropdown" id="links">
+                                   <span class=" glyphicon glyphicon-chevron-down "></span>&nbsp;
+                                   
+                      
+                        <?php
+                        if(isset($_SESSION['logged_in']) ){
+                            echo 'LLOGARIA</a>';
+                            echo '<div class="dropdown-menu" style="padding:20px; width:250px;">';
+                            echo '<p>Miresevini</p>';
+                            echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';
+                                                
+                            echo "<form  method=\"post\" action=\"logout.php\">
+                             <button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button>
+				</form>";   
+                        }
+                        else 
+                        {
+                            echo 'LOG IN</a>';
+                            echo '<div class="dropdown-menu" style="padding:20px;">';
+                            include 'login.php';  
+                        }
+                        ?>
+                                 
+                           </li>
+                       </ul>
 		 </div>
 		 </div>
 		 </div>
@@ -70,19 +90,20 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
 				 <div class ="container" id="content" align="center">
 					<?php
 					switch (@$_GET['faqe'])
-					{
-					case "home":
-						include('home.php');
-						break;
+					{   
+        
+                                        case "home":
+                                            include('home.php');
+                                            break;
 					case "services":
-						include('service.php');
-						break;
+                                            include('service.php');
+                                            break;
 					case "contact":
-						include('contact.php');
-                                                break;
-					default:
-						include('home.php');
-						break;
+                                            include('contact.php');
+                                            break;
+                                        default:
+                                           header("Location:index.php?faqe=home");
+                                            break;
 					}
 					?>
                                     

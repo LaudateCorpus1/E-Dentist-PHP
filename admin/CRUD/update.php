@@ -1,6 +1,22 @@
-<?php
- 
+<?php 
          include('../../inc/db_con.php');
+         if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION['logged_in']))
+ {
+     $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../index.php");
+ }
+ else if($_SESSION['mof'] == 0)
+ {
+      $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../index.php");
+ }
+     
+ else{ 
  $Tname = null;
  $Tsurname = null;
  $Tusername = null;
@@ -34,6 +50,10 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                 }
     }
 ?> 
+<style>
+
+    label{float:left;} 
+</style>
  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -73,8 +93,8 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                 <ul class ="nav navbar-nav">
                     <li><a href="../index.php" id="logo"></a></li>
                     <li><a href="../../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
-                    <li><a href="../index.php" class="hvr-underline-from-left" id="links">TERMINET</a></li>
-                    <li><a href="../user.php" class="hvr-underline-from-left" id="links">USERAT </a></li>
+                    <li><a href="../index.php" class="hvr-underline-from-left" id="active">TERMINET</a></li>
+                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT</a></li>
                  </ul>
              </div>
         </div>
@@ -119,13 +139,13 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
           <option value="16:00:00">Termini ne ora 16</option>
            <option value="17:00:00">Termini ne ora 17</option>
            <option value="18:00:00">Termini ne ora 18</option></select>
-      <span id="time_validation" class="error"></span>
+   
       
     </div>
       <div class="form-group">
       <label class="required"  for="date">Data:</label>
       <input type="text"  id="datepicker" name="datepicker" value="" readonly class="form-control">
-       
+      <span id="time_validation" class="error"></span> 
      
      <input type="hidden" value="<?php echo $id_termini?>" name="termini_id" />
     </div>
@@ -148,4 +168,4 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
         </div>
  
     </body>
-    
+ <?php } 

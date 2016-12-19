@@ -1,13 +1,30 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION['logged_in']))
+ {
+     $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../index.php");
+ }
+ else if($_SESSION['mof'] == 0)
+ {
+      $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../index.php");
+ }
+     
+ else{  
  $date = date("Y-m-d");
+
+    
 ?> 
+
 <div class="container">
             <div class="row">
                 <h3 >Terminet</h3>
-                
                     <a href="?admin=create" class="btn btn-success ">Krijo</a>
-                
-        
             </div>
      <div class="row">
          <div class="col-sm-2">
@@ -36,7 +53,7 @@
                       <th>Data</th>
                       <th>Ora</th>
                       <th>E-Mail</th>
-                      <th>Action</th>
+                      <th>Menaxhimi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -66,4 +83,6 @@
                   </tbody>
             </table>
         </div>
-    </div> <!-- /container -->
+    </div> 
+ <?php
+ }

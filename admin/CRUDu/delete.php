@@ -1,6 +1,7 @@
-<?php
-include('../../inc/db_con.php');
-  if (session_status() == PHP_SESSION_NONE) {
+  <?php
+ 
+    include('../../inc/db_con.php');
+    if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if(!isset($_SESSION['logged_in']))
@@ -16,44 +17,58 @@ if(!isset($_SESSION['logged_in']))
       header("refresh:0 url=../index.php");
  }
      
- else{ 
-
-         
- $Tname = null;
- $Tsurname = null;
- $Tusername = null;
- $Tdate = null;
- $Ttime = null;
- $Temail = null;
- $id = null;
-    if ( !empty($_GET['id'])) {
+ else{
+    
+    $Tname = null;
+    $Tsurname = null;
+    $Tusername = null;
+    $Tpassword =null;
+    $Temail =  null;
+    $Tadmin = null;
+    $id = null;
+    if ( !empty($_GET['id'])) 
+    {
         $id = $_REQUEST['id'];
     }
-  
-    if ( null==$id ) {
-       $message = "Te dhenat nuk u gjeten.";
-                        echo "<script type='text/javascript'>alert('$message');</script>" ;
-        
+    if ( null==$id )
+    {
+        $message = "Te dhenat nuk u gjeten.";
+        echo "<script type='text/javascript'>alert('$message');</script>" ;
         header("refresh:0 url=../index.php");
-    } else {
-$selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.date, t.time, u.email FROM user AS u INNER JOIN termini AS t ON u.user_id=t.id_users WHERE t.id_termini='".$id."'";
+    } 
+    else 
+    {
+$selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list($user_id, $name, $surname,$username, $termini_id, $date, $time, $email,  )=$row;
+			list($user_id, $username, $password,$name, $surname, $email, $admin,   )=$row;
+                        $Tusername = $username;
+                        $Tpassword = $password;
                         $Tname = $name;
                         $Tsurname = $surname;
-                        $Tusername = $username;
-                        $Tdate = $date;
-                        $Ttime = $time;
                         $Temail = $email;
-			
-                }
+                        $Tadmin = $admin;
+                    }
     }
+    $temppass = null;
+        $sql = "SELECT password FROM user WHERE username='".$_SESSION['username']."'";
+		$result = mysql_query($sql) or die ('invalid query:'. mysql_error());
+                   
+                       while($row = mysql_fetch_array($result))
+                    {
+			
+			list( $password   )=$row;
+                          $temppas = $password;
+                    }
+                       
+                    
+  
+
 ?>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,8 +102,8 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                 <ul class ="nav navbar-nav">
                     <li><a href="../index.php" id="logo"></a></li>
                     <li><a href="../../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
-                    <li><a href="../index.php" class="hvr-underline-from-left" id="active">TERMINET</a></li>
-                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT</a></li>
+                    <li><a href="../index.php" class="hvr-underline-from-left" id="links">TERMINET</a></li>
+                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="active">PERDORUESIT </a></li>
                  </ul>
              </div>
         </div>
@@ -97,10 +112,9 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Leximi i te dhenave</h3>
-                       
+                        <h3>Shlyerja e Perdoruesit</h3>
                     </div>
-                         <table class="table table-striped table-bordered">
+                     <table class="table table-striped table-bordered">
          <thead>
              
         </thead>
@@ -121,31 +135,44 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
            
             </tr>
             <tr>
-                <td>E-Mail</td>
-                <td><?php echo $Temail ?></td>
+                <td>Password</td>
+                <td>**********</td>
            
             </tr>
             <tr>
-                <td>Data</td>
-                <td><?php echo $Tdate;  ?></td>
+                <td>E-Mail</td>
+                <td><?php echo $Temail; ?></td>
                
             </tr>
             <tr>
-                <td>Ora</td>
-                <td><?php echo $Ttime ?></td>
+                <td>Privilegji</td>
+                <td><?php 
+                if($Tadmin == 1)
+                {
+                    echo 'Admin';
+                }
+                else
+                {
+                    echo 'Perdorues';
+                }?>
+                </td>
 
             </tr>
            
         </tbody>
     </table>
-                     <div class='row'>
-                            <a href="../index.php" class="btn btn-default">Kthehu</a>
-                            <a class="btn btn-info   "href="update.php?id=<?php echo $id ?>">Ndrysho</a>
-                  
-                        <a class="btn btn-danger" href="delete.php?id=<?php echo $id ?>" >Shlyej</a></td>
-                </div>
                    
-                    </div>
+                    <form class="form-horizontal" action="user_delete.php" method="post">
+                      <input type="hidden" name="id" value="<?php echo $id;?>"/>
+                        <div class="panel panel-danger">
+      <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni perdoruesin ?</div>
+      <div class="panel-body">
+                      <div class="form-actions">
+                          <button type="submit" class="btn btn-danger">Po</button>
+                          <a class="btn btn-default" href="../?admin=userat">Jo</a>
+                        </div>
+                      </div>
+                    </form>
                 </div>
                  
 </div> <!-- /container -->

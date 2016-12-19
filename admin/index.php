@@ -1,5 +1,22 @@
-<?php include ('../inc/db_con.php'); 
-
+<?php
+include ('../inc/db_con.php');  
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION['logged_in']))
+ {
+     $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../index.php");
+ }
+ else if($_SESSION['mof'] == 0)
+ {
+      $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../index.php");
+ }
+     
+ else{ 
 
 $inTwoMonths = 60 * 60 * 24 * 60 + time(); 
 setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths); 
@@ -46,15 +63,17 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
                 <ul class ="nav navbar-nav">
                     <li><a href="../index.php" id="logo"></a></li>
                     <li><a href="../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
-                    <li><a href="?admin=terminet" class="hvr-underline-from-left" id="links">TERMINET</a></li>
-                    <li><a href="?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT </a></li>
+                    <li><a href="?admin=terminet" class="hvr-underline-from-left"<?php if($_GET['admin']=== "terminet" || $_GET['admin'] === "create")
+echo' id="active";';else echo 'id="links"';?> >TERMINET</a></li>
+                    <li><a href="?admin=userat" class="hvr-underline-from-left"<?php if($_GET['admin']=== "userat")
+echo' id="active";';else echo 'id="links"';?>>PERDORUESIT </a></li>
                  </ul>
              </div>
         </div>
     </div>
     <div class ="container" id="content" align="center">
         <?php 
-        if(isset($_SESSION['logged_in']) ){ 
+        if(isset($_SESSION['logged_in'])){ 
             switch (@$_GET['admin'])
             {
               
@@ -68,7 +87,7 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
                     include('userat.php');
                     break;
 		default:
-                    include('terminet.php');
+                    header("Location: index.php?admin=terminet");
                     break;
             }
         }
@@ -87,3 +106,7 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
   
 </body>    
 </html>
+ <?php 
+
+ 
+ }

@@ -1,6 +1,7 @@
 <?php
-include('../../inc/db_con.php');
- if (session_status() == PHP_SESSION_NONE) {
+
+     include('../../inc/db_con.php');
+     if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if(!isset($_SESSION['logged_in']))
@@ -17,7 +18,6 @@ if(!isset($_SESSION['logged_in']))
  }
      
  else{ 
-     
      $term= null;
     if (!empty($_GET)) 
     {
@@ -62,8 +62,8 @@ if(!isset($_SESSION['logged_in']))
                 <ul class ="nav navbar-nav">
                     <li><a href="../index.php" id="logo"></a></li>
                     <li><a href="../../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
-                    <li><a href="../index.php" class="hvr-underline-from-left" id="active">TERMINET</a></li>
-                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT </a></li>
+                    <li><a href="../index.php" class="hvr-underline-from-left" id="links">TERMINET</a></li>
+                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="active">PERDORUESIT</a></li>
                  </ul>
              </div>
         </div>
@@ -80,52 +80,58 @@ if(!isset($_SESSION['logged_in']))
                
            
                 <table class="table table-striped table-bordered">
-                  <thead>
+                <thead>
                     <tr>
                       <th>Emri</th>
                       <th>Mbiemri</th>
-                      <th>Data</th>
-                      <th>Ora</th>
+                      <th>Username</th>
+                      <th>Password</th>
                       <th>E-Mail</th>
-                      <th>Action</th>
+                      <th>Privilegji</th>
+                      <th>Menaxhimi</th>
                     </tr>
                   </thead>
                   <tbody>
                     
                   <?php
-                  $selektimi = "SELECT u.user_id, u.name, u.surname, t.date, t.time, u.email, t.id_termini FROM user AS u INNER JOIN termini AS t ON u.user_id=t.id_users WHERE u.name LIKE '%".$term."%' OR u.surname LIKE '%".$term."%' OR u.username LIKE '%".$term."%' OR u.email LIKE '%".$term."%' OR t.time LIKE '%".$term."%' OR t.date LIKE '%".$term."%'";
-                    		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
-                                
-                       if(mysql_num_rows($result)== 0){
+                  $selektimi ="SELECT * FROM user WHERE  username LIKE '%".$term."%' OR name LIKE '%".$term."%' OR surname LIKE '%".$term."%' OR email LIKE '%".$term."%'";
+		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
+                   if(mysql_num_rows($result)== 0){
 
             $message = "Nuk eshte gjetur asnje e dhene. Provoni perseri";
                         echo "<script type='text/javascript'>alert('$message');</script>";
-                        header("refresh:0;url=../index.php");
+                        header("refresh:0;url=../?admin=userat");
         }
                 else{
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list($user_id, $name, $surname,  $date, $time, $email, $termini_id )=$row;
+			list( $user_id, $username, $password, $name, $surname, $email, $admin  )=$row;
 			echo '  <tr>'; 
 			echo '<td>'.$name.'</td>'; 
 			echo '<td>'.$surname.'</td>'; 
-			echo '<td>'.$date.'</td>'; 
-			echo '<td>'.$time.'</td>'; 
+			echo '<td>'.$username.'</td>'; 
+			echo '<td>**********</td>'; 
 			echo '<td>'.$email.'</td>'; 
-                        echo '<td><a class="btn btn-default" href="read.php?id='.$termini_id.'" >Lexo</a>';
+                        
+                        if($admin == 1)
+                        echo '<td>Admin</td>';
+                    else {
+                          echo '<td>Perdorues</td>';
+                    }   
+                         echo '<td><a class="btn btn-default" href="CRUDu/read.php?id='.$user_id.'" >Lexo</a>';
                         echo ' ';
-                        echo '<a class="btn btn-info   " href="update.php?id='.$termini_id.'" >Ndrysho</a>';
+                        echo '<a class="btn btn-info   " href="CRUDu/update.php?id='.$user_id.'" >Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="delete.php?id='.$termini_id.'" >Shlyej</a></td>';
+                        echo '<a class="btn btn-danger" href="CRUDu/delete.php?id='.$user_id.'" >Shlyej</a></td>';
+			
 			echo '  </tr>'; 
 		}
                 }
                   ?>
                   </tbody>
             </table>
-     </div>
         </div>
+
     </div> <!-- /container -->
-    
  <?php }

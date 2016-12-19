@@ -1,6 +1,24 @@
    <?php
- 
-         include('../../inc/db_con.php');
+     include('../../inc/db_con.php');
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION['logged_in']))
+ {
+     $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../index.php");
+ }
+ else if($_SESSION['mof'] == 0)
+ {
+      $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../index.php");
+ }
+     
+ else{ 
+  
+     
  $Tname = null;
  $Tsurname = null;
  $Tusername = null;
@@ -71,8 +89,8 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                 <ul class ="nav navbar-nav">
                     <li><a href="../index.php" id="logo"></a></li>
                     <li><a href="../../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
-                    <li><a href="../index.php" class="hvr-underline-from-left" id="links">TERMINET</a></li>
-                    <li><a href="../user.php" class="hvr-underline-from-left" id="links">USERAT </a></li>
+                    <li><a href="../?admin=terminet" class="hvr-underline-from-left" id="active">TERMINET</a></li>
+                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT</a></li>
                  </ul>
              </div>
         </div>
@@ -138,3 +156,4 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
 </div> <!-- /container -->
  
   </body>
+ <?php }

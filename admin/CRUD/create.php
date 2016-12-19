@@ -1,3 +1,22 @@
+<?php 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION['logged_in']))
+ {
+     $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../../?faqe=home");
+ }
+ else if($_SESSION['mof'] == 0)
+ {
+      $message = "Nuk keni akses.";
+     echo "<script type='text/javascript'>alert('$message');</script>" ;
+      header("refresh:0 url=../../?faqe=home");
+ }
+     
+ else{ 
+?> 
 <style>
 
     label{float:left;} 
@@ -41,13 +60,13 @@
           <option value="16:00:00">Termini ne ora 16</option>
            <option value="17:00:00">Termini ne ora 17</option>
            </select>
-      <span id="time_validation" class="error"></span>
+     
       
     </div>
       <div class="form-group">
       <label class="required"  for="date">Data:</label>
        <input type="text"  id="datepicker" name="datepicker" readonly class="form-control">
-       
+       <span id="date_validation" class="error"></span>
      
      
     </div>
@@ -68,5 +87,5 @@
                 </div>
                 </div>
 
-
+ <?php }
                
