@@ -150,7 +150,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
      <input type="hidden" value="<?php echo $id_termini?>" name="termini_id" />
     </div>
     <button type="submit" value="Submit" form ="termin_form"class="btn btn-success">Ndrysho</button>
-     <button type="reset" value="Cancel" form ="termin_form" class="btn btn-default" >Shlyej</button>
+     <button type="reset" value="Cancel" form ="termin_form" class="btn btn-default" >Fshije</button>
      <a class="btn btn-danger" href="../index.php">Kthehu</a>
   </form>
                 </div>

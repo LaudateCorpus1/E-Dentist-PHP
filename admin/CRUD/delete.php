@@ -99,7 +99,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Shlyerja e terminit</h3>
+                        <h3>Fshirja e terminit</h3>
                     </div>
                     <table class="table table-bordered">
                        <thead>
