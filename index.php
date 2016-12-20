@@ -5,7 +5,7 @@ $inTwoMonths = 60 * 60 * 24 * 60 + time();
 setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths); 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +16,19 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
 	<link rel="stylesheet" type="text/css" href="css/hover.css">
     <title>E-Dentist</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.jSlider.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+    $( "#datepicker" ).datepicker({ minDate: +1, maxDate: +31, dateFormat: "yy-mm-dd" });
+  } );
+          </script>  
 </head>
 <body>
     
@@ -42,6 +55,8 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
                               >KRYEFAQJA</a></li>
 			<li><a href="?faqe=services" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "services")
 echo' id="active"';else echo 'id="links"';?>>SHERBIMET </a></li>
+                        <li><a href="?faqe=keshillat" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "keshillat")
+echo' id="active"';else echo 'id="links"';?>>KESHILLAT </a></li>
 			<li><a href="?faqe=contact" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "contact")
 echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                         <?php
@@ -49,9 +64,17 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                             {
                                 echo '<li><a href="admin/?admin=terminet" class="hvr-underline-from-left" id="links">MENAXHIMI</a></li>';
                             }
+                             if(isset($_SESSION['logged_in']) && $_SESSION['mof'] == 0)
+                             {
+                                 ?> <li><a href="?faqe=terminet" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "terminet" || $_GET['faqe'] === "create") echo' id="active"';else echo 'id="links"';?>
+                               
+                               >TERMINET</a></li>
+<?php
+                             }
                             ?>
+                        
 		 </ul>
-                       <ul class="nav pull-right" style="margin-top:5px;">
+                      <ul class="nav  pull-right" id="navbar-collapse" style="margin-top:5px;">
                            <li class="dropdown" id="menuLogin">
                                <a class="dropdown-toggle hvr-pulse" href="#" data-toggle="dropdown" id="links">
                                    <span class=" glyphicon glyphicon-chevron-down "></span>&nbsp;
@@ -79,6 +102,7 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                            </li>
                        </ul>
 		 </div>
+        
 		 </div>
 		 </div>
 		 
@@ -91,7 +115,15 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
 					<?php
 					switch (@$_GET['faqe'])
 					{   
-        
+                                        case "create":
+                                            include ('CRUD/create.php');
+                                            break;
+                                        case "terminet":
+                                            include('terminet.php');
+                                            break;
+                                        case "keshillat":
+                                             include('keshillat.php');
+                                            break;
                                         case "home":
                                             include('home.php');
                                             break;
@@ -112,12 +144,6 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
 
     <p align="center"><strong>E-Dentist 2016 | All Rights Reserved</strong> </p>
 </div>
-                   <script src="js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery.jSlider.js"></script>
-    <script src="js/ism-2.2.min.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+   
 	</body>
 </html>
