@@ -183,6 +183,8 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
         
                 </div>
  <div class="col-sm-6">
+     <span><br></span>
+     
           <ul class="list-group">
   <li class="list-group-item">  <p>Emri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Emri nuk mund te lihet i zbrazet dhe te jete me i vogel se 3 shkronja</p></li>
   <li class="list-group-item"><p>Mbiemri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Mbiemri nuk mund te lihet i zbrazet dhe te jete me i vogel se 3 shkronja</p></li>

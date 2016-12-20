@@ -23,38 +23,39 @@ if(!isset($_SESSION['logged_in']))
                 $date = $_POST['datepicker'];
                 $time =  $_POST['time'];
                 $id = NULL;
-         $query= "SELECT * FROM termini WHERE date='".$date."' AND time='".$time."'";
-       
-        $results = mysql_query($query);
-        
-      
- 
-
-if(mysql_num_rows($results) > 0){
-
-            $message = "Termini ne kete kohe egziston provoni ne kohe tjeter";
-                        echo "<script type='text/javascript'>alert('$message');</script>";
-                        header("refresh:0;url=../index.php");
-        }
-   else{
-        $selektimi ="SELECT user_id FROM user WHERE  username ='".$username."'  OR name ='".$name."' OR  surname = '".$surname ."'";
+          $selektimi ="SELECT user_id FROM user WHERE  username ='".$username."' OR name='".$name."' OR surname='".$surname."'";
 	$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
         if(mysql_num_rows($result) == 0){
 
-            $message = "Useri nuk eshte gjendur. Ju lutem shtoni userin";
+            $message = "Useri nuk eshte gjendur.";
                         echo "<script type='text/javascript'>alert('$message');</script>";
-                        header("refresh:0;url=../index.php");
+                        header("refresh:0;url=../index.php?faqe=create");
         }
-        else {
-	while($row = mysql_fetch_row($result))
-	{
-		
-		list($user_id)=$row;
-                $id = $user_id;
-           
-                      
-    
-	}
+        else{
+            while($row = mysql_fetch_row($result))
+            {       
+            list($user_id)=$row;
+            $id = $user_id;        
+            }
+          $query= "SELECT * FROM termini WHERE date='".$date."' AND id_users='".$id."'";
+        $results = mysql_query($query);
+        if(mysql_num_rows($results) > 0){
+
+            $message = "Termini ne kete date egziston provoni ne date tjeter";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        header("refresh:0;url=../index.php?faqe=create");
+        }
+        
+        else{
+        $query= "SELECT * FROM termini WHERE date='".$date."' AND time='".$time."'";
+        $results = mysql_query($query);
+        if(mysql_num_rows($results) > 0){
+
+            $message = "Termini ne kete kohe egziston provoni ne kohe tjeter";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        header("refresh:0;url=../index.php?faqe=create");
+        }
+         else{
         	 $sql_insert = "INSERT INTO termini (date, time, id_users)
 				VALUE ('$date','$time', '$id') ";
 		
@@ -82,5 +83,6 @@ if(mysql_num_rows($results) > 0){
              
 		
    }
+ }
  }
 	

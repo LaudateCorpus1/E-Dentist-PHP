@@ -145,7 +145,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
       <div class="form-group">
       <label class="required"  for="date">Data:</label>
       <input type="text"  id="datepicker" name="datepicker" value="" readonly class="form-control">
-      <span id="time_validation" class="error"></span> 
+      <span id="date_validation" class="error"></span> 
      
      <input type="hidden" value="<?php echo $id_termini?>" name="termini_id" />
     </div>
@@ -155,6 +155,8 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
   </form>
                 </div>
  <div class="col-sm-6">
+     <span><br></span>
+      
           <ul class="list-group">
   <li class="list-group-item">  <p>Emri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Emri mund te lihet i zbrazet</p></li>
   <li class="list-group-item"><p>Mbiemri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Mbiemri mund te lihet i zbrazet</p></li>

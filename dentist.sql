@@ -3,13 +3,15 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2016 at 04:19 PM
+-- Generation Time: Dec 20, 2016 at 01:28 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+CREATE DATABASE dentist;
+USE dentist;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -43,6 +45,29 @@ CREATE TABLE `historiku` (
   `user_id` int(11) NOT NULL,
   `diagnose` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keshillat`
+--
+
+CREATE TABLE `keshillat` (
+  `keshillat_id` int(11) NOT NULL,
+  `titulli` varchar(1000) NOT NULL,
+  `permbajtja` varchar(1000) NOT NULL,
+  `imazhi` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `keshillat`
+--
+
+INSERT INTO `keshillat` (`keshillat_id`, `titulli`, `permbajtja`, `imazhi`) VALUES
+(1, 'Kontrolla te dentisti', 'Kontrolla e dhembeve tek dentisti duhet te behet se paku 2 here gjate vitit', 'images/kontrolla.png'),
+(2, 'Menyra e pastrimit te dhembeve', 'Pastrimi i dhembeve duhet te behet ne keto menyra nga 1 - 6 nga 30 sekonda per secilen menyre <br>Pastrimi duhet te behet dy here ne dite pas ushqimit ', 'images/pastrimi.png'),
+(3, 'Brusha dhe Pasta e Dhembeve', 'Perdorni brushat e buta jane me te mira per mishrat e dhembeve.\r\nBrushen e dhembeve duhet ta nderroni çdo 3-6 muaj. \r\nPasta duhet te permbaj flourid i cili ndikon ne forcimin e dhembeve', 'images/brusha.png'),
+(4, 'Keshilla te pergjithshme', 'Perdorni uje pas ushqimit.<br>\r\nPerdorni fije dentare per heqjen e mbeturinave ushqimore mes dhembeve.<br>\r\nMos konsumoni ushqime te thata dhe me shume sheqer.<br>				Reduktoni marrjen e karbohidrateve (sheqernave) gjate dites.<br>\r\nBeni kujdes gjate ngrenjes se ushqimeve te forta.<br>\r\nDuhani dhe alkooli ndikojn negativisht sidomos te mishrat e dhembeve.<br>', 'images/kujdesi.png');
 
 -- --------------------------------------------------------
 
@@ -115,24 +140,14 @@ CREATE TABLE `termini` (
 --
 
 INSERT INTO `termini` (`id_termini`, `date`, `time`, `id_users`) VALUES
-(1, '2016-12-21', '00:00:00', 2),
-(2, '2016-12-12', '10:00:00', 4),
-(7, '2016-12-12', '14:00:00', 2),
+(1, '2016-12-21', '17:00:00', 2),
+(2, '2016-12-15', '10:00:00', 2),
 (8, '2016-12-12', '10:00:00', 1),
-(9, '2016-12-12', '14:00:00', 1),
-(10, '0000-00-00', '00:00:00', 0),
-(11, '2016-12-12', '12:00:00', 1),
-(12, '2016-12-12', '15:00:00', 1),
+(9, '2016-12-16', '08:00:00', 1),
 (13, '2016-12-12', '15:00:00', 1),
-(14, '2016-12-12', '15:00:00', 1),
 (15, '2016-12-12', '14:00:00', 1),
 (16, '2016-12-12', '09:00:00', 1),
-(17, '2016-12-12', '14:00:00', 1),
-(18, '2016-12-12', '10:00:00', 2),
-(19, '2016-12-12', '14:00:00', 2),
-(20, '2016-12-12', '14:00:00', 2),
 (21, '2016-12-12', '14:00:00', 2),
-(22, '2016-12-12', '14:00:00', 2),
 (23, '2016-12-12', '14:00:00', 2),
 (24, '2016-12-12', '14:00:00', 2),
 (25, '2016-12-12', '14:00:00', 2),
@@ -142,7 +157,17 @@ INSERT INTO `termini` (`id_termini`, `date`, `time`, `id_users`) VALUES
 (29, '2016-12-12', '14:00:00', 2),
 (30, '2016-12-12', '14:00:00', 2),
 (31, '2016-12-12', '14:00:00', 2),
-(32, '2016-12-12', '16:00:00', 2);
+(32, '2016-12-12', '16:00:00', 2),
+(34, '2016-12-25', '10:00:00', 2),
+(35, '2016-12-24', '10:00:00', 2),
+(37, '2016-12-23', '15:00:00', 2),
+(38, '2016-12-31', '16:00:00', 2),
+(39, '2016-12-25', '09:00:00', 3),
+(41, '2016-12-27', '08:00:00', 3),
+(42, '2016-12-20', '14:00:00', 2),
+(43, '2016-12-20', '12:00:00', 3),
+(44, '2016-12-28', '09:00:00', 2),
+(46, '2016-12-29', '08:00:00', 2);
 
 -- --------------------------------------------------------
 
@@ -165,8 +190,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `name`, `surname`, `email`, `admin`) VALUES
-(1, 'admin', 'admin', 'Filan ', 'Fisteku', 'filan-fisteku@hotmail.com', 1),
-(2, 'filan', 'fisteku', 'Fistek', 'Filani', 'fistek-filani@hotmail.com', 0);
+(2, 'ensari', 'ensar123', 'Ensar', 'Ibrahimi', 'ensar-ibrahimi@hotmail.com', 0),
+(3, 'eniskpteam', 'Kpteam123', 'Enis ', 'Halimi', 'kp-team@hotmail.com', 1),
+(4, 'eronhalili', 'eron1234', 'Eron', 'Halili', 'eron-halili@hotmail.com', 1);
 
 --
 -- Indexes for dumped tables
@@ -177,6 +203,12 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `name`, `surname`, `email
 --
 ALTER TABLE `historiku`
   ADD PRIMARY KEY (`id_historiku`);
+
+--
+-- Indexes for table `keshillat`
+--
+ALTER TABLE `keshillat`
+  ADD PRIMARY KEY (`keshillat_id`);
 
 --
 -- Indexes for table `rating`
@@ -212,6 +244,11 @@ ALTER TABLE `user`
 ALTER TABLE `historiku`
   MODIFY `id_historiku` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `keshillat`
+--
+ALTER TABLE `keshillat`
+  MODIFY `keshillat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
@@ -225,12 +262,12 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `termini`
 --
 ALTER TABLE `termini`
-  MODIFY `id_termini` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_termini` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

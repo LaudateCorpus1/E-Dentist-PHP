@@ -77,7 +77,7 @@ if(!isset($_SESSION['logged_in']))
                 </div>
  <div class="col-sm-6">
       <span><br></span>
-       <span><br></span>
+      
       
           <ul class="list-group">
   <li class="list-group-item">  <p>Emri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Emri mund te lihet i zbrazet</p></li>

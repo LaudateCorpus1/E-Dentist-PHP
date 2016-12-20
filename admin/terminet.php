@@ -59,7 +59,7 @@ if(!isset($_SESSION['logged_in']))
                   <tbody>
                     
                   <?php
-                  $selektimi = "SELECT u.user_id, u.name, u.surname, t.date, t.time, u.email, t.id_termini FROM user AS u INNER JOIN termini AS t ON u.user_id=t.id_users WHERE t.date >='".$date."'";
+                  $selektimi = "SELECT u.user_id, u.name, u.surname, t.date, t.time, u.email, t.id_termini FROM user AS u INNER JOIN termini AS t ON u.user_id=t.id_users WHERE t.date >='".$date."'  ORDER BY `t`.`date` ASC, t.time ASC";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))

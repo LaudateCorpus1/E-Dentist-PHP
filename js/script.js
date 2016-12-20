@@ -111,7 +111,6 @@ function validateForm()
         var date = document.getElementById("datepicker");
         var date_validation = document.getElementById("date_validation");
         var filter= /[0-9]|\./;
-        var filter2= /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
         
 		
 	
