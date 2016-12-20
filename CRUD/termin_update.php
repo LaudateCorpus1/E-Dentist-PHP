@@ -37,7 +37,7 @@ if(!isset($_SESSION['logged_in']))
             list($user_id)=$row;
             $id = $user_id;        
             }
-          $query= "SELECT * FROM termini WHERE date='".$date."' AND id_users='".$id."'";
+          $query= "SELECT * FROM termini WHERE date='".$date."' AND id_users='".$id."' AND id_termini != '".$termini_id."'";
         $results = mysql_query($query);
         if(mysql_num_rows($results) > 0){
 

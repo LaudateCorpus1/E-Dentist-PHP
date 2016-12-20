@@ -4,9 +4,9 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if(!isset($_SESSION['logged_in']))
  {
-     $message = "Nuk keni akses.";
+     $message = "Nuk jeni i lloguar.";
      echo "<script type='text/javascript'>alert('$message');</script>" ;
-      header("refresh:0 url=../index.php");
+      header("refresh:0 url=index.php");
  }
      
  else{  

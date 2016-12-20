@@ -44,16 +44,16 @@
 				<div class="col-sm-3">
 					<img src="images/1.png" ></div>
 				<div class="col-sm-9">
-					<a class="hvr-push"><b>KESHILLAT</b></a>
-					<p><i>Mesoni me shume rreth kujdesit te dhembeve dhe mirembajtjes se tyre. Se shpejti</i></p>
+					<a class="hvr-push"href="index.php?faqe=keshillat"><b>KESHILLAT</b></a>
+					<p><i>Mesoni me shume rreth kujdesit te dhembeve dhe mirembajtjes se tyre. Mesoni rreth pastrimit dhe si te behet pastrimi adekuat.</i></p>
 				</div>	
 			</div>
 			<div class="col-sm-6" id="emergency">
 				<div class="col-sm-3">
 					<img src="images/2.png"></div>
 				<div class="col-sm-9">
-					<a class="hvr-push"><b>TERMINET</b></a>
-					<p><i>Caktimi i termineve online nga shtepia vetem tek ne. Se shpejti</i></p>
+					<a class="hvr-push" href="index.php?faqe=terminet"><b>TERMINET</b></a>
+					<p><i>Caktimi i termineve online nga shtepia vetem tek ne. Ju duhet te keni se pari llogari te krijuar nga dentisti qe te mund te kqyeni qe te vendosni termine.</i></p>
 				</div>
 			</div>
      

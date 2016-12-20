@@ -180,7 +180,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
     </div>
     <button type="submit" value="Submit" form ="termin_form"class="btn btn-success">Ndrysho</button>
      <button type="reset" value="Cancel" form ="termin_form" class="btn btn-warning" >Shlyej</button>
-    <a class="btn btn-default" href="?faqe=terminet">Kthehu</a>
+    <a class="btn btn-default" href="../index.php?faqe=terminet">Kthehu</a>
   </form>
                 </div>
  <div class="col-sm-6">

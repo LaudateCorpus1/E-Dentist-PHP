@@ -76,8 +76,7 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
 		 </ul>
                       <ul class="nav  pull-right" id="navbar-collapse" style="margin-top:5px;">
                            <li class="dropdown" id="menuLogin">
-                               <a class="dropdown-toggle hvr-pulse" href="#" data-toggle="dropdown" id="links">
-                                   <span class=" glyphicon glyphicon-chevron-down "></span>&nbsp;
+                               <a class="dropdown-toggle hvr-bubble-bottom " href="#" data-toggle="dropdown" id="links">
                                    
                       
                         <?php

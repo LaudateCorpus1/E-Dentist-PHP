@@ -177,7 +177,7 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
      
    
     <button type="submit" value="Submit" form ="user_form"class="btn btn-success">Ndrysho</button>
-     <button type="reset" value="Cancel" form ="user_form" class="btn btn-warning" >Shlyej</button>
+     <button type="reset" value="Reset" form ="user_form" class="btn btn-warning" >Shlyej</button>
     <a class="btn btn-default" href="../?admin=userat">Kthehu</a>
   </form>
         
