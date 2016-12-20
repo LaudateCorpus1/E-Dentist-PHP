@@ -71,7 +71,7 @@ if(!isset($_SESSION['logged_in']))
      
     </div>
     <button type="submit" value="Submit" form ="termin_form"class="btn btn-success">Krijo</button>
-     <button type="reset" value="Cancel" form ="termin_form" class="btn btn-warning" >Shlyej</button>
+     <button type="reset" value="Cancel" form ="termin_form" class="btn btn-warning" >Fshije</button>
     <a class="btn btn-default" href="?admin=terminet">Kthehu</a>
   </form>
                 </div>

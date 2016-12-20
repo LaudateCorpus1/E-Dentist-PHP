@@ -117,7 +117,7 @@ if(!isset($_SESSION['logged_in']))
                         echo ' ';
                         echo '<a class="btn btn-info   " href="update.php?id='.$termini_id.'" >Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="delete.php?id='.$termini_id.'" >Shlyej</a></td>';
+                        echo '<a class="btn btn-danger" href="delete.php?id='.$termini_id.'" >Fshije</a></td>';
 			echo '  </tr>'; 
 		}
                 }

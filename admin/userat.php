@@ -74,7 +74,7 @@ if(!isset($_SESSION['logged_in']))
                         echo ' ';
                         echo '<a class="btn btn-info   " href="CRUDu/update.php?id='.$user_id.'" >Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="CRUDu/delete.php?id='.$user_id.'" >Shlyej</a></td>';
+                        echo '<a class="btn btn-danger" href="CRUDu/delete.php?id='.$user_id.'" >Fshije</a></td>';
 			
 			echo '  </tr>'; 
 		}
