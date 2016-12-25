@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2016 at 01:28 AM
+-- Generation Time: Dec 20, 2016 at 02:24 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -12,6 +12,7 @@ SET time_zone = "+00:00";
 
 CREATE DATABASE dentist;
 USE dentist;
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -64,9 +65,9 @@ CREATE TABLE `keshillat` (
 --
 
 INSERT INTO `keshillat` (`keshillat_id`, `titulli`, `permbajtja`, `imazhi`) VALUES
-(1, 'Kontrolla te dentisti', 'Kontrolla e dhembeve tek dentisti duhet te behet se paku 2 here gjate vitit', 'images/kontrolla.png'),
-(2, 'Menyra e pastrimit te dhembeve', 'Pastrimi i dhembeve duhet te behet ne keto menyra nga 1 - 6 nga 30 sekonda per secilen menyre <br>Pastrimi duhet te behet dy here ne dite pas ushqimit ', 'images/pastrimi.png'),
-(3, 'Brusha dhe Pasta e Dhembeve', 'Perdorni brushat e buta jane me te mira per mishrat e dhembeve.\r\nBrushen e dhembeve duhet ta nderroni çdo 3-6 muaj. \r\nPasta duhet te permbaj flourid i cili ndikon ne forcimin e dhembeve', 'images/brusha.png'),
+(1, 'Kontrolla te dentisti', 'Disa persona kur shkojne per here te pare te dentisti, ose kur detyrohen te shkojne me pas per nje kohe te gjate, jetojne ankth. Frika e pabaza, paragjykimet, zhurmat e pajisjeve e shtojne ankthin.\nKontrolla e dhembeve tek dentisti  eshte teper e rendesishme prandaj duhet te behet se paku 2 here gjate vitit.\n', 'images/kontrolla.png'),
+(2, 'Menyra e pastrimit te dhembeve', 'Pastrimi i dhembeve duhet te behet ne keto menyra nga 1 - 6 nga 30 sekonda per secilen menyre <br>Pastrimi duhet te behet dy here ne dite pas ushqimit  Semundjet e gojes ndikojne ne cilesine e jetes se njeriut. Larja e dhembeve duhet te filloje menjehere pas daljes se dhembit te pare te qumeshtit. Pastat e dhembeve kane ne perberje disa substanca qe kane rolin e tyre specifik. Numri i baktereve ne goje mund te jete me i madh se popullsia e botes. Era e keqe e gojes mund te jete shenje e disa semundjeve. Higjiena e gojes eshte shume e rendesishme sidomos gjate shtatezanise. Nje person i rritur ka 32 dhembe qe do te thote 160 siperfaqe per tu pastruar.', 'images/pastrimi.png'),
+(3, 'Brusha dhe Pasta e Dhembeve', 'Perdorni brushat e buta jane me te mira per mishrat e dhembeve.\nBrushen e dhembeve duhet ta nderroni qdo 3-6 muaj. \nPasta duhet te permbaj flourid i cili ndikon ne forcimin e dhembeve.\nFurqa e dhembeve eshte mjeti me i rendesishem per higjienen e gojes. Si e tille, edhe ndaj saj duhet pasur shume kujdes.\n\nSpecialistet keshillojne qe furqa e dhembeve duhet te qendroje ne nje vend te hapur, por jo ne vende me lageshtire dhe, per me teper, aty ku mund te kete kontakt me bakteret.\n\nMos harro, nese furqen e mbroni me nje kapak, me pare duhet ta lesh te thahet dhe pastaj ta vendosesh aty.', 'images/brusha.png'),
 (4, 'Keshilla te pergjithshme', 'Perdorni uje pas ushqimit.<br>\r\nPerdorni fije dentare per heqjen e mbeturinave ushqimore mes dhembeve.<br>\r\nMos konsumoni ushqime te thata dhe me shume sheqer.<br>				Reduktoni marrjen e karbohidrateve (sheqernave) gjate dites.<br>\r\nBeni kujdes gjate ngrenjes se ushqimeve te forta.<br>\r\nDuhani dhe alkooli ndikojn negativisht sidomos te mishrat e dhembeve.<br>', 'images/kujdesi.png');
 
 -- --------------------------------------------------------
@@ -140,7 +141,7 @@ CREATE TABLE `termini` (
 --
 
 INSERT INTO `termini` (`id_termini`, `date`, `time`, `id_users`) VALUES
-(1, '2016-12-21', '17:00:00', 2),
+(1, '2017-01-10', '12:00:00', 2),
 (2, '2016-12-15', '10:00:00', 2),
 (8, '2016-12-12', '10:00:00', 1),
 (9, '2016-12-16', '08:00:00', 1),
@@ -150,24 +151,22 @@ INSERT INTO `termini` (`id_termini`, `date`, `time`, `id_users`) VALUES
 (21, '2016-12-12', '14:00:00', 2),
 (23, '2016-12-12', '14:00:00', 2),
 (24, '2016-12-12', '14:00:00', 2),
-(25, '2016-12-12', '14:00:00', 2),
-(26, '2016-12-12', '14:00:00', 2),
-(27, '2016-12-12', '14:00:00', 2),
-(28, '2016-12-12', '14:00:00', 2),
 (29, '2016-12-12', '14:00:00', 2),
 (30, '2016-12-12', '14:00:00', 2),
 (31, '2016-12-12', '14:00:00', 2),
 (32, '2016-12-12', '16:00:00', 2),
-(34, '2016-12-25', '10:00:00', 2),
+(34, '2016-12-25', '08:00:00', 2),
 (35, '2016-12-24', '10:00:00', 2),
-(37, '2016-12-23', '15:00:00', 2),
+(37, '2016-12-23', '08:00:00', 2),
 (38, '2016-12-31', '16:00:00', 2),
 (39, '2016-12-25', '09:00:00', 3),
 (41, '2016-12-27', '08:00:00', 3),
 (42, '2016-12-20', '14:00:00', 2),
 (43, '2016-12-20', '12:00:00', 3),
 (44, '2016-12-28', '09:00:00', 2),
-(46, '2016-12-29', '08:00:00', 2);
+(46, '2016-12-29', '08:00:00', 2),
+(47, '2017-01-18', '08:00:00', 3),
+(48, '2016-12-31', '08:00:00', 3);
 
 -- --------------------------------------------------------
 
@@ -191,8 +190,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `name`, `surname`, `email`, `admin`) VALUES
 (2, 'ensari', 'ensar123', 'Ensar', 'Ibrahimi', 'ensar-ibrahimi@hotmail.com', 0),
-(3, 'eniskpteam', 'Kpteam123', 'Enis ', 'Halimi', 'kp-team@hotmail.com', 1),
-(4, 'eronhalili', 'eron1234', 'Eron', 'Halili', 'eron-halili@hotmail.com', 1);
+(3, 'eniskpteam', '12345678', 'Enis ', 'Halimi', 'kp-team@hotmail.com', 1),
+(4, 'eronhalili', 'eron1234', 'Eron', 'Halili', 'eron-halili@hotmail.com', 1),
+(5, 'davidb', '12345678', 'David', 'Bytyqi', 'david_bytyqi@hotmail.com', 0);
 
 --
 -- Indexes for dumped tables
@@ -262,12 +262,12 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `termini`
 --
 ALTER TABLE `termini`
-  MODIFY `id_termini` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_termini` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

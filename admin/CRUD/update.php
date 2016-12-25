@@ -108,19 +108,8 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
     <div class="col-sm-6">
         
         <form id="termin_form" method="POST" action = "termin_update.php" onsubmit="return validateForm();">
-    <div class="form-group" >
-      <label for="name">Emri:</label>
-      <input id="name" type="text" class="form-control" name="name" value="<?php echo $Tname?>  "    readonly placeholder="Shkruaj Emrin">
-      <span id="name_validation" class="error"></span>
-    </div>
-    <div class="form-group">
-      <label for="surname">Mbiemri:</label>
-      <input id="surname" type="text" class="form-control" name="surname" value=" <?php echo $Tsurname?>" readonly placeholder="Shkruaj Mbiemrin">
-      <span id="surname_validation" class="error"></span>
-      
-    </div>
       <div class="form-group">
-      <label class="required" for="username">Username:</label>
+      <label class="required" for="username">Pacienti:</label>
       <input id="username"type="text" class="form-control" name="username" value="<?php echo $Tusername?>" readonly placeholder="Shkruaj Username">
       <span id="username_validation" class="error"></span>
      
@@ -158,9 +147,8 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
      <span><br></span>
       
           <ul class="list-group">
-  <li class="list-group-item">  <p>Emri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Emri mund te lihet i zbrazet</p></li>
-  <li class="list-group-item"><p>Mbiemri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Mbiemri mund te lihet i zbrazet</p></li>
-  <li class="list-group-item"> <p>Username duhet te jete i mbushur patjeter pasi nuk mund te shtohet termini nese personi nuk egziston se pari.</p></li>
+
+  <li class="list-group-item"> <p>Username duhet zgjedhur nga lista e personave te cilet egzistojne ne databazen. Nese personi nuk gjendet ai duhet te shtohet </p></li>
   <li class="list-group-item"> <p>Per shkak se orari jone i punes eshte nga Ora 08:00-18:00 mund te caktohen vetem 10 termine qe zgjasin nga nje ore.</p> </li>
   <li class="list-group-item"> <p>Zgjedhja e dates eshte e limituar pasi qe te mos kete termine te panevojshme ne muajt e ardhshem. Po ashtu nuk mund te zgjidhet data e sotshme.</p></li>
 </ul>

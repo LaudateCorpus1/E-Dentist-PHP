@@ -18,8 +18,6 @@ if(!isset($_SESSION['logged_in']))
  }
      
  else{ 
-   		$name = $_POST['name'];
-		$surname = $_POST['surname'];
 		$username = $_POST['username'];
                 $date = $_POST['datepicker'];
                 $time =  $_POST['time'];

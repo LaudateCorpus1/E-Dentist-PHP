@@ -82,18 +82,18 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                         <?php
                         if(isset($_SESSION['logged_in']) ){
                             echo 'LLOGARIA</a>';
-                            echo '<div class="dropdown-menu" style="padding:20px; width:250px;">';
+                            echo '<div class="dropdown-menu " style="margin-left: -150px; padding:20px; width:250px;">';
                             echo '<p>Miresevini</p>';
-                            echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';
-                                                
+                            echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';           
                             echo "<form  method=\"post\" action=\"logout.php\">
                              <button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button>
 				</form>";   
+                            
                         }
                         else 
                         {
                             echo 'LOG IN</a>';
-                            echo '<div class="dropdown-menu" style="padding:20px;">';
+                            echo '<div class="dropdown-menu" style="margin-left: -150px; padding:20px; width:250px;">';
                             include 'login.php';  
                         }
                         ?>

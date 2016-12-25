@@ -78,9 +78,15 @@ if(!isset($_SESSION['logged_in']))
      
     </div>
     <div class="form-group">
-      <label class="required" for='password'>Password:</label>
-      <input id="password"type="text" class="form-control" name="password" value="" placeholder="Shkruaj Password">
-      <span id="password_validation" class="error"></span>
+      <label class="required" for='password1'>Password:</label>
+      <input id="password1"type="password" class="form-control" name="password1" value="" placeholder="Shkruaj Password">
+      <span id="password_validation1" class="error"></span>
+      
+    </div>
+             <div class="form-group">
+      <label class="required" for='password2'>Password:</label>
+      <input id="password2" type="password" class="form-control" name="password2" value="" placeholder="Shkruaj Password">
+      <span id="password_validation2" class="error"></span>
       
     </div>
       <div class="form-group">

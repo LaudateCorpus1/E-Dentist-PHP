@@ -8,8 +8,10 @@ function validateUserForm()
 	var surname_validation = document.getElementById("surname_validation");
         var username = document.getElementById('username');
 	var username_validation = document.getElementById("username_validation");
-        var password = document.getElementById('password');
-	var password_validation = document.getElementById("password_validation");
+        var password1 = document.getElementById('password1');
+	var password_validation1 = document.getElementById("password_validation1");
+         var password2 = document.getElementById('password2');
+	var password_validation2 = document.getElementById("password_validation2");
         var email = document.getElementById('e-mail');
 	var email_validation = document.getElementById("email_validation");
         var filter= /[0-9]|\./;
@@ -65,16 +67,42 @@ function validateUserForm()
 		username_validation.parentNode.style.backgroundColor = "transparent";
 	}
         
-        if(password.value.length < 8)
+        if(password1.value.length < 8)
 	{
 		valid =0;
-		password_validation.innerHTML="Passwordi duhet te kete se paku 8 shkronja";
-		password_validation.style.display = "block"; 	
+		password_validation1.innerHTML="Passwordi duhet te kete se paku 8 shkronja";
+		password_validation1.style.display = "block"; 	
 	}
 	else
 	{
-		password_validation.style.display = "none";
-		password_validation.parentNode.style.backgroundColor = "transparent";
+		password_validation1.style.display = "none";
+		password_validation1.parentNode.style.backgroundColor = "transparent";
+	}
+        if(password2.value.length < 8)
+	{
+		valid =0;
+		password_validation2.innerHTML="Passwordi duhet te kete se paku 8 shkronja";
+		password_validation2.style.display = "block"; 	
+	}
+	else
+	{
+		password_validation2.style.display = "none";
+		password_validation2.parentNode.style.backgroundColor = "transparent";
+	}
+        if(password1.value !== password2.value)
+	{
+		valid =0;
+		password_validation1.innerHTML="Passwordet nuk jane te njejta";
+		password_validation1.style.display = "block"; 	
+                password_validation2.innerHTML="Passwordet nuk jane te njejta";
+		password_validation2.style.display = "block"; 	
+	}
+	else
+	{
+		password_validation1.style.display = "none";
+		password_validation1.parentNode.style.backgroundColor = "transparent";
+                password_validation2.style.display = "none";
+		password_validation2.parentNode.style.backgroundColor = "transparent";
 	}
          
         if(!filter2.test(email.value) || email.value.length < 5)
@@ -102,45 +130,17 @@ function validateForm()
 {
 	
 	var valid = 1;
-	var name = document.getElementById('name');
-	var name_validation = document.getElementById("name_validation");
-	var surname = document.getElementById('surname');
-	var surname_validation = document.getElementById("surname_validation");
         var username = document.getElementById('username');
 	var username_validation = document.getElementById("username_validation");
         var date = document.getElementById("datepicker");
         var date_validation = document.getElementById("date_validation");
-        var filter= /[0-9]|\./;
+
         
-		
 	
-	if(filter.test(name.value))
+	if(username.value === "Pacienti")
 	{
 		valid =0;
-		name_validation.innerHTML="Lejohen vetem shkronja";
-		name_validation.style.display = "block"; 	
-	
-	}
-	else
-	{
-		name_validation.style.display = "none";
-		name_validation.parentNode.style.backgroundColor = "transparent";
-	}
-	if(filter.test(surname.value))
-	{
-		valid =0;
-		surname_validation.innerHTML="Lejohen vetem shkronja";
-		surname_validation.style.display = "block"; 	
-	}
-	else
-	{
-		surname_validation.style.display = "none";
-		surname_validation.parentNode.style.backgroundColor = "transparent";
-	}
-	if(username.value.length < 3 )
-	{
-		valid =0;
-		username_validation.innerHTML="Username duhet te jete me i gjate";
+		username_validation.innerHTML="Zgjedheni Perdoruesin";
 		username_validation.style.display = "block"; 	
 		
 	}

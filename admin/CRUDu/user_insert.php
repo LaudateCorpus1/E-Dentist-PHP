@@ -20,7 +20,7 @@ if(!isset($_SESSION['logged_in']))
    	$name = $_POST['name'];
         $surname = $_POST['surname'];
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = $_POST['password1'];
         $email =  $_POST['e-mail'];
         $admin = $_POST['privilegji'];
         
