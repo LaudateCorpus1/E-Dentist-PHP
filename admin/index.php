@@ -65,6 +65,8 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
                     <li><a href="../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
                     <li><a href="?admin=terminet" class="hvr-underline-from-left"<?php if($_GET['admin']=== "terminet" || $_GET['admin'] === "create")
 echo' id="active";';else echo 'id="links"';?> >TERMINET</a></li>
+                     <li><a href="?admin=vizita" class="hvr-underline-from-left"<?php if($_GET['admin']=== "vizita")
+echo' id="active";';else echo 'id="links"';?>>VIZITA </a></li>
                     <li><a href="?admin=userat" class="hvr-underline-from-left"<?php if($_GET['admin']=== "userat")
 echo' id="active";';else echo 'id="links"';?>>PERDORUESIT </a></li>
                  </ul>
@@ -76,6 +78,9 @@ echo' id="active";';else echo 'id="links"';?>>PERDORUESIT </a></li>
         if(isset($_SESSION['logged_in'])){ 
             switch (@$_GET['admin'])
             {
+                case "vizita":
+                    include('vizita.php');
+                    break;
               
                 case "terminet":
                     include('terminet.php');

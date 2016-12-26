@@ -1,3 +1,43 @@
+function validateVizitaForm()
+{
+    var valid = 1;
+        var termin_id = document.getElementById('termin_id');
+	var termini_validation = document.getElementById("termini_validation");
+        var diagnose = document.getElementById("diagnose");
+        var diagnose_validation = document.getElementById("diagnose_validation");
+
+        
+	
+	if(termin_id.value === "Termini")
+	{
+		valid =0;
+		termini_validation.innerHTML="Zgjedheni Terminin";
+		termini_validation.style.display = "block"; 	
+		
+	}
+	else
+	{
+		termini_validation.style.display = "none";
+		termini_validation.parentNode.style.backgroundColor = "transparent";
+	}
+        
+        if(diagnose.value.length < 10 )
+	{
+		valid =0;
+		diagnose_validation.innerHTML="Duhet te shkrunani diagnoze me te gjate";
+		diagnose_validation.style.display = "block"; 	
+	}
+	else
+	{
+		diagnose_validation.style.display = "none";
+		diagnose_validation.parentNode.style.backgroundColor = "transparent";
+	}
+        
+	
+	if(valid === 0)
+            
+		return false;
+}
 function validateUserForm()
 {
     	

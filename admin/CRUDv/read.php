@@ -1,6 +1,6 @@
-   <?php
-     include('../../inc/db_con.php');
-if (session_status() == PHP_SESSION_NONE) {
+<?php
+include('../../inc/db_con.php');
+  if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if(!isset($_SESSION['logged_in']))
@@ -17,16 +17,14 @@ if(!isset($_SESSION['logged_in']))
  }
      
  else{ 
-  
-     
+
+         
  $Tname = null;
  $Tsurname = null;
- $Tusername = null;
- $Tdate = null;
- $Ttime = null;
  $Temail = null;
- $id = null;
- $id_termini = null;
+ $Tdiagnoza = null;
+ $Ttermini = null;
+ $id= null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
     }
@@ -37,29 +35,29 @@ if(!isset($_SESSION['logged_in']))
         
         header("refresh:0 url=../index.php");
     } else {
-$selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.date, t.time, u.email FROM user AS u INNER JOIN termini AS t ON u.user_id=t.id_users WHERE t.id_termini='".$id."'";
+$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM user AS u INNER JOIN termini as T INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list($user_id, $name, $surname,$username, $termini_id, $date, $time, $email,  )=$row;
+			list( $name, $surname,  $email, $termini_id,  $diagnoza )=$row;
                         $Tname = $name;
                         $Tsurname = $surname;
-                        $Tusername = $username;
-                        $id_termini = $termini_id;
-                        $Tdate = $date;
-                        $Ttime = $time;
+                        $Ttermini = $termini_id;
+                        $Tdiagnoza = $diagnoza;
                         $Temail = $email;
 			
                 }
     }
 ?>
-<head>
+<!DOCTYPE html>
+<html>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="edentist.ico">
+    <link rel="icon" href="../edentist.ico">
 	<link rel="stylesheet" type="text/css" href="../../css/mystyle.css">
 	<link rel="stylesheet" type="text/css" href="../../css/hover.css">  
  
@@ -73,8 +71,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/script.js"></script>
      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- 
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>   
     </head>
     <body>
     <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
@@ -88,22 +85,23 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class ="nav navbar-nav">
                     <li><a href="../index.php" id="logo"></a></li>
-                    <li><a href="../../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
-                    <li><a href="../?admin=terminet" class="hvr-underline-from-left" id="active">TERMINET</a></li>
-                    <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
-                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT</a></li>
+                    <li><a href="../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
+                    <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
+                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
+                    <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>
                  </ul>
              </div>
         </div>
     </div>
-<div class ="container" id="content" align="center">
+    <div class ="container" id="content" align="center">
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Fshirja e terminit</h3>
+                        <h3>Leximi i te dhenave</h3>
+                       
                     </div>
-                    <table class="table table-bordered">
-                       <thead>
+                         <table class="table table-striped table-bordered">
+         <thead>
              
         </thead>
         <tbody>
@@ -118,40 +116,32 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                
             </tr>
             <tr>
-                <td>Username</td>
-                <td><?php echo $Tusername ?></td>
-           
-            </tr>
-            <tr>
-                <td>E-Mail</td>
+                <td>E-mail</td>
                 <td><?php echo $Temail ?></td>
            
             </tr>
             <tr>
-                <td>Data</td>
-                <td><?php echo $Tdate;  ?></td>
-               
+                <td>Diagnoza</td>
+                <td><?php echo $Tdiagnoza ?></td>
+           
             </tr>
             <tr>
-                <td>Ora</td>
-                <td><?php echo $Ttime ?></td>
-
+                <td>Termini</td>
+                <td><a class="btn btn-default" href="CRUD/read.php?id='<?php $Ttermini ?>" >Termini</a></td>
+               
             </tr>
+            
            
         </tbody>
     </table>
+                     <div class='row'>
+                            <a href="../?admin=vizita" class="btn btn-default">Kthehu</a>
+                            <a class="btn btn-info   "href="update.php?id=<?php echo $id ?>">Ndrysho</a>
+                  
+                        <a class="btn btn-danger" href="delete.php?id=<?php echo $id ?>" >Fshije</a></td>
+                </div>
                    
-                    <form class="form-horizontal" action="termin_delete.php" method="post">
-                      <input type="hidden" name="id" value="<?php echo $id_termini;?>"/>
-                        <div class="panel panel-danger">
-      <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni terminin ?</div>
-      <div class="panel-body">
-                      <div class="form-actions">
-                          <button type="submit" class="btn btn-danger">Po</button>
-                          <a class="btn btn-default" href="../index.php">Jo</a>
-                        </div>
-                      </div>
-                    </form>
+                    </div>
                 </div>
                  
 </div> <!-- /container -->

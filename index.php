@@ -84,10 +84,12 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                             echo 'LLOGARIA</a>';
                             echo '<div class="dropdown-menu " style="margin-left: -150px; padding:20px; width:250px;">';
                             echo '<p>Miresevini</p>';
-                            echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';           
-                            echo "<form  method=\"post\" action=\"logout.php\">
-                             <button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button>
-				</form>";   
+                            echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';
+                            echo "<form  method=\"post\" action=\"logout.php\">";
+                                  if($_SESSION['mof'] == 0){
+                            echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=menaxho\">Menaxho</a>";
+                                  }
+                             echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";   
                             
                         }
                         else 
@@ -114,6 +116,9 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
 					<?php
 					switch (@$_GET['faqe'])
 					{   
+                                        case "menaxho":
+                                            include ('menaxho.php');
+                                            break;
                                         case "create":
                                             include ('CRUD/create.php');
                                             break;
