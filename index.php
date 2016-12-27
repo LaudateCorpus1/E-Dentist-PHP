@@ -66,7 +66,7 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                             }
                              if(isset($_SESSION['logged_in']) && $_SESSION['mof'] == 0)
                              {
-                                 ?> <li><a href="?faqe=terminet" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "terminet" || $_GET['faqe'] === "create") echo' id="active"';else echo 'id="links"';?>
+                                 ?> <li><a href="?faqe=terminet" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "terminet" || $_GET['faqe'] === "create" || $_GET['faqe'] === "historiku") echo' id="active"';else echo 'id="links"';?>
                                
                                >TERMINET</a></li>
 <?php
@@ -115,7 +115,10 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
 				 <div class ="container" id="content" align="center">
 					<?php
 					switch (@$_GET['faqe'])
-					{   
+					{  
+                                            case "historiku":
+                                            include ('historiku.php');
+                                            break;
                                         case "menaxho":
                                             include ('menaxho.php');
                                             break;

@@ -21,6 +21,9 @@ if(!isset($_SESSION['logged_in']))
                 <a href="?faqe=create" class="btn btn-success ">Krijo</a>
             </div>
      <div class="row">
+          <div class="col-sm-2">
+              <a class="btn btn-default" href="?faqe=historiku" >Vizitat</a>
+                            </div>
                    <div class="col-sm-3 col-md-3 pull-right ">
                        
                        <form class="navbar-form" role="search" action="CRUD/search.php" method="POST">

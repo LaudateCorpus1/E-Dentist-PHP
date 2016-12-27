@@ -89,28 +89,29 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
 			<li><a href="../index.php?faqe=contact" class="hvr-underline-from-left" id="links">KONTAKTI</a></li>
                          <li><a href="../index.php?faqe=terminet" class="hvr-underline-from-left" id="active" >TERMINET</a></li>
 		 </ul>
-                      <ul class="nav  pull-right" id="navbar-collapse" style="margin-top:5px;">
+                     <ul class="nav  pull-right" id="navbar-collapse" style="margin-top:5px;">
                            <li class="dropdown" id="menuLogin">
-                               <a class="dropdown-toggle hvr-pulse" href="#" data-toggle="dropdown" id="links">
-                                   <span class=" glyphicon glyphicon-chevron-down "></span>&nbsp;
+                               <a class="dropdown-toggle hvr-bubble-bottom " href="#" data-toggle="dropdown" id="links">
                                    
                       
                         <?php
                         if(isset($_SESSION['logged_in']) ){
                             echo 'LLOGARIA</a>';
-                            echo '<div class="dropdown-menu" style="padding:20px; width:250px;">';
+                            echo '<div class="dropdown-menu " style="margin-left: -150px; padding:20px; width:250px;">';
                             echo '<p>Miresevini</p>';
                             echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';
-                                                
-                            echo "<form  method=\"post\" action=\"../logout.php\">
-                             <button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button>
-				</form>";   
+                            echo "<form  method=\"post\" action=\"logout.php\">";
+                                  if($_SESSION['mof'] == 0){
+                            echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=menaxho\">Menaxho</a>";
+                                  }
+                             echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";   
+                            
                         }
                         else 
                         {
                             echo 'LOG IN</a>';
-                            echo '<div class="dropdown-menu" style="padding:20px;">';
-                            include '../login.php';  
+                            echo '<div class="dropdown-menu" style="margin-left: -150px; padding:20px; width:250px;">';
+                            include 'login.php';  
                         }
                         ?>
                                  
