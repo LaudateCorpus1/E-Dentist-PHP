@@ -3,16 +3,14 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2016 at 02:24 PM
+-- Generation Time: Dec 27, 2016 at 01:37 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 CREATE DATABASE dentist;
 USE dentist;
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,18 +31,6 @@ CREATE TABLE `doctor` (
   `id_doctor` int(11) NOT NULL,
   `name` int(11) NOT NULL,
   `surname` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `historiku`
---
-
-CREATE TABLE `historiku` (
-  `id_historiku` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `diagnose` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -155,18 +141,22 @@ INSERT INTO `termini` (`id_termini`, `date`, `time`, `id_users`) VALUES
 (30, '2016-12-12', '14:00:00', 2),
 (31, '2016-12-12', '14:00:00', 2),
 (32, '2016-12-12', '16:00:00', 2),
-(34, '2016-12-25', '08:00:00', 2),
+(34, '2017-01-25', '10:00:00', 2),
 (35, '2016-12-24', '10:00:00', 2),
 (37, '2016-12-23', '08:00:00', 2),
 (38, '2016-12-31', '16:00:00', 2),
-(39, '2016-12-25', '09:00:00', 3),
 (41, '2016-12-27', '08:00:00', 3),
 (42, '2016-12-20', '14:00:00', 2),
 (43, '2016-12-20', '12:00:00', 3),
 (44, '2016-12-28', '09:00:00', 2),
 (46, '2016-12-29', '08:00:00', 2),
 (47, '2017-01-18', '08:00:00', 3),
-(48, '2016-12-31', '08:00:00', 3);
+(48, '2016-12-31', '08:00:00', 3),
+(49, '2017-01-04', '08:00:00', 3),
+(50, '2017-01-21', '08:00:00', 3),
+(51, '2017-01-22', '08:00:00', 2),
+(52, '2017-01-20', '14:00:00', 0),
+(53, '0000-00-00', '00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -189,20 +179,34 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `name`, `surname`, `email`, `admin`) VALUES
-(2, 'ensari', 'ensar123', 'Ensar', 'Ibrahimi', 'ensar-ibrahimi@hotmail.com', 0),
+(2, 'ensar', 'ensar123', 'Ensar', 'Ibrahimi', 'ensar-ibrahimi@hotmail.com', 0),
 (3, 'eniskpteam', '12345678', 'Enis ', 'Halimi', 'kp-team@hotmail.com', 1),
 (4, 'eronhalili', 'eron1234', 'Eron', 'Halili', 'eron-halili@hotmail.com', 1),
 (5, 'davidb', '12345678', 'David', 'Bytyqi', 'david_bytyqi@hotmail.com', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vizita`
+--
+
+CREATE TABLE `vizita` (
+  `id_historiku` int(11) NOT NULL,
+  `diagnose` text NOT NULL,
+  `termin_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vizita`
+--
+
+INSERT INTO `vizita` (`id_historiku`, `diagnose`, `termin_id`) VALUES
+(1, 'Heqje dhembi duke perdorur metoden standarde', 1),
+(2, 'Pacientit eshte shfaqur semundja e mishit te dhembeve', 41);
+
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `historiku`
---
-ALTER TABLE `historiku`
-  ADD PRIMARY KEY (`id_historiku`);
 
 --
 -- Indexes for table `keshillat`
@@ -235,14 +239,15 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `vizita`
+--
+ALTER TABLE `vizita`
+  ADD PRIMARY KEY (`id_historiku`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `historiku`
---
-ALTER TABLE `historiku`
-  MODIFY `id_historiku` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `keshillat`
 --
@@ -262,12 +267,17 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `termini`
 --
 ALTER TABLE `termini`
-  MODIFY `id_termini` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_termini` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `vizita`
+--
+ALTER TABLE `vizita`
+  MODIFY `id_historiku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
