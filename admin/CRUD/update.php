@@ -96,6 +96,8 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                     <li><a href="../index.php" class="hvr-underline-from-left" id="active">TERMINET</a></li>
        <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
                     <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT</a></li>
+                     <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
+                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
                  </ul>
              </div>
         </div>
@@ -140,8 +142,8 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
      <input type="hidden" value="<?php echo $id_termini?>" name="termini_id" />
     </div>
     <button type="submit" value="Submit" form ="termin_form"class="btn btn-success">Ndrysho</button>
-     <button type="reset" value="Cancel" form ="termin_form" class="btn btn-default" >Fshije</button>
-     <a class="btn btn-danger" href="../index.php">Kthehu</a>
+     <button type="reset" value="Cancel" form ="termin_form" class="btn btn-warning" >Fshije</button>
+     <a class="btn btn-default" href="../index.php">Kthehu</a>
   </form>
                 </div>
  <div class="col-sm-6">

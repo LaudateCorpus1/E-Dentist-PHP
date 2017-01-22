@@ -69,6 +69,10 @@ echo' id="active";';else echo 'id="links"';?> >TERMINET</a></li>
 echo' id="active";';else echo 'id="links"';?>>VIZITA </a></li>
                     <li><a href="?admin=userat" class="hvr-underline-from-left"<?php if($_GET['admin']=== "userat")
 echo' id="active";';else echo 'id="links"';?>>PERDORUESIT </a></li>
+                    <li><a href="?admin=keshillat" class="hvr-underline-from-left"<?php if($_GET['admin']=== "keshillat")
+echo' id="active";';else echo 'id="links"';?>>KESHILLAT </a></li>
+                    <li><a href="?admin=sherbimet" class="hvr-underline-from-left"<?php if($_GET['admin']=== "sherbimet")
+echo' id="active";';else echo 'id="links"';?>>SHERBIMET </a></li>
                  </ul>
              </div>
         </div>
@@ -78,6 +82,12 @@ echo' id="active";';else echo 'id="links"';?>>PERDORUESIT </a></li>
         if(isset($_SESSION['logged_in'])){ 
             switch (@$_GET['admin'])
             {
+                 case "sherbimet":
+                    include('sherbimet.php');
+                    break;
+                case "keshillat":
+                    include('keshillat.php');
+                    break;
                 case "vizita":
                     include('vizita.php');
                     break;

@@ -80,43 +80,48 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                                    
                       
                         <?php
-                        if(isset($_SESSION['logged_in']) ){
+                        if(isset($_SESSION['logged_in']) )
+                        {
                             echo 'LLOGARIA</a>';
-                            echo '<div class="dropdown-menu " style="margin-left: -150px; padding:20px; width:250px;">';
+                            echo '<div class="dropdown-menu " style="margin-left: -200px; padding:20px; width:300px;">';
                             echo '<p>Miresevini</p>';
                             echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';
                             echo "<form  method=\"post\" action=\"logout.php\">";
-                                  if($_SESSION['mof'] == 0){
-                            echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=menaxho\">Menaxho</a>";
-                                  }
-                             echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";   
-                            
+                            if($_SESSION['mof'] == 0)
+                            {
+                                echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=menaxho\">Menaxho</a>";
+                                echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=sygjerimi\">Sygjerimet</a>";
+                            }
+                            else
+                            {
+                                echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=mesatarja\">Vlersimi Mesatar</a>";  
+                            }
+                            echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";  
                         }
                         else 
                         {
                             echo 'LOG IN</a>';
-                            echo '<div class="dropdown-menu" style="margin-left: -150px; padding:20px; width:250px;">';
+                            echo '<div class="dropdown-menu" style="margin-left: -200px; padding:20px; width:300px;">';
                             include 'login.php';  
                         }
                         ?>
-                                 
-                           </li>
+                        </li>
                        </ul>
 		 </div>
-        
 		 </div>
 		 </div>
-		 
-
-			
-		</div>
-		
-			
-				 <div class ="container" id="content" align="center">
+                 </div>
+		<div class ="container" id="content" align="center">
 					<?php
 					switch (@$_GET['faqe'])
 					{  
-                                            case "historiku":
+                                            case "sygjerimi":
+                                            include ('inc/sygjerimet.php');
+                                            break;
+                                         case "mesatarja":
+                                            include ('inc/mesatarja.php');
+                                            break;
+                                         case "historiku":
                                             include ('historiku.php');
                                             break;
                                         case "menaxho":
@@ -146,11 +151,9 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
 					}
 					?>
                                     
-				</div>
-					<div class=" navbar navbar-inner  navbar-bottom-fixed" id="footer">
-
-    <p align="center"><strong>E-Dentist 2016 | All Rights Reserved</strong> </p>
-</div>
-   
-	</body>
+		</div>
+     <div class=" navbar navbar-inner  navbar-bottom-fixed" id="footer">
+            <p align="center"><strong>E-Dentist 2016 | All Rights Reserved</strong> </p>
+    </div>
+</body>
 </html>

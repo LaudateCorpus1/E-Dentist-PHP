@@ -125,6 +125,8 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
                     <li><a href="../index.php" class="hvr-underline-from-left" id="links">TERMINET</a></li>
                            <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
                     <li><a href="../?admin=userat" class="hvr-underline-from-left" id="active">PERDORUESIT</a></li>
+                    <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
+                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
                  </ul>
              </div>
         </div>
@@ -184,7 +186,7 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
      
    
     <button type="submit" value="Submit" form ="user_form"class="btn btn-success">Ndrysho</button>
-     <button type="reset" value="Reset" form ="user_form" class="btn btn-warning" >Shlyej</button>
+     <button type="reset" value="Reset" form ="user_form" class="btn btn-warning" >Fshije</button>
     <a class="btn btn-default" href="../?admin=userat">Kthehu</a>
   </form>
         

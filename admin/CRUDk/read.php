@@ -16,14 +16,11 @@ if(!isset($_SESSION['logged_in']))
       header("refresh:0 url=../index.php");
  }
      
- else{ 
+ else{
+$Ttitulli =null;
+$Tpermbajtja =null;
+$Timazhi = null;
 
-         
- $Tname = null;
- $Tsurname = null;
- $Temail = null;
- $Tdiagnoza = null;
- $Ttermini = null;
  $id= null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
@@ -35,19 +32,17 @@ if(!isset($_SESSION['logged_in']))
         
         header("refresh:0 url=../index.php");
     } else {
-$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM user AS u INNER JOIN termini as T INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
+   $selektimi = "SELECT * FROM keshillat WHERE keshillat_id='".$id."' ";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $termini_id,  $diagnoza )=$row;
-                        $Tname = $name;
-                        $Tsurname = $surname;
-                        $Ttermini = $termini_id;
-                        $Tdiagnoza = $diagnoza;
-                        $Temail = $email;
-			
+			list( $id, $titulli,  $permbajtja, $imazhi )=$row;
+                       $Ttitulli = $titulli;
+                        $Tpermbajtja =$permbajtja;
+                      $Timazhi = $imazhi;
+                  
                 }
     }
 ?>
@@ -87,9 +82,9 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM u
                     <li><a href="../index.php" id="logo"></a></li>
                     <li><a href="../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
                     <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
-                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
+                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
                     <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>
-                    <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
+                       <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="active">KESHILLAT </a></li>
                     <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
                  </ul>
              </div>
@@ -108,36 +103,27 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM u
         </thead>
         <tbody>
             <tr>
-                <td>Emri</td>
-                <td><?php echo $Tname ?></td>
+                <td>Titulli</td>
+                <td><?php echo $Ttitulli ?></td>
               
             </tr>
             <tr>
-                <td>Mbiemri</td>
-                <td><?php echo $Tsurname ?></td>
+                <td>Permbajtja</td>
+                <td><?php echo $Tpermbajtja?></td>
                
             </tr>
             <tr>
-                <td>E-mail</td>
-                <td><?php echo $Temail ?></td>
+                <td>Imazhi</td>
+                <td><img class="img-responsive" src="../../<?php echo  $Timazhi ?>" ></td>
            
             </tr>
-            <tr>
-                <td>Diagnoza</td>
-                <td><?php echo $Tdiagnoza ?></td>
-           
-            </tr>
-            <tr>
-                <td>Termini</td>
-                <td><a class="btn btn-default" href="CRUD/read.php?id='<?php $Ttermini ?>" >Termini</a></td>
-               
-            </tr>
+          
             
            
         </tbody>
     </table>
                      <div class='row'>
-                            <a href="../?admin=vizita" class="btn btn-default">Kthehu</a>
+                            <a href="../?admin=keshillat" class="btn btn-default">Kthehu</a>
                             <a class="btn btn-info   "href="update.php?id=<?php echo $id ?>">Ndrysho</a>
                   
                         <a class="btn btn-danger" href="delete.php?id=<?php echo $id ?>" >Fshije</a></td>

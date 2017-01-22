@@ -70,7 +70,7 @@ if(!isset($_SESSION['logged_in']))
 			
 		$message = "Te dhenat nuk u ruajten me sukses. Vertetoni nese personi ekziston";
                         echo "<script type='text/javascript'>alert('$message');</script>" or die ('invalid query:'. mysql_error());
-			header( "refresh: 0; url=../?admin=create" );
+			header( "refresh: 0; url=../?faqe=create" );
 		}
              }
          } 

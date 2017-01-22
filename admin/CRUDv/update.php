@@ -91,6 +91,8 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM u
                     <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
                      <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
                     <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>
+                    <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
+                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
                  </ul>
              </div>
         </div>

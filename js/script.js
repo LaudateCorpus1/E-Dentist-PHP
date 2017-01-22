@@ -1,3 +1,109 @@
+
+function validateSygjerimForm()
+{
+        var valid = 1;
+        var sygjerimi = document.getElementById('sygjerimi');
+	var sygjerimi_validation = document.getElementById("sygjerimi_validation");
+
+        
+	
+	if(sygjerimi.value.length < 10)
+	{
+		valid =0;
+		sygjerimi_validation.innerHTML="Sygjerimi duhet te jete me i gjate";
+		sygjerimi_validation.style.display = "block"; 	
+		
+	}
+	else
+	{
+		sygjerimi_validation.style.display = "none";
+		sygjerimi_validation.parentNode.style.backgroundColor = "transparent";
+	}
+	if(valid === 0)
+            
+		return false;
+}
+function validateSherbimiForm()
+{
+        var valid = 1;
+        var pershkrimi = document.getElementById('pershkrimi');
+	var pershkrimi_validation = document.getElementById("pershkrimi_validation");
+        var qmimi = document.getElementById("qmimi");
+        var qmimi_validation = document.getElementById("qmimi_validation");
+        var filter= /^[-0-9 ]*$/;
+
+        
+	
+	if(pershkrimi.value.length < 3)
+	{
+		valid =0;
+		pershkrimi_validation.innerHTML="Pershkrimi duhet te jete me i gjate";
+		pershkrimi_validation.style.display = "block"; 	
+		
+	}
+	else
+	{
+		pershkrimi_validation.style.display = "none";
+		pershkrimi_validation.parentNode.style.backgroundColor = "transparent";
+	}
+        
+        if(!filter.test(qmimi.value) )
+	{
+		valid =0;
+		qmimi_validation.innerHTML="Qmimi duhet te permbaje vetem numra";
+		qmimi_validation.style.display = "block"; 	
+	}
+	else
+	{
+		qmimi_validation.style.display = "none";
+		qmimi_validation.parentNode.style.backgroundColor = "transparent";
+	}
+        
+	
+	if(valid === 0)
+            
+		return false;
+}
+function validateKeshillaForm()
+{
+        var valid = 1;
+        var titulli = document.getElementById('titulli');
+	var titulli_validation = document.getElementById("titulli_validation");
+        var permbajtja = document.getElementById("permbajtja");
+        var permbajtja_validation = document.getElementById("permbajtja_validation");
+
+        
+	
+	if(titulli.value.length < 3)
+	{
+		valid =0;
+		titulli_validation.innerHTML="Titulli duhet te jete me i gjate";
+		titulli_validation.style.display = "block"; 	
+		
+	}
+	else
+	{
+		titulli_validation.style.display = "none";
+		titulli_validation.parentNode.style.backgroundColor = "transparent";
+	}
+        
+        if(permbajtja.value.length < 10 )
+	{
+		valid =0;
+		permbajtja_validation.innerHTML="Duhet te shkrunani permbajtje me te gjate";
+		permbajtja_validation.style.display = "block"; 	
+	}
+	else
+	{
+		permbajtja_validation.style.display = "none";
+		permbajtja_validation.parentNode.style.backgroundColor = "transparent";
+	}
+        
+	
+	if(valid === 0)
+            
+		return false;
+}
 function validateVizitaForm()
 {
     var valid = 1;

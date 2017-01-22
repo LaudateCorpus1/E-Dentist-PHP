@@ -43,6 +43,7 @@ if(!isset($_SESSION['logged_in']))
     <script src="../../js/script.js"></script>
      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>   
+
     </head>
     <body>
     <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
@@ -58,9 +59,9 @@ if(!isset($_SESSION['logged_in']))
                     <li><a href="../index.php" id="logo"></a></li>
                     <li><a href="../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
                     <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
-                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
+                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
                     <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>
-                    <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
+                     <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="active">KESHILLAT </a></li>
                     <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
                  </ul>
              </div>
@@ -69,38 +70,31 @@ if(!isset($_SESSION['logged_in']))
     <div class ="container" id="content" align="center">
 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Krijo Vizita</h3>
+                        <h3>Krijo Keshilla</h3>
                     </div>
              
     <div class="col-sm-6">
-        
-    <form id="vizita_form" method="POST" action = "vizita_insert.php" onsubmit="return validateVizitaForm();" >
-
+    
+    <form id="keshilla_form" method="POST" action = "keshilla_insert.php"  onsubmit="return validateKeshillaForm();" >
+     
+      
       <div class="form-group">
-           <label class="required">Termini:</label>
-      <?php
-
-    $query = "SELECT id_termini, date, time, name, surname, username FROM `termini` AS t INNER JOIN user AS u ON t.id_users=u.user_id ORDER BY `t`.`date` ASC, t.time ASC  ";
-    $result = mysql_query ($query);
-    echo "<select value='' class='form-control' id='termin_id' name='termin_id'><option>Termini</option>";
-    while($r = mysql_fetch_array($result)) {
-        
-    echo "<option value=". $r['id_termini']."> ".$r['date']."  |  ".$r['time']."  |  ".$r['name']."  |  ".$r['surname']." (".$r['username'].")</option>"; 
-    }
-        echo "</select>";
-    ?>
-       <span id="termini_validation" class="error"></span>
+          <label class="required"  for="date">Titulli:</label>
+          <input class="form-control" id="titulli" name="titulli">
+       <span id="titulli_validation" class="error"></span>
       </div>
+        
       <div class="form-group">
-      <label class="required"  for="date">Diagnoza:</label>
-      <textarea  id="diagnose" name="diagnose"  class="form-control"></textarea>
-       <span id="diagnose_validation" class="error"></span>
+      <label class="required"  for="date">Permbajtja:</label>
+      <textarea  id="permbajtja" name="permbajtja"  class="form-control"></textarea>
+       <span id="permbajtja_validation" class="error"></span>
      
      
     </div>
-    <button type="submit" value="Submit" form ="vizita_form"class="btn btn-success">Krijo</button>
-     <button type="reset" value="Reset" form ="vizita_form" class="btn btn-warning" >Fshije</button>
-    <a class="btn btn-default" href="../?admin=vizita">Kthehu</a>
+    
+    <button type="submit" value="Submit" form ="keshilla_form"class="btn btn-success">Krijo</button>
+     <button type="reset" value="Reset" form ="keshilla_form" class="btn btn-warning" >Fshije</button>
+    <a class="btn btn-default" href="../?admin=keshillat">Kthehu</a>
   </form>
                 </div>
  <div class="col-sm-6">
@@ -108,8 +102,8 @@ if(!isset($_SESSION['logged_in']))
       
       
           <ul class="list-group">
-  <li class="list-group-item"> <p>Zgjedheni terminin te cilit doni qe te i shtoni viziten nese pacienti ka ardhur ne terminin te cilin ai e ka caktuar. </p></li>
-  <li class="list-group-item"> <p>Shkruani diagnozen te cilen e ka pasur pacienti pasi e ka perfunduar viziten e tij.</p> </li> 
+  <li class="list-group-item"> <p>Shkruani titullin e keshilles te ciles deshironi qe ta shton. Keshilla duhet te kete patjeter nje titull. </p></li>
+  <li class="list-group-item"> <p>Shkruani permbajtjen te cilen e ka keshilla te cilen ju ua ofroni vizituesve.</p> </li> 
 </ul>
        
                 </div>

@@ -65,7 +65,8 @@
         <div class ="col-sm-4">
             <h3>SHERBIME TONA</h3>
             <p>Ordinanca jone ofron sherbime profesionale nga mjek te specializuar ne kete lami.</p>
-            <a href="?faqe=services" class="hvr-pulse"><b>SHIKO ME SHUME</b></a>
+            
+            <a href="?faqe=services" class="btn btn-warning hvr-pulse"><b>SHIKO ME SHUME</b></a>
         </div>
          <div class ="col-sm-4">
              <h3>NA KONTAKTONI</h3>
@@ -91,7 +92,8 @@
     <label><input type="radio" name="optradio" value="3">3</label>
     <label><input type="radio" name="optradio" value="4">4</label>
     <label><input type="radio" name="optradio" value="5">5</label>
-    <button type="submit" value="Submit" form ="rating_form">Vlereso</button>
+    <span>&nbsp;</span>
+    <button type="submit" class="btn btn-success"value="Submit" form ="rating_form">Vlereso</button>
     
   </form>
         </div>

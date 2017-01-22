@@ -24,11 +24,11 @@ if(!isset($_SESSION['logged_in']))
 <div class="container">
             <div class="row">
                 <h3 >Terminet</h3>
-                    <a href="?admin=create" class="btn btn-success ">Krijo</a>
+                <a href="?admin=create" class="btn btn-success "><span class="glyphicon glyphicon-plus">&thinsp;</span>Krijo</a>
             </div>
      <div class="row">
          <div class="col-sm-2">
-                                <a class="btn btn-default" href="CRUD/search.php?id=<?php echo $date?>" >Terminet per sot</a>
+                                <a class="btn btn-default" href="CRUD/search.php?id=<?php echo $date?>" > <span class=" 	glyphicon glyphicon-list-alt">&thinsp;</span>Terminet per sot</a>
                             </div>
                    <div class="col-sm-3 col-md-3 pull-right ">
                        
@@ -73,11 +73,11 @@ if(!isset($_SESSION['logged_in']))
                         echo '<td>'.$date.'</td>'; 
 			echo '<td>'.$time.'</td>'; 
 			echo '<td>'.$email.'</td>'; 
-                        echo '<td><a class="btn btn-default" href="CRUD/read.php?id='.$termini_id.'" >Lexo</a>';
+                        echo '<td><a class="btn btn-default" href="CRUD/read.php?id='.$termini_id.'" ><span class=" 	glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
                         echo ' ';
-                        echo '<a class="btn btn-info   " href="CRUD/update.php?id='.$termini_id.'" >Ndrysho</a>';
+                        echo '<a class="btn btn-info   " href="CRUD/update.php?id='.$termini_id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="CRUD/delete.php?id='.$termini_id.'" >Fshije</a></td>';
+                        echo '<a class="btn btn-danger" href="CRUD/delete.php?id='.$termini_id.'" ><span class=" 	glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
 			echo '  </tr>'; 
 		}
                   ?>

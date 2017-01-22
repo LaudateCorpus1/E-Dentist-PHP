@@ -3,14 +3,13 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2016 at 01:37 PM
+-- Generation Time: Jan 12, 2017 at 12:43 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-CREATE DATABASE dentist;
-USE dentist;
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -81,7 +80,8 @@ INSERT INTO `rating` (`ID`, `rating`) VALUES
 (9, 1),
 (10, 3),
 (11, 3),
-(12, 2);
+(12, 2),
+(13, 5);
 
 -- --------------------------------------------------------
 
@@ -106,8 +106,28 @@ INSERT INTO `services` (`id`, `photo`, `description`, `price`) VALUES
 (3, 'images/dentist6.jpg', 'Heqja e dhembit.', '10'),
 (4, 'images/dentist3.jpg', 'Mbushja e dhembit.', '15'),
 (5, 'images/dentist4.jpg', 'Implantet.', '100 - 200 '),
-(6, 'images/dentist5.jpg', 'Ndërhyrjet operacionale.', '150 - 300'),
-(7, 'images/dentist7.jpg', 'Protezat.', '1000 - 1500');
+(6, 'images/dentist5.jpg', 'Nderhyrjet operacionale.', '150 - 300'),
+(7, 'images/dentist7.jpg', 'Protezat.', '1000 - 1500'),
+(8, 'images/nopic.png', 'Sherbimi Test 1', '20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sygjerimet`
+--
+
+CREATE TABLE `sygjerimet` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `sygjerimi` varchar(10000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sygjerimet`
+--
+
+INSERT INTO `sygjerimet` (`id`, `user_id`, `sygjerimi`) VALUES
+(1, 2, 'Test Sygjerimin');
 
 -- --------------------------------------------------------
 
@@ -202,7 +222,8 @@ CREATE TABLE `vizita` (
 
 INSERT INTO `vizita` (`id_historiku`, `diagnose`, `termin_id`) VALUES
 (1, 'Heqje dhembi duke perdorur metoden standarde', 1),
-(2, 'Pacientit eshte shfaqur semundja e mishit te dhembeve', 41);
+(2, 'Pacientit eshte shfaqur semundja e mishit te dhembeve', 41),
+(3, '', 0);
 
 --
 -- Indexes for dumped tables
@@ -224,6 +245,12 @@ ALTER TABLE `rating`
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sygjerimet`
+--
+ALTER TABLE `sygjerimet`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -252,17 +279,22 @@ ALTER TABLE `vizita`
 -- AUTO_INCREMENT for table `keshillat`
 --
 ALTER TABLE `keshillat`
-  MODIFY `keshillat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `keshillat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `sygjerimet`
+--
+ALTER TABLE `sygjerimet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `termini`
 --
@@ -277,7 +309,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `vizita`
 --
 ALTER TABLE `vizita`
-  MODIFY `id_historiku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_historiku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

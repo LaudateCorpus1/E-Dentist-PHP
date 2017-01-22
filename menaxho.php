@@ -60,7 +60,7 @@ $selektimi = "SELECT * FROM user WHERE username='".$Tusername."'";
             </div>
       <div class="form-group">
       <label class="required" for="username">Username:</label>
-      <input id="username"type="text" class="form-control" name="username" value="<?php echo $Tusername;?>" placeholder="Shkruaj Username">
+      <input id="username"type="text" class="form-control" name="username" value="<?php echo $Tusername;?>" readonly placeholder="Shkruaj Username">
       <span id="username_validation" class="error"></span>
      
     </div>
@@ -100,7 +100,7 @@ $selektimi = "SELECT * FROM user WHERE username='".$Tusername."'";
           <ul class="list-group">
   <li class="list-group-item">  <p>Emri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Emri nuk mund te lihet i zbrazet dhe te jete me i vogel se 3 shkronja</p></li>
   <li class="list-group-item"><p>Mbiemri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Mbiemri nuk mund te lihet i zbrazet dhe te jete me i vogel se 3 shkronja</p></li>
-  <li class="list-group-item"> <p>Username mund  te permbaje numra apo elemente tjera perveq shkonjave. Username nuk mund te lihet i zbrazet dhe te jete me i vogel se 3 shkronja</p></li>
+  <li class="list-group-item"> <p>Username Username nuk mund te ndryshohet nga pacienti. Ate mund ta beje vetem dentisti</p></li>
   <li class="list-group-item"> <p>Password mund te permbaje numra apo elemente tjera. Passwordi nuk mund te jete me i vogel se 8 shkronja per shkaqe sigurie.</p> </li>
   <li class="list-group-item"> <p>E-mail duhet te jete i formes standarde dhe eshte esenciale qe te hapet llogaria. Nese nuk ka ateher duhet te hapet nga perdoruesi</p></li>  
   
