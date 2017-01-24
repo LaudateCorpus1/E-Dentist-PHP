@@ -72,7 +72,6 @@ if(!isset($_SESSION['logged_in']))
         </div>
     </div>
 <div class ="container" id="content" align="center">
-     <div class="container">
 
             <div class="row">
                 <h3>Rezultati i kerkimit</h3>
@@ -81,8 +80,8 @@ if(!isset($_SESSION['logged_in']))
           
             </div>
                
-           
-                <table class="table table-striped table-bordered">
+           <div class="table-responsive">
+                <table class="table table-bordered">
                 <thead>
                     <tr>
                       <th>Emri</th>
@@ -122,11 +121,11 @@ if(!isset($_SESSION['logged_in']))
                     else {
                           echo '<td>Perdorues</td>';
                     }   
-                         echo '<td><a class="btn btn-default" href="CRUDu/read.php?id='.$user_id.'" >Lexo</a>';
+                         echo '<td><a class="btn btn-default" href="read.php?id='.$user_id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
                         echo ' ';
-                        echo '<a class="btn btn-info   " href="CRUDu/update.php?id='.$user_id.'" >Ndrysho</a>';
+                        echo '<a class="btn btn-info   " href="update.php?id='.$user_id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="CRUDu/delete.php?id='.$user_id.'" >Shlyej</a></td>';
+                        echo '<a class="btn btn-danger" href="delete.php?id='.$user_id.'" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
 			
 			echo '  </tr>'; 
 		}

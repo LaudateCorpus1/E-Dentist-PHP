@@ -141,9 +141,9 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
      
      <input type="hidden" value="<?php echo $id_termini?>" name="termini_id" />
     </div>
-    <button type="submit" value="Submit" form ="termin_form"class="btn btn-success">Ndrysho</button>
-     <button type="reset" value="Cancel" form ="termin_form" class="btn btn-warning" >Fshije</button>
-     <a class="btn btn-default" href="../index.php">Kthehu</a>
+    <button type="submit" value="Submit" form ="termin_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Ndrysho</button>
+     <button type="reset" value="Cancel" form ="termin_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
+     <a class="btn btn-default" href="../index.php"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
   </form>
                 </div>
  <div class="col-sm-6">

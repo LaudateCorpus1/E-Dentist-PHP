@@ -89,7 +89,7 @@ $selektimi = "SELECT * FROM user WHERE username='".$Tusername."'";
      
    
     <button type="submit" value="Submit" form ="user_form"class="btn btn-success">Ndrysho</button>
-     <button type="reset" value="Reset" form ="user_form" class="btn btn-warning" >Shlyej</button>
+     <button type="reset" value="Reset" form ="user_form" class="btn btn-warning" >Fshije</button>
     <a class="btn btn-default" href="?faqe=home">Kthehu</a>
   </form>
         

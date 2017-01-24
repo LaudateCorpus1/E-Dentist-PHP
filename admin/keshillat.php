@@ -19,12 +19,12 @@ if(!isset($_SESSION['logged_in']))
 <div class="container">
             <div class="row">
                 <h3 >Keshillat</h3>
-                <a href="CRUDk/create.php" class="btn btn-success ">Krijo</a>
+                <a href="CRUDk/create.php" class="btn btn-success "><span class="glyphicon glyphicon-plus">&thinsp;</span>Krijo</a>
                    <span><br></span>
                   <span><br></span>
             </div>
-    
-                <table class="table table-striped table-bordered">
+    <div class="table-responsive">
+                <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>Titulli</th>
@@ -57,17 +57,18 @@ if(!isset($_SESSION['logged_in']))
                             $permbajtja = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="CRUDk/read.php?id='.$id.'"  >Lexo Me shume</a>'; 
                         }
                         echo '<td>'.$permbajtja.'</td>';
-                        echo '<td><a target="_blank" class="btn btn-default" href="../'.$imazhi.'" >Shiko</a></td>'; 
-	                echo '<td style="width: 230px;"><a class="btn btn-default" href="CRUDk/read.php?id='.$id.'" >Lexo</a>';
+                        echo '<td><a target="_blank" class="btn btn-default" href="../'.$imazhi.'" ><span class="glyphicon glyphicon-eye-open">&thinsp;</span>Shiko</a></td>'; 
+	                echo '<td style="width: 280px;"><a class="btn btn-default" href="CRUDk/read.php?id='.$id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
                         echo ' ';
-                        echo '<a class="btn btn-info   " href="CRUDk/update.php?id='.$id.'" >Ndrysho</a>';
+                        echo '<a class="btn btn-info   " href="CRUDk/update.php?id='.$id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="CRUDk/delete.php?id='.$id.'" >Fshije</a></td>';
+                        echo '<a class="btn btn-danger" href="CRUDk/delete.php?id='.$id.'" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
 			echo '  </tr>'; 
 		}
                   ?>
                   </tbody>
             </table>
+    </div>
         </div>
     </div> 
 

@@ -98,9 +98,9 @@ if(!isset($_SESSION['logged_in']))
      
      
     </div>
-    <button type="submit" value="Submit" form ="vizita_form"class="btn btn-success">Krijo</button>
-     <button type="reset" value="Reset" form ="vizita_form" class="btn btn-warning" >Fshije</button>
-    <a class="btn btn-default" href="../?admin=vizita">Kthehu</a>
+    <button type="submit" value="Submit" form ="vizita_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Krijo</button>
+     <button type="reset" value="Reset" form ="vizita_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
+    <a class="btn btn-default" href="../?admin=vizita"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
   </form>
                 </div>
  <div class="col-sm-6">

@@ -33,16 +33,16 @@ $Tname = null;
         
         header("refresh:0 url=../index.php");
     } else {
-$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM user AS u INNER JOIN termini as T INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
+$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.diagnose FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $termini_id,  $diagnoza )=$row;
+			list( $name, $surname,  $email, $id_termini,$vizita_id,  $diagnoza )=$row;
                         $Tname = $name;
                         $Tsurname = $surname;
-                        $Ttermini = $termini_id;
+                        $Ttermini = $id_termini;
                         $Tdiagnoza = $diagnoza;
                         $Temail = $email;
 			
@@ -129,9 +129,9 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM u
      
      
     </div>
-    <button type="submit" value="Submit" form ="vizita_form"class="btn btn-success">Ndrysho</button>
-     <button type="reset" value="Reset" form ="vizita_form" class="btn btn-warning" >Fshije</button>
-    <a class="btn btn-default" href="../?admin=vizita">Kthehu</a>
+    <button type="submit" value="Submit" form ="vizita_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Ndrysho</button>
+     <button type="reset" value="Reset" form ="vizita_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
+    <a class="btn btn-default" href="../?admin=vizita"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
   </form>
                 </div>
  <div class="col-sm-6">

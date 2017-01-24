@@ -130,8 +130,8 @@ $Timazhi = null;
       <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni Sherbimin ?</div>
       <div class="panel-body">
                       <div class="form-actions">
-                          <button type="submit" class="btn btn-danger">Po</button>
-                          <a class="btn btn-default" href="../?admin=sherbimet">Jo</a>
+                          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-ok">&thinsp;</span>Po</button>
+                          <a class="btn btn-default" href="../?admin=sherbimet"><span class="glyphicon glyphicon-remove">&thinsp;</span>Jo</a>
                         </div>
                       </div>
                     </form>

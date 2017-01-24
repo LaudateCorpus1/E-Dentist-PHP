@@ -142,10 +142,11 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
         </tbody>
     </table>
                      <div class='row'>
-                            <a href="../index.php" class="btn btn-default">Kthehu</a>
-                            <a class="btn btn-info   "href="update.php?id=<?php echo $id ?>">Ndrysho</a>
+                            
+                            <a class="btn btn-info   "href="update.php?id=<?php echo $id ?>"> <span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>
                   
-                        <a class="btn btn-danger" href="delete.php?id=<?php echo $id ?>" >Fshije</a></td>
+                        <a class="btn btn-danger" href="delete.php?id=<?php echo $id ?>" ><span class=" 	glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>
+                     <a href="../index.php" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
                 </div>
                    
                     </div>

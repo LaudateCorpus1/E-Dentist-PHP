@@ -28,7 +28,7 @@ if(!isset($_SESSION['logged_in']))
             </div>
      <div class="row">
          <div class="col-sm-2">
-                                <a class="btn btn-default" href="CRUD/search.php?id=<?php echo $date?>" > <span class=" 	glyphicon glyphicon-list-alt">&thinsp;</span>Terminet per sot</a>
+                                <a class="btn btn-default" href="CRUD/search.php?id=<?php echo $date?>" > <span class=" 	glyphicon glyphicon-calendar">&thinsp;</span>Terminet per sot</a>
                             </div>
                    <div class="col-sm-3 col-md-3 pull-right ">
                        
@@ -45,7 +45,8 @@ if(!isset($_SESSION['logged_in']))
         </div>
                
             </div>
-                <table class="table table-striped table-bordered">
+    <div class="table-responsive">
+                <table class="table  table-bordered">
                   <thead>
                     <tr>
                       <th>Emri</th>
@@ -83,6 +84,7 @@ if(!isset($_SESSION['logged_in']))
                   ?>
                   </tbody>
             </table>
+    </div>
         </div>
     </div> 
  <?php

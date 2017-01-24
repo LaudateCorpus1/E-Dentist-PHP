@@ -171,8 +171,8 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
       <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni perdoruesin ?</div>
       <div class="panel-body">
                       <div class="form-actions">
-                          <button type="submit" class="btn btn-danger">Po</button>
-                          <a class="btn btn-default" href="../?admin=userat">Jo</a>
+                          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-ok">&thinsp;</span>Po</button>
+                          <a class="btn btn-default" href="../?admin=userat"><span class="glyphicon glyphicon-remove">&thinsp;</span>Jo</a>
                         </div>
                       </div>
                     </form>

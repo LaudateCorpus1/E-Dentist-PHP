@@ -149,8 +149,8 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
       <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni terminin ?</div>
       <div class="panel-body">
                       <div class="form-actions">
-                          <button type="submit" class="btn btn-danger">Po</button>
-                          <a class="btn btn-default" href="../index.php">Jo</a>
+                          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-ok">&thinsp;</span>Po</button>
+                          <a class="btn btn-default" href="../index.php"><span class="glyphicon glyphicon-remove">&thinsp;</span>Jo</a>
                         </div>
                       </div>
                     </form>

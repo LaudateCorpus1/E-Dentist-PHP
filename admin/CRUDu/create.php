@@ -15,7 +15,6 @@ if(!isset($_SESSION['logged_in']))
  }
      
  else{ ?>
- 
 <style>
     label{float:left;} 
 </style>
@@ -65,36 +64,37 @@ if(!isset($_SESSION['logged_in']))
     <div class="col-sm-6">
         <form id="user_form" method="POST" action = "user_insert.php" onsubmit="return validateUserForm()" >
             <div class="form-group" >
-                <label class="required" for="name">Emri:</label>
-                <input id="name" type="text" class="form-control" name="name" value="" placeholder="Shkruaj Emrin">
-                <span id="name_validation" class="error"></span>
+                <label class="required" for="name" title="Emri">Emri:</label>
+                    <input id="name" type="text" class="form-control" name="name" value="" placeholder="Shkruaj Emrin" >
+               <span id="name_validation" class="error"></span>
+             
             </div>
             <div class="form-group">
                 <label class="required" for="surname">Mbiemri:</label>
-                <input id="surname" type="text" class="form-control" name="surname" value="" placeholder="Shkruaj Mbiemrin">
+                <input id="surname" type="text" class="form-control" name="surname" value="" placeholder="Shkruaj Mbiemrin"   >
                  <span id="surname_validation" class="error"></span>
             </div>
       <div class="form-group">
       <label class="required" for="username">Username:</label>
-      <input id="username"type="text" class="form-control" name="username" value="" placeholder="Shkruaj Username">
+      <input id="username"type="text" class="form-control" name="username" value="" placeholder="Shkruaj Username" >
       <span id="username_validation" class="error"></span>
      
     </div>
     <div class="form-group">
       <label class="required" for='password1'>Password:</label>
-      <input id="password1"type="password" class="form-control" name="password1" value="" placeholder="Shkruaj Password">
-      <span id="password_validation1" class="error"></span>
+      <input id="password1"type="password" class="form-control" name="password1" value="" placeholder="Shkruaj Password"  >
+<span id="password1_validation" class="error"></span>
       
     </div>
              <div class="form-group">
       <label class="required" for='password2'>Password:</label>
       <input id="password2" type="password" class="form-control" name="password2" value="" placeholder="Shkruaj Password">
-      <span id="password_validation2" class="error"></span>
+    <span id="password2_validation" class="error"></span>
       
     </div>
       <div class="form-group">
    <label for='e-mail'>E-Mail:</label>
-      <input id="e-mail" type="text" class="form-control" name="e-mail" value="" placeholder="Shkruaj E-mail">
+      <input id="e-mail" type="text" class="form-control" name="e-mail" value="" placeholder="Shkruaj E-mail" >
       <span id="email_validation" class="error"></span>
       </div>
        <div class="form-group">
@@ -109,9 +109,9 @@ if(!isset($_SESSION['logged_in']))
      
      
    
-    <button type="submit" value="Submit" form ="user_form"class="btn btn-success">Krijo</button>
-     <button type="reset" value="Cancel" form ="user_form" class="btn btn-warning" >Shlyej</button>
-    <a class="btn btn-default" href="../?admin=userat">Kthehu</a>
+    <button type="submit" value="Submit" form ="user_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Krijo</button>
+     <button type="reset" value="Cancel" form ="user_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
+    <a class="btn btn-default" href="../?admin=userat"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
   </form>
         
                 </div>

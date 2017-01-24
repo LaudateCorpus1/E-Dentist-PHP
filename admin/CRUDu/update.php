@@ -138,7 +138,7 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
             <h3>Ndrysho Perdoruesin</h3>
         </div>     
     <div class="col-sm-6">
-        <form id="user_form" method="POST" action = "user_update.php" onsubmit="return validateUserForm();" >
+        <form id="user_form" method="POST" action = "user_update.php" onsubmit="return validateUserForm()" >
             <div class="form-group" >
                 <label class="required" for="name">Emri:</label>
                 <input id="name" type="text" class="form-control" name="name" value="<?php echo $Tname;?>" placeholder="Shkruaj Emrin">
@@ -158,13 +158,13 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
      <div class="form-group">
       <label class="required" for='password1'>Password:</label>
       <input id="password1"type="password" class="form-control" name="password1" value="<?php echo $Tpassword;?>" placeholder="Shkruaj Password">
-      <span id="password_validation1" class="error"></span>
+      <span id="password1_validation" class="error"></span>
       
     </div>
              <div class="form-group">
       <label class="required" for='password2'>Password:</label>
       <input id="password2" type="password" class="form-control" name="password2" value="<?php echo $Tpassword;?>" placeholder="Shkruaj Password">
-      <span id="password_validation2" class="error"></span>
+      <span id="password2_validation" class="error"></span>
       
     </div>
       <div class="form-group">
@@ -185,9 +185,9 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
      
      
    
-    <button type="submit" value="Submit" form ="user_form"class="btn btn-success">Ndrysho</button>
-     <button type="reset" value="Reset" form ="user_form" class="btn btn-warning" >Fshije</button>
-    <a class="btn btn-default" href="../?admin=userat">Kthehu</a>
+    <button type="submit" value="Submit" form ="user_form"class="btn btn-success"><span class=" 	glyphicon glyphicon-ok">&thinsp;</span>Ndrysho</button>
+     <button type="reset" value="Reset" form ="user_form" class="btn btn-warning" ><span class=" 	glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
+    <a class="btn btn-default" href="../?admin=userat"><span class=" 	glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
   </form>
         
                 </div>

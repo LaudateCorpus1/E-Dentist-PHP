@@ -19,7 +19,7 @@ if(!isset($_SESSION['logged_in']))
 <div class="container">
             <div class="row">
                 <h3 >Vizitat</h3>
-                <a href="CRUDv/create.php" class="btn btn-success ">Krijo</a>
+                <a href="CRUDv/create.php" class="btn btn-success "><span class="glyphicon glyphicon-plus">&thinsp;</span>Krijo</a>
             </div>
      <div class="row">
      
@@ -38,6 +38,7 @@ if(!isset($_SESSION['logged_in']))
         </div>
                
             </div>
+            <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
@@ -52,30 +53,31 @@ if(!isset($_SESSION['logged_in']))
                   <tbody>
                     
                   <?php
-                  $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.diagnose FROM user AS u INNER JOIN termini as T INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id ";
+                  $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.diagnose FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $termini_id, $vizita_id, $diagnoza )=$row;
+			list( $name, $surname,  $email, $id_termini, $vizita_id, $diagnoza )=$row;
 			echo '  <tr>'; 
 			echo '<td>'.$name.'</td>'; 
 			echo '<td>'.$surname.'</td>'; 
 		       echo '<td>'.$email.'</td>'; 
 			
 			echo '<td>'.$diagnoza.'</td>'; 
-                        echo '<td><a class="btn btn-default" href="CRUD/read.php?id='.$termini_id.'" >Termini</a></td>'; 
-                        echo '<td><a class="btn btn-default" href="CRUDv/read.php?id='.$vizita_id.'" >Lexo</a>';
+                        echo '<td><a class="btn btn-default" href="CRUD/read.php?id='.$id_termini.'" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Termini</a></td>'; 
+                        echo '<td><a class="btn btn-default" href="CRUDv/read.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
                         echo ' ';
-                        echo '<a class="btn btn-info   " href="CRUDv/update.php?id='.$vizita_id.'" >Ndrysho</a>';
+                        echo '<a class="btn btn-info   " href="CRUDv/update.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="CRUDv/delete.php?id='.$vizita_id.'" >Fshije</a></td>';
+                        echo '<a class="btn btn-danger" href="CRUDv/delete.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
 			echo '  </tr>'; 
 		}
                   ?>
                   </tbody>
             </table>
+            </div>
         </div>
     </div> 
 

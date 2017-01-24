@@ -35,13 +35,13 @@ if(!isset($_SESSION['logged_in']))
         
         header("refresh:0 url=../index.php");
     } else {
-$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM user AS u INNER JOIN termini as T INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
+$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.diagnose FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $termini_id,  $diagnoza )=$row;
+			list( $name, $surname,  $email, $termini_id,$vizita_id,  $diagnoza )=$row;
                         $Tname = $name;
                         $Tsurname = $surname;
                         $Ttermini = $termini_id;
@@ -129,7 +129,7 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM u
             </tr>
             <tr>
                 <td>Termini</td>
-                <td><a class="btn btn-default" href="CRUD/read.php?id='<?php $Ttermini ?>" >Termini</a></td>
+                <td><a class="btn btn-default" href="../CRUD/read.php?id=<?php echo $Ttermini ?>" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Termini</a></td>
                
             </tr>
             
@@ -142,8 +142,8 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.diagnose FROM u
       <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni viziten ?</div>
       <div class="panel-body">
                       <div class="form-actions">
-                          <button type="submit" class="btn btn-danger">Po</button>
-                          <a class="btn btn-default" href="../?admin=vizita">Jo</a>
+                          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-ok">&thinsp;</span>Po</button>
+                          <a class="btn btn-default" href="../?admin=vizita"><span class="glyphicon glyphicon-remove    ">&thinsp;</span>Jo</a>
                         </div>
                       </div>
                     </form>

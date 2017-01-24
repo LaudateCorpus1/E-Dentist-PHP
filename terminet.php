@@ -18,11 +18,11 @@ if(!isset($_SESSION['logged_in']))
 <div class="container">
             <div class="row">
                 <h3 >Terminet</h3>
-                <a href="?faqe=create" class="btn btn-success ">Krijo</a>
+                <a href="?faqe=create" class="btn btn-success "><span class="glyphicon glyphicon-plus">&thinsp;</span>Krijo</a>
             </div>
      <div class="row">
           <div class="col-sm-2">
-              <a class="btn btn-default" href="?faqe=historiku" >Vizitat</a>
+              <a class="btn btn-default" href="?faqe=historiku" ><span class="glyphicon glyphicon-folder-close">&thinsp;</span>Vizitat</a>
                             </div>
                    <div class="col-sm-3 col-md-3 pull-right ">
                        
@@ -39,7 +39,8 @@ if(!isset($_SESSION['logged_in']))
         </div>
                
             </div>
-                <table class="table table-striped table-bordered">
+            <div class="table-responsive">
+                <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>Emri</th>
@@ -66,16 +67,17 @@ if(!isset($_SESSION['logged_in']))
 			echo '<td>'.$date.'</td>'; 
 			echo '<td>'.$time.'</td>'; 
 			echo '<td>'.$email.'</td>'; 
-                        echo '<td><a class="btn btn-default" href="CRUD/read.php?id='.$termini_id.'" >Lexo</a>';
+                        echo '<td><a class="btn btn-default" href="CRUD/read.php?id='.$termini_id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
                         echo ' ';
-                        echo '<a class="btn btn-info   " href="CRUD/update.php?id='.$termini_id.'" >Ndrysho</a>';
+                        echo '<a class="btn btn-info   " href="CRUD/update.php?id='.$termini_id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="CRUD/delete.php?id='.$termini_id.'" >Shlyej</a></td>';
+                        echo '<a class="btn btn-danger" href="CRUD/delete.php?id='.$termini_id.'" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
 			echo '  </tr>'; 
 		}
                   ?>
                   </tbody>
             </table>
+    
         </div>
     </div> 
  <?php

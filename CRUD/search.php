@@ -146,11 +146,11 @@ if(!isset($_SESSION['logged_in']))
 			echo '<td>'.$date.'</td>'; 
 			echo '<td>'.$time.'</td>'; 
 			echo '<td>'.$email.'</td>'; 
-                        echo '<td><a class="btn btn-default" href="read.php?id='.$termini_id.'" >Lexo</a>';
+                        echo '<td><a class="btn btn-default" href="read.php?id='.$termini_id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
                         echo ' ';
-                        echo '<a class="btn btn-info   " href="update.php?id='.$termini_id.'" >Ndrysho</a>';
+                        echo '<a class="btn btn-info   " href="update.php?id='.$termini_id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="delete.php?id='.$termini_id.'" >Shlyej</a></td>';
+                        echo '<a class="btn btn-danger" href="delete.php?id='.$termini_id.'" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
 			echo '  </tr>'; 
 		}
                 }
