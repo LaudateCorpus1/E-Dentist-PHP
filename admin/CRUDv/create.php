@@ -46,17 +46,24 @@ if(!isset($_SESSION['logged_in']))
     </head>
     <body>
     <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
-        <div class = "container">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>		
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class ="nav navbar-nav">
-                    <li><a href="../index.php" id="logo"></a></li>
-                    <li><a href="../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
+      <div class = "container">
+       <div class="navbar-header">
+           <a class="navbar-brand" href= "../index.php?faqe=home" id="logo"></a> 
+       </div>
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+			
+                       
+		   <div class="collapse navbar-collapse" id="navbar-collapse">
+                       
+		   <ul class ="nav navbar-nav">
+			
+                       <li><a href="../index.php" class="hvr-underline-from-left" id="links"                 
+                                 ><span      class="glyphicon glyphicon-home"></span></a></li>
                     <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
                      <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
                     <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>

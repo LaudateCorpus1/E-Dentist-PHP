@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2017 at 12:43 PM
+-- Generation Time: Jan 30, 2017 at 07:27 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -19,6 +19,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `dentist`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `diagnoza`
+--
+
+CREATE TABLE `diagnoza` (
+  `id_diagnoza` int(11) NOT NULL,
+  `diagnoza` varchar(5000) NOT NULL,
+  `vizita_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `diagnoza`
+--
+
+INSERT INTO `diagnoza` (`id_diagnoza`, `diagnoza`, `vizita_id`) VALUES
+(2, 'Prishje dhembi deri ne rrenje', 2),
+(3, 'Heqje dhembi standarde', 1);
 
 -- --------------------------------------------------------
 
@@ -53,7 +73,11 @@ INSERT INTO `keshillat` (`keshillat_id`, `titulli`, `permbajtja`, `imazhi`) VALU
 (1, 'Kontrolla te dentisti', 'Disa persona kur shkojne per here te pare te dentisti, ose kur detyrohen te shkojne me pas per nje kohe te gjate, jetojne ankth. Frika e pabaza, paragjykimet, zhurmat e pajisjeve e shtojne ankthin.\nKontrolla e dhembeve tek dentisti  eshte teper e rendesishme prandaj duhet te behet se paku 2 here gjate vitit.\n', 'images/kontrolla.png'),
 (2, 'Menyra e pastrimit te dhembeve', 'Pastrimi i dhembeve duhet te behet ne keto menyra nga 1 - 6 nga 30 sekonda per secilen menyre <br>Pastrimi duhet te behet dy here ne dite pas ushqimit  Semundjet e gojes ndikojne ne cilesine e jetes se njeriut. Larja e dhembeve duhet te filloje menjehere pas daljes se dhembit te pare te qumeshtit. Pastat e dhembeve kane ne perberje disa substanca qe kane rolin e tyre specifik. Numri i baktereve ne goje mund te jete me i madh se popullsia e botes. Era e keqe e gojes mund te jete shenje e disa semundjeve. Higjiena e gojes eshte shume e rendesishme sidomos gjate shtatezanise. Nje person i rritur ka 32 dhembe qe do te thote 160 siperfaqe per tu pastruar.', 'images/pastrimi.png'),
 (3, 'Brusha dhe Pasta e Dhembeve', 'Perdorni brushat e buta jane me te mira per mishrat e dhembeve.\nBrushen e dhembeve duhet ta nderroni qdo 3-6 muaj. \nPasta duhet te permbaj flourid i cili ndikon ne forcimin e dhembeve.\nFurqa e dhembeve eshte mjeti me i rendesishem per higjienen e gojes. Si e tille, edhe ndaj saj duhet pasur shume kujdes.\n\nSpecialistet keshillojne qe furqa e dhembeve duhet te qendroje ne nje vend te hapur, por jo ne vende me lageshtire dhe, per me teper, aty ku mund te kete kontakt me bakteret.\n\nMos harro, nese furqen e mbroni me nje kapak, me pare duhet ta lesh te thahet dhe pastaj ta vendosesh aty.', 'images/brusha.png'),
-(4, 'Keshilla te pergjithshme', 'Perdorni uje pas ushqimit.<br>\r\nPerdorni fije dentare per heqjen e mbeturinave ushqimore mes dhembeve.<br>\r\nMos konsumoni ushqime te thata dhe me shume sheqer.<br>				Reduktoni marrjen e karbohidrateve (sheqernave) gjate dites.<br>\r\nBeni kujdes gjate ngrenjes se ushqimeve te forta.<br>\r\nDuhani dhe alkooli ndikojn negativisht sidomos te mishrat e dhembeve.<br>', 'images/kujdesi.png');
+(4, 'Keshilla te pergjithshme', 'Perdorni uje pas ushqimit.<br>\r\nPerdorni fije dentare per heqjen e mbeturinave ushqimore mes dhembeve.<br>\r\nMos konsumoni ushqime te thata dhe me shume sheqer.<br>				Reduktoni marrjen e karbohidrateve (sheqernave) gjate dites.<br>\r\nBeni kujdes gjate ngrenjes se ushqimeve te forta.<br>\r\nDuhani dhe alkooli ndikojn negativisht sidomos te mishrat e dhembeve.<br>', 'images/kujdesi.png'),
+(5, 'Keshilla Test 3', 'AWODJIAWDJAWIDJAIJDWJAWID', 'images/dentist1.jpg'),
+(6, 'KP Team', 'aweffaewafewfwaawef', 'images/nopic.png'),
+(7, 'Keshilla Test 3', 'aewffewaafewwffewaef', 'images/iconhome.png'),
+(8, 'Keshilla Test 2', 'eawffeaafefaeafwafwe', 'images/dentist7.jpg');
 
 -- --------------------------------------------------------
 
@@ -81,7 +105,8 @@ INSERT INTO `rating` (`ID`, `rating`) VALUES
 (10, 3),
 (11, 3),
 (12, 2),
-(13, 5);
+(13, 5),
+(14, 1);
 
 -- --------------------------------------------------------
 
@@ -108,7 +133,7 @@ INSERT INTO `services` (`id`, `photo`, `description`, `price`) VALUES
 (5, 'images/dentist4.jpg', 'Implantet.', '100 - 200 '),
 (6, 'images/dentist5.jpg', 'Nderhyrjet operacionale.', '150 - 300'),
 (7, 'images/dentist7.jpg', 'Protezat.', '1000 - 1500'),
-(8, 'images/nopic.png', 'Sherbimi Test 1', '20');
+(8, 'images/1.png', 'Sherbimi Test 1', '200');
 
 -- --------------------------------------------------------
 
@@ -212,7 +237,7 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `name`, `surname`, `email
 
 CREATE TABLE `vizita` (
   `id_historiku` int(11) NOT NULL,
-  `diagnose` text NOT NULL,
+  `verejtje` varchar(1000) NOT NULL,
   `termin_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -220,14 +245,18 @@ CREATE TABLE `vizita` (
 -- Dumping data for table `vizita`
 --
 
-INSERT INTO `vizita` (`id_historiku`, `diagnose`, `termin_id`) VALUES
-(1, 'Heqje dhembi duke perdorur metoden standarde', 1),
-(2, 'Pacientit eshte shfaqur semundja e mishit te dhembeve', 41),
-(3, '', 0);
+INSERT INTO `vizita` (`id_historiku`, `verejtje`, `termin_id`) VALUES
+(1, 'Nuk ka ndonje', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `diagnoza`
+--
+ALTER TABLE `diagnoza`
+  ADD PRIMARY KEY (`id_diagnoza`);
 
 --
 -- Indexes for table `keshillat`
@@ -276,15 +305,20 @@ ALTER TABLE `vizita`
 --
 
 --
+-- AUTO_INCREMENT for table `diagnoza`
+--
+ALTER TABLE `diagnoza`
+  MODIFY `id_diagnoza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `keshillat`
 --
 ALTER TABLE `keshillat`
-  MODIFY `keshillat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `keshillat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `services`
 --
@@ -309,7 +343,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `vizita`
 --
 ALTER TABLE `vizita`
-  MODIFY `id_historiku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_historiku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

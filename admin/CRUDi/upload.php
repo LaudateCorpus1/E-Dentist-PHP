@@ -25,17 +25,24 @@
 </style>
     <body>
     <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
-        <div class = "container">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>		
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class ="nav navbar-nav">
-                    <li><a href="../index.php" id="logo"></a></li>
-                    <li><a href="../../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
+       <div class = "container">
+       <div class="navbar-header">
+           <a class="navbar-brand" href= "../index.php?faqe=home" id="logo"></a> 
+       </div>
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+			
+                       
+		   <div class="collapse navbar-collapse" id="navbar-collapse">
+                       
+		   <ul class ="nav navbar-nav">
+			
+                       <li><a href="../index.php" class="hvr-underline-from-left" id="links"                 
+                                 ><span      class="glyphicon glyphicon-home"></span></a></li>
                     <li><a href="../?admin=terminet" class="hvr-underline-from-left" id="links">TERMINET</a></li>
                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
                     <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT</a></li>
@@ -59,7 +66,7 @@
              </div>
                <button type="submit" value="Submit" form ="image_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Krijo</button>
      <button type="reset" value="Cancel" form ="image_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
-    <a class="btn btn-default" href="?admin=imazhet"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>  
+    <a class="btn btn-default" href="../?admin=imazhet"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>  
 </form>
      </div>
     <div class="col-sm-6">
