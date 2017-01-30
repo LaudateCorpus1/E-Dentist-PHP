@@ -53,7 +53,7 @@ if(!isset($_SESSION['logged_in']))
     <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
       <div class = "container">
        <div class="navbar-header">
-           <a class="navbar-brand" href= "../index.php?faqe=home" id="logo"></a> 
+           <a class="navbar-brand" href= "../../index.php?faqe=home" id="logo"></a> 
        </div>
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -67,13 +67,14 @@ if(!isset($_SESSION['logged_in']))
                        
 		   <ul class ="nav navbar-nav">
 			
-                       <li><a href="../index.php" class="hvr-underline-from-left" id="links"                 
+                       <li><a href="../../index.php" class="hvr-underline-from-left" id="links"                 
                                  ><span      class="glyphicon glyphicon-home"></span></a></li>
-                    <li><a href="../index.php" class="hvr-underline-from-left" id="active">TERMINET</a></li>
-                           <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
-                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESIT </a></li>
-                     <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
-                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
+                       <li><a href="../?admin=terminet" class="hvr-underline-from-left" id="active">TERMINI</a></li>
+                    <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
+                     <li><a href="../?admin=diagnoza" class="hvr-underline-from-left"id="links">DIAGNOZA </a></li>
+                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESI</a></li>
+                     <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLA </a></li>
+                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMI</a></li>
                  </ul>
              </div>
         </div>

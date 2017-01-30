@@ -77,7 +77,7 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v
     <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
        <div class = "container">
        <div class="navbar-header">
-           <a class="navbar-brand" href= "../index.php?faqe=home" id="logo"></a> 
+           <a class="navbar-brand" href= "../../index.php?faqe=home" id="logo"></a> 
        </div>
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -91,10 +91,11 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v
                        
 		   <ul class ="nav navbar-nav">
 			
-                       <li><a href="../index.php" class="hvr-underline-from-left" id="links"                 
+                       <li><a href="../../index.php" class="hvr-underline-from-left" id="links"                 
                                  ><span      class="glyphicon glyphicon-home"></span></a></li>
                     <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
                      <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
+                     <li><a href="../?admin=diagnoza" class="hvr-underline-from-left"id="links">DIAGNOZA </a></li>
                     <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>
                     <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
                     <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>

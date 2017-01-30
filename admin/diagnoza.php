@@ -39,24 +39,24 @@ if(!isset($_SESSION['logged_in']))
                   <tbody>
                     
                   <?php
-                  $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza FROM vizita AS v INNER JOIN termini as t ON t.id_termini=v.termin_id INNER JOIN user AS u ON t.id_users=u.user_id INNER JOIN diagnoza as d ON d.vizita_id=v.id_historiku  ";
+                  $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.id_diagnoza FROM vizita AS v INNER JOIN termini as t ON t.id_termini=v.termin_id INNER JOIN user AS u ON t.id_users=u.user_id INNER JOIN diagnoza as d ON d.vizita_id=v.id_historiku  ";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email,  $vizita_id, $diagnose )=$row;
+			list( $name, $surname,  $email,  $vizita_id, $diagnose, $id )=$row;
 			echo '  <tr>'; 
 			echo '<td>'.$name.'</td>'; 
 			echo '<td>'.$surname.'</td>'; 
 		       echo '<td>'.$email.'</td>'; 
 			echo '<td>'.$diagnose.'</td>';
 			echo '<td><a class="btn btn-default" href="CRUDv/read.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Vizita  </a></td>'; 
-                        echo '<td><a class="btn btn-default" href="CRUDd/read.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
+                        echo '<td><a class="btn btn-default" href="CRUDd/read.php?id='.$id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
                         echo ' ';
-                        echo '<a class="btn btn-info   " href="CRUDd/update.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
+                        echo '<a class="btn btn-info   " href="CRUDd/update.php?id='.$id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="CRUDd/delete.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
+                        echo '<a class="btn btn-danger" href="CRUDd/delete.php?id='.$id.'" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
 			echo '  </tr>'; 
 		}
                   ?>

@@ -39,7 +39,7 @@ if(!isset($_SESSION['logged_in']))
     $result = mysql_query ($query);
     echo "<select value='' class='form-control' id='username' name='username'><option>Pacienti</option>";
     while($r = mysql_fetch_array($result)) {
-    echo "<option value=". $r['user-id']."> ".$r['name']." ".$r['surname']." (".$r['username'].")</option>"; 
+    echo "<option value=". $r['user_id']."> ".$r['name']." ".$r['surname']." (".$r['username'].")</option>"; 
     }
         echo "</select>";
     ?>

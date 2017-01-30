@@ -35,7 +35,7 @@ if(!isset($_SESSION['logged_in']))
         
         header("refresh:0 url=../index.php");
     } else {
-$selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.id_diagnoza FROM vizita AS v INNER JOIN termini as t ON t.id_termini=v.termin_id INNER JOIN user AS u ON t.id_users=u.user_id INNER JOIN diagnoza as d ON d.vizita_id=v.id_historiku   WHERE d.id_diagnoza='".$id."'";
+$selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.id_diagnoza FROM vizita AS v INNER JOIN termini AS t ON t.id_termini=v.termin_id INNER JOIN user AS u ON t.id_users=u.user_id INNER JOIN diagnoza as d ON d.vizita_id=v.id_historiku   WHERE d.id_diagnoza='".$id."'";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
@@ -77,7 +77,7 @@ $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.i
     <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
        <div class = "container">
        <div class="navbar-header">
-           <a class="navbar-brand" href= "../index.php?faqe=home" id="logo"></a> 
+           <a class="navbar-brand" href= "../../index.php?faqe=home" id="logo"></a> 
        </div>
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -91,14 +91,14 @@ $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.i
                        
 		   <ul class ="nav navbar-nav">
 			
-                       <li><a href="../index.php" class="hvr-underline-from-left" id="links"                 
+                       <li><a href="../../index.php" class="hvr-underline-from-left" id="links"                 
                                  ><span      class="glyphicon glyphicon-home"></span></a></li>
-                    <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
-                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
-                       <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">DIAGNOZA </a></li>
-                    <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>
-                    <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
-                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
+                  <li><a href="../?admin=terminet" class="hvr-underline-from-left" id="links">TERMINI</a></li>
+                    <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
+                     <li><a href="../?admin=diagnoza" class="hvr-underline-from-left"id="active">DIAGNOZA </a></li>
+                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESI</a></li>
+                     <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLA </a></li>
+                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMI</a></li>
                  </ul>
              </div>
         </div>
@@ -117,27 +117,27 @@ $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.i
         <tbody>
             <tr>
                 <td>Emri</td>
-                <td><?php echo $Tname ?></td>
+                <td><?php echo $Tname; ?></td>
               
             </tr>
             <tr>
                 <td>Mbiemri</td>
-                <td><?php echo $Tsurname ?></td>
+                <td><?php echo $Tsurname; ?></td>
                
             </tr>
             <tr>
                 <td>E-mail</td>
-                <td><?php echo $Temail ?></td>
+                <td><?php echo $Temail; ?></td>
            
             </tr>
             <tr>
                 <td>Diagnoza</td>
-                <td><?php echo $Tdiagnoza ?></td>
+                <td><?php echo $Tdiagnoza; ?></td>
            
             </tr>
             <tr>
                 <td>Vizita</td>
-                <td><a class="btn btn-default" href="../CRUDv/read.php?id=<?php echo $Tvizita ?>" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Vizita</a></td>
+                <td><a class="btn btn-default" href="../CRUDv/read.php?id=<?php echo $Tvizita; ?>" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Vizita</a></td>
                
             </tr>
             
@@ -145,8 +145,8 @@ $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.i
         </tbody>
     </table>
                      <div class='row'>    
-                        <a class="btn btn-info   "href="update.php?id=<?php echo $id ?>"><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>
-                        <a class="btn btn-danger" href="delete.php?id=<?php echo $id ?>" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a>
+                        <a class="btn btn-info   "href="update.php?id=<?php echo $id; ?>"><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>
+                        <a class="btn btn-danger" href="delete.php?id=<?php echo $id; ?>" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a>
                             <a href="../?admin=diagnoza" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
                 </div>
                    
