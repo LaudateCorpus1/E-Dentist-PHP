@@ -70,12 +70,12 @@ if(!isset($_SESSION['logged_in']))
 			
                        <li><a href="../../index.php" class="hvr-underline-from-left" id="links"                 
                                  ><span      class="glyphicon glyphicon-home"></span></a></li>
-                    <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
-                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
+                    <li><a href="../?admin=terminet" class="hvr-underline-from-left" id="links">TERMINI</a></li>
+                    <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
                      <li><a href="../?admin=diagnoza" class="hvr-underline-from-left"id="links">DIAGNOZA </a></li>
-                    <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>
-                    <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
-                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
+                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESI</a></li>
+                     <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLA </a></li>
+                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMI</a></li>
                  </ul>
              </div>
         </div>
@@ -83,7 +83,7 @@ if(!isset($_SESSION['logged_in']))
     <div class ="container" id="content" align="center">
 
             <div class="row">
-                <h3>Rezultati i kerkimit</h3>
+                <h3>Rezultati i Vizites</h3>
                 <p>Fjala per kerkim: <?php echo $term;?></p>
                 
           
@@ -96,14 +96,14 @@ if(!isset($_SESSION['logged_in']))
                       <th>Emri</th>
                       <th>Mbiemri</th>
                       <th>E-Mail</th>
-                      <th>Diagnoza</th>
+                      <th>Verejtje</th>
                       <th>Termini</th>
                       <th>Menaxhimi</th>
                     </tr>
                   </thead>
                   <tbody>
                   <?php
-                  $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.diagnose FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE u.name LIKE '%".$term."%' OR u.surname LIKE '%".$term."%' OR u.email LIKE '%".$term."%' OR t.time LIKE '%".$term."%' OR t.date LIKE '%".$term."%' OR v.diagnose LIKE '%".$term."%' ORDER BY `t`.`date` ASC, t.time ASC";
+                  $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.verejtje FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE u.name LIKE '%".$term."%' OR u.surname LIKE '%".$term."%' OR u.email LIKE '%".$term."%' OR t.time LIKE '%".$term."%' OR t.date LIKE '%".$term."%' OR v.verejtje LIKE '%".$term."%' ORDER BY `t`.`date` ASC, t.time ASC";
                     		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                                 
                        if(mysql_num_rows($result)== 0){
@@ -116,19 +116,19 @@ if(!isset($_SESSION['logged_in']))
                   while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $termini_id, $vizita_id, $diagnoza )=$row;
+			list( $name, $surname,  $email, $termini_id, $vizita_id, $verejtje )=$row;
 			echo '  <tr>'; 
 			echo '<td>'.$name.'</td>'; 
 			echo '<td>'.$surname.'</td>'; 
 		       echo '<td>'.$email.'</td>'; 
 			
-			echo '<td>'.$diagnoza.'</td>'; 
+			echo '<td>'.$verejtje.'</td>'; 
                         echo '<td><a class="btn btn-default" href="../CRUD/read.php?id='.$termini_id.'" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Termini</a></td>'; 
-                        echo '<td><a class="btn btn-default" href="CRUDv/read.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
+                        echo '<td><a class="btn btn-default" href="read.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
                         echo ' ';
-                        echo '<a class="btn btn-info   " href="CRUDv/update.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
+                        echo '<a class="btn btn-info   " href="update.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-pencil">&thinsp;</span>Ndrysho</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="CRUDv/delete.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
+                        echo '<a class="btn btn-danger" href="delete.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-trash">&thinsp;</span>Fshije</a></td>';
 			echo '  </tr>'; 
 		}
                 }

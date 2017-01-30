@@ -69,8 +69,10 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
     </head>
     <body>
    <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
-   <div class = "container">
-  
+    <div class = "container">
+       <div class="navbar-header">
+           <a class="navbar-brand" href= "../index.php?faqe=home" id="logo"></a> 
+       </div>
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -78,44 +80,45 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
         <span class="icon-bar"></span>
       </button>
 			
-              
+                       
 		   <div class="collapse navbar-collapse" id="navbar-collapse">
                        
 		   <ul class ="nav navbar-nav">
-			  <li><a href= "../index.php?faqe=home" id="logo"></a></li>
-                          <li><a href="../index.php?faqe=home" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
+			
+                          <li><a href="../index.php?faqe=home" class="hvr-underline-from-left" id="links" ><span      class="glyphicon glyphicon-home"></span></a></li>
 			<li><a href="../index.php?faqe=services" class="hvr-underline-from-left" id="links" >SHERBIMET </a></li>
                         <li><a href="../index.php?faqe=keshillat" class="hvr-underline-from-left" id="links">KESHILLAT </a></li>
 			<li><a href="../index.php?faqe=contact" class="hvr-underline-from-left" id="links">KONTAKTI</a></li>
-                         <li><a href="../index.php?faqe=terminet" class="hvr-underline-from-left" id="active" >TERMINET</a></li>
+                         <li><a href="../index.php?faqe=terminet" class="hvr-underline-from-left" id="active" >TERMINI</a></li>
+                                            
 		 </ul>
-                     <ul class="nav  pull-right" id="navbar-collapse" style="margin-top:5px;">
+                      <ul class="nav  navbar-nav navbar-right">
+                          
                            <li class="dropdown" id="menuLogin">
-                               <a class="dropdown-toggle hvr-bubble-bottom " href="#" data-toggle="dropdown" id="links">
+                               <a href="#" id="links"class="dropdown-toggle hvr-bubble-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                    
                       
                         <?php
-                        if(isset($_SESSION['logged_in']) ){
+                        if(isset($_SESSION['logged_in']) )
+                        {
                             echo 'LLOGARIA</a>';
-                            echo '<div class="dropdown-menu " style="margin-left: -150px; padding:20px; width:250px;">';
+                            echo '<ul class="dropdown-menu "   style="background-color: #FFFFFF;padding:20px; width:300px;" >';
                             echo '<p>Miresevini</p>';
                             echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';
-                            echo "<form  method=\"post\" action=\"logout.php\">";
-                                  if($_SESSION['mof'] == 0){
-                            echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=menaxho\">Menaxho</a>";
-                                  }
-                             echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";   
-                            
+                            echo "<form  method=\"post\" action=\"../logout.php\">";
+                            echo "<a class=\"btn btn-default pull-right\" href=\"../index.php?faqe=menaxho\">Menaxho</a>";
+                                echo "<a class=\"btn btn-default pull-right\" href=\"../index.php?faqe=sygjerimi\">Sygjerimet</a>";
+                         
+                            echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";  
                         }
                         else 
                         {
                             echo 'LOG IN</a>';
-                            echo '<div class="dropdown-menu" style="margin-left: -150px; padding:20px; width:250px;">';
+                            echo '<div class="dropdown-menu"   style=" padding:20px; width:300px;">';
                             include 'login.php';  
                         }
                         ?>
-                                 
-                           </li>
+                        </li>
                        </ul>
 		 </div>
         
@@ -129,7 +132,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Leximi i te dhenave</h3>
+                        <h3>Leximi i Terminit</h3>
                        
                     </div>
                          <table class="table table-striped table-bordered">

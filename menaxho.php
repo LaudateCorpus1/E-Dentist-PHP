@@ -88,9 +88,9 @@ $selektimi = "SELECT * FROM user WHERE username='".$Tusername."'";
      
      
    
-    <button type="submit" value="Submit" form ="user_form"class="btn btn-success">Ndrysho</button>
-     <button type="reset" value="Reset" form ="user_form" class="btn btn-warning" >Fshije</button>
-    <a class="btn btn-default" href="?faqe=home">Kthehu</a>
+    <button type="submit" value="Submit" form ="user_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Ndrysho</button>
+     <button type="reset" value="Reset" form ="user_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
+    <a class="btn btn-default" href="?faqe=home"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
   </form>
         
                 </div>
@@ -100,7 +100,7 @@ $selektimi = "SELECT * FROM user WHERE username='".$Tusername."'";
           <ul class="list-group">
   <li class="list-group-item">  <p>Emri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Emri nuk mund te lihet i zbrazet dhe te jete me i vogel se 3 shkronja</p></li>
   <li class="list-group-item"><p>Mbiemri nuk duhet te permbaje numra apo elemente tjera perveq shkonjave. Mbiemri nuk mund te lihet i zbrazet dhe te jete me i vogel se 3 shkronja</p></li>
-  <li class="list-group-item"> <p>Username Username nuk mund te ndryshohet nga pacienti. Ate mund ta beje vetem dentisti</p></li>
+  <li class="list-group-item"> <p>Username nuk mund te ndryshohet nga pacienti. Ate mund ta beje vetem dentisti</p></li>
   <li class="list-group-item"> <p>Password mund te permbaje numra apo elemente tjera. Passwordi nuk mund te jete me i vogel se 8 shkronja per shkaqe sigurie.</p> </li>
   <li class="list-group-item"> <p>E-mail duhet te jete i formes standarde dhe eshte esenciale qe te hapet llogaria. Nese nuk ka ateher duhet te hapet nga perdoruesi</p></li>  
   

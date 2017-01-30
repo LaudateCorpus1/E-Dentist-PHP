@@ -143,7 +143,7 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
 <div class="span10 offset1">
      <div class="span10 offset1">
         <div class="row">
-            <h3>Ndrysho Perdoruesin</h3>
+            <h3>Ndryshimi i Perdoruesit</h3>
         </div>     
     <div class="col-sm-6">
         <form id="user_form" method="POST" action = "user_update.php" onsubmit="return validateUserForm()" >

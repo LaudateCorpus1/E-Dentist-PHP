@@ -83,7 +83,7 @@ if(!isset($_SESSION['logged_in']))
      <div class="container">
 
             <div class="row">
-                <h3>Rezultati i kerkimit</h3>
+                <h3>Kerkimi i Terminit</h3>
                 <p>Fjala per kerkim: <?php echo $term;?></p>
                 
           

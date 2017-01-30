@@ -123,7 +123,7 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Shlyerja e Perdoruesit</h3>
+                        <h3>Fshirja e Perdoruesit</h3>
                     </div>
                      <table class="table table-striped table-bordered">
          <thead>
@@ -176,7 +176,7 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
                     <form class="form-horizontal" action="user_delete.php" method="post">
                       <input type="hidden" name="id" value="<?php echo $id;?>"/>
                         <div class="panel panel-danger">
-      <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni perdoruesin ?</div>
+      <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni Perdoruesin ?</div>
       <div class="panel-body">
                       <div class="form-actions">
                           <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-ok">&thinsp;</span>Po</button>

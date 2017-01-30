@@ -284,7 +284,7 @@ function validateUserForm()
 		name_validation.style.display = "block"; 		
                 name.className = "form-control-error"; 	
 	}
-       	if(filter.test(name.value))
+        else if(filter.test(name.value))
 	{
 		valid =0;
 		name_validation.innerHTML="Lejohen vetem shkronja";
@@ -305,7 +305,7 @@ function validateUserForm()
 		surname_validation.style.display = "block"; 
                 surname.className = "form-control-error"; 	
         }
-	if(filter.test(surname.value))
+	else if(filter.test(surname.value))
 	{
 		valid =0;
 		surname_validation.innerHTML="Lejohen vetem shkronja";	

@@ -93,12 +93,12 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v
 			
                        <li><a href="../../index.php" class="hvr-underline-from-left" id="links"                 
                                  ><span      class="glyphicon glyphicon-home"></span></a></li>
-                    <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
-                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
+                     <li><a href="../?admin=terminet" class="hvr-underline-from-left" id="links">TERMINI</a></li>
+                    <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
                      <li><a href="../?admin=diagnoza" class="hvr-underline-from-left"id="links">DIAGNOZA </a></li>
-                    <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>
-                    <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
-                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
+                    <li><a href="../?admin=userat" class="hvr-underline-from-left" id="links">PERDORUESI</a></li>
+                     <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLA </a></li>
+                    <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMI</a></li>
                  </ul>
              </div>
         </div>
@@ -107,7 +107,7 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Leximi i te dhenave</h3>
+                        <h3>Leximi i Vizites</h3>
                        
                     </div>
                          <table class="table table-striped table-bordered">

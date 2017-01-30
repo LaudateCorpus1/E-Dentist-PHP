@@ -85,7 +85,7 @@ $path = null;
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Fshirja e imazhit</h3>
+                        <h3>Fshirja e Imazhit</h3>
                        
                     </div>
                          <table class="table table-striped table-bordered">

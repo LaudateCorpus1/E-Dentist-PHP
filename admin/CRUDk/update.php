@@ -105,7 +105,7 @@ $Timazhi = null;
     <div class ="container" id="content" align="center">
 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Ndysho Keshilla</h3>
+                        <h3>Ndyshimi i Keshilles</h3>
                     </div>
              
     <div class="col-sm-6">

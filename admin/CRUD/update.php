@@ -113,7 +113,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
         <div class ="container" id="content" align="center">
 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Ndrysho Termin</h3>
+                        <h3>Ndryshimi i Terminit</h3>
                     </div>
              
     <div class="col-sm-6">
@@ -121,7 +121,11 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
         <form id="termin_form" method="POST" action = "termin_update.php" onsubmit="return validateForm();">
       <div class="form-group">
       <label class="required" for="username">Pacienti:</label>
-      <input id="username"type="text" class="form-control" name="username" value="<?php echo $Tusername?>" readonly placeholder="Shkruaj Username">
+      <select value='' class='form-control' id='username' name='username' readonly>
+   
+        <option value="<?php echo $Tusername ?>"> <?php echo $Tname; ?> <?php echo $Tsurname;?> (<?php echo $Tusername; ?>)</option>"; 
+   </select>
+     
       <span id="username_validation" class="error"></span>
      
     </div>
@@ -159,7 +163,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
       
           <ul class="list-group">
 
-  <li class="list-group-item"> <p>Username duhet zgjedhur nga lista e personave te cilet egzistojne ne databazen. Nese personi nuk gjendet ai duhet te shtohet </p></li>
+  <li class="list-group-item"> <p>Pacienti duhet zgjedhur nga lista e personave te cilet egzistojne ne databazen. Nese personi nuk gjendet ai duhet te shtohet </p></li>
   <li class="list-group-item"> <p>Per shkak se orari jone i punes eshte nga Ora 08:00-18:00 mund te caktohen vetem 10 termine qe zgjasin nga nje ore.</p> </li>
   <li class="list-group-item"> <p>Zgjedhja e dates eshte e limituar pasi qe te mos kete termine te panevojshme ne muajt e ardhshem. Po ashtu nuk mund te zgjidhet data e sotshme.</p></li>
 </ul>

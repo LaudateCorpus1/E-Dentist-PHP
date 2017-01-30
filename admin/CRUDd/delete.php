@@ -107,7 +107,7 @@ $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.i
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Fshirja i te dhenave</h3>
+                        <h3>Fshirja e Diagnozes</h3>
                        
                     </div>
                          <table class="table table-striped table-bordered">
@@ -137,7 +137,7 @@ $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.i
             </tr>
             <tr>
                 <td>Vizita</td>
-                <td><a class="btn btn-default" href="../CRUD/read.php?id=<?php echo $Tvizita ?>" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Vizita</a></td>
+                <td><a class="btn btn-default" href="../CRUDv/read.php?id=<?php echo $Tvizita ?>" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Vizita</a></td>
                
             </tr>
             
@@ -147,7 +147,7 @@ $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.i
                     <form class="form-horizontal" action="diagnoza_delete.php" method="post">
                       <input type="hidden" name="id" value="<?php echo $id;?>"/>
                         <div class="panel panel-danger">
-      <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni viziten ?</div>
+      <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni Diagnozen ?</div>
       <div class="panel-body">
                       <div class="form-actions">
                           <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-ok">&thinsp;</span>Po</button>

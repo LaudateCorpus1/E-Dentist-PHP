@@ -27,8 +27,11 @@ if(!isset($_SESSION['logged_in']))
     <form id="sygjerim_form" method="POST" action = "inc/sygjerimet_insert.php" onsubmit="return validateSygjerimForm();" >
          
       <div class="form-group">
-      <label class="required" for="username">Username:</label>
-      <input id="username"type="text" class="form-control" name="username" value="<?php echo $_SESSION['username'];?>" readonly placeholder= Username">
+          <label class="required" for="username">Pacienti:</label>
+     <select value='' class='form-control' id='username' name='username'>
+   
+        <option value="<?php echo $_SESSION['username'] ?>"> <?php echo $_SESSION['name']; ?> <?php echo $_SESSION['surname'];?> (<?php echo $_SESSION['username']; ?>)</option>"; 
+   </select>
       <span id="username_validation" class="error"></span>
      
     </div>
@@ -39,9 +42,9 @@ if(!isset($_SESSION['logged_in']))
      
      
     </div>
-    <button type="submit" value="Submit" form ="sygjerim_form"class="btn btn-success">Shto</button>
-     <button type="reset" value="Cancel" form ="sygjerim_form" class="btn btn-warning" >Fshije</button>
-    <a class="btn btn-default" href="?faqe=home">Kthehu</a>
+    <button type="submit" value="Submit" form ="sygjerim_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Shto</button>
+     <button type="reset" value="Cancel" form ="sygjerim_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
+    <a class="btn btn-default" href="?faqe=home"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
   </form>
         
                 </div>
@@ -51,7 +54,7 @@ if(!isset($_SESSION['logged_in']))
     
           <ul class="list-group">
              
-  <li class="list-group-item"> <p>Username eshte i zgjedhur nga llogaria juaj dhe nuk mund te ndryshohet.</p> </li>
+  <li class="list-group-item"> <p>Pacienti eshte i zgjedhur nga llogaria juaj dhe nuk mund te ndryshohet.</p> </li>
   <li class="list-group-item"> <p>Shkruani sygjerimin qe do ti ofroni dentistit ne menyre qe dentisti te mund te e permisoje sherbimin e tij ndaj te gjithe pacienteve.</p></li>  
 </ul>
        

@@ -110,7 +110,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Fshirja e terminit</h3>
+                        <h3>Fshirja e Terminit</h3>
                     </div>
                     <table class="table table-bordered">
                        <thead>
@@ -154,7 +154,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                     <form class="form-horizontal" action="termin_delete.php" method="post">
                       <input type="hidden" name="id" value="<?php echo $id_termini;?>"/>
                         <div class="panel panel-danger">
-      <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni terminin ?</div>
+      <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni Terminin ?</div>
       <div class="panel-body">
                       <div class="form-actions">
                           <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-ok">&thinsp;</span>Po</button>

@@ -108,7 +108,7 @@ $selektimi = "SELECT u.user_id, u.name, u.surname, u.username,t.id_termini, t.da
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Leximi i te dhenave</h3>
+                        <h3>Leximi i Terminit</h3>
                        
                     </div>
                          <table class="table table-striped table-bordered">

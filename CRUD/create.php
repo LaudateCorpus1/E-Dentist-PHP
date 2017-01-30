@@ -19,7 +19,7 @@ if(!isset($_SESSION['logged_in']))
 
 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Krijo Termin</h3>
+                        <h3>Krijimi i  Terminit</h3>
                     </div>
              
     <div class="col-sm-6">
@@ -38,9 +38,12 @@ if(!isset($_SESSION['logged_in']))
       
     </div>
       <div class="form-group">
-      <label class="required" for="username">Username:</label>
-      <input id="username"type="text" class="form-control" name="username" value="<?php echo $_SESSION['username'];?>" readonly placeholder= Username">
-      <span id="username_validation" class="error"></span>
+      <label class="required" for="username">Pacienti:</label>
+    <select value='' class='form-control' id='username' name='username' readonly>
+   
+        <option value="<?php echo $_SESSION['username'] ?>"> <?php echo $_SESSION['name']; ?> <?php echo $_SESSION['surname'];?> (<?php echo $_SESSION['username']; ?>)</option>"; 
+   </select>
+       <span id="username_validation" class="error"></span>
      
     </div>
     <div class="form-group">

@@ -67,7 +67,7 @@ if(!isset($_SESSION['logged_in']))
 <div class ="container" id="content" align="center">           
     <div class="span10 offset1">
         <div class="row">
-            <h3>Krijo Perdorues</h3>
+            <h3>Krijimi i Perdoruesit</h3>
         </div>     
     <div class="col-sm-6">
         <form id="user_form" method="POST" action = "user_insert.php" onsubmit="return validateUserForm()" >

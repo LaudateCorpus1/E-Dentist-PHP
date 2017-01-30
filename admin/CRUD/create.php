@@ -24,7 +24,7 @@ if(!isset($_SESSION['logged_in']))
 </style>
 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Krijo Termin</h3>
+                        <h3>Krijimi i Terminit</h3>
                     </div>
              
     <div class="col-sm-6">
@@ -81,7 +81,7 @@ if(!isset($_SESSION['logged_in']))
       
       
           <ul class="list-group">
-  <li class="list-group-item"> <p>Username duhet zgjedhur nga lista e personave te cilet egzistojne ne databazen. Nese personi nuk gjendet ai duhet te shtohet </p></li>
+  <li class="list-group-item"> <p>Pacienti duhet zgjedhur nga lista e personave te cilet egzistojne ne databazen. Nese personi nuk gjendet ai duhet te shtohet </p></li>
   <li class="list-group-item"> <p>Per shkak se orari jone i punes eshte nga Ora 08:00-18:00 mund te caktohen vetem 10 termine qe zgjasin nga nje ore.</p> </li>
   <li class="list-group-item"> <p>Zgjedhja e dates eshte e limituar pasi qe te mos kete termine te panevojshme ne muajt e ardhshem. Po ashtu nuk mund te zgjidhet data e sotshme.</p></li>  
 </ul>

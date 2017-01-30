@@ -56,7 +56,7 @@
 <div class ="container" id="content" align="center">
     <div class="span10 offset1">
                     <div class="row">
-                        <h3>Shto Imazh</h3>
+                        <h3>Shtimi i Imazhit</h3>
                     </div>
      <div class="col-sm-6">
          <form id="image_form"action="image_upload.php" method="post" enctype="multipart/form-data" onsubmit="return validateImageForm();">
@@ -65,7 +65,7 @@
     <input type="file"  class="form-control"name="fileToUpload" id="fileToUpload">
      <span id="file_validation" class="error"></span>
              </div>
-               <button type="submit" value="Submit" form ="image_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Krijo</button>
+               <button type="submit" value="Submit" form ="image_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Shto</button>
      <button type="reset" value="Cancel" form ="image_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
     <a class="btn btn-default" href="../?admin=imazhet"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>  
 </form>
@@ -75,9 +75,8 @@
       
       
           <ul class="list-group">
-  <li class="list-group-item"> <p>Username duhet zgjedhur nga lista e personave te cilet egzistojne ne databazen. Nese personi nuk gjendet ai duhet te shtohet </p></li>
-  <li class="list-group-item"> <p>Per shkak se orari jone i punes eshte nga Ora 08:00-18:00 mund te caktohen vetem 10 termine qe zgjasin nga nje ore.</p> </li>
-  <li class="list-group-item"> <p>Zgjedhja e dates eshte e limituar pasi qe te mos kete termine te panevojshme ne muajt e ardhshem. Po ashtu nuk mund te zgjidhet data e sotshme.</p></li>  
+  <li class="list-group-item"> <p>Zgjidhni imazhin qe doni te shtoni. Imazhi nuk duhet te jete me i madhe se 5MB. Duhet te jete i formatit JPG, PNG, JPEG, ose GIF.</p></li>
+  
 </ul>
        
                 </div>

@@ -135,7 +135,7 @@ $selektimi = "SELECT * FROM user WHERE user_id='".$id."'";
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Leximi i te dhenave</h3>
+                        <h3>Leximi i Perdoruesit</h3>
                        
                     </div>
                          <table class="table table-striped table-bordered">

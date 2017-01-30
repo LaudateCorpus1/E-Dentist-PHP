@@ -77,7 +77,7 @@ if(!isset($_SESSION['logged_in']))
     <div class ="container" id="content" align="center">
 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Krijo Diagnoze</h3>
+                        <h3>Krijimi i Diagnozes</h3>
                     </div>
              
     <div class="col-sm-6">

@@ -104,7 +104,7 @@ $Timazhi = null;
                
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Fshirja e te dhenave</h3>
+                        <h3>Fshirja e Keshilles</h3>
                        
                     </div>
                          <table class="table table-striped table-bordered">

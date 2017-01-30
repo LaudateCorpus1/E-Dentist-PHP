@@ -108,7 +108,7 @@ $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.i
     <div class ="container" id="content" align="center">
 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Ndrysho Diagnozen</h3>
+                        <h3>Ndryshimi i Diagnozes</h3>
                     </div>
              
     <div class="col-sm-6">
