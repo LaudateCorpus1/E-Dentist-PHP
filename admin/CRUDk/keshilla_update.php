@@ -20,11 +20,12 @@ if(!isset($_SESSION['logged_in']))
 		
 		$titulli = $_POST['titulli'];
                 $permbajtja = $_POST['permbajtja'];
+                $imazhi = $_POST['foto'];
                 $id = $_POST['keshilla_id'];
                
                 
              
-             $sql_insert = "UPDATE `keshillat` SET `titulli` = '".$titulli."', `permbajtja` = '".$permbajtja."' WHERE `keshillat`.`keshillat_id` = ".$id."" ;
+             $sql_insert = "UPDATE `keshillat` SET `titulli` = '".$titulli."', `permbajtja` = '".$permbajtja."', `imazhi` = '".$imazhi."' WHERE `keshillat`.`keshillat_id` = ".$id."" ;
 		
 		$query=mysql_query($sql_insert);
 		

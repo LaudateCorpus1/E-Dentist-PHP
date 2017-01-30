@@ -17,7 +17,7 @@ if(!isset($_SESSION['logged_in']))
  }
      
  else{ 
-		$diagnoza = $_POST['diagnose'];
+		$verejtje = $_POST['verejtje'];
                 $termini_id = $_POST['termin_id'];
                 
         $selektimi ="SELECT * FROM vizita WHERE  termin_id ='".$termini_id."'";
@@ -30,8 +30,8 @@ if(!isset($_SESSION['logged_in']))
         }
         else{
            
-          $sql_insert = "INSERT INTO vizita (diagnose, termin_id)
-				VALUE ('$diagnoza','$termini_id') ";
+          $sql_insert = "INSERT INTO vizita (verejtje, termin_id)
+				VALUE ('$verejtje','$termini_id') ";
 		
 		$query=mysql_query($sql_insert);
 		

@@ -45,7 +45,7 @@ if(!isset($_SESSION['logged_in']))
                       <th>Emri</th>
                       <th>Mbiemri</th>
                       <th>E-Mail</th>
-                      <th>Diagnoza</th>
+                      <th>Verejtje</th>
                       <th>Termini</th>
                       <th>Menaxhimi</th>
                     </tr>
@@ -53,19 +53,19 @@ if(!isset($_SESSION['logged_in']))
                   <tbody>
                     
                   <?php
-                  $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.diagnose FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id";
+                  $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.verejtje FROM vizita AS v INNER JOIN termini as t ON t.id_termini=v.termin_id INNER JOIN user AS u ON t.id_users=u.user_id ";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $id_termini, $vizita_id, $diagnoza )=$row;
+			list( $name, $surname,  $email, $id_termini, $vizita_id, $verejtje )=$row;
 			echo '  <tr>'; 
 			echo '<td>'.$name.'</td>'; 
 			echo '<td>'.$surname.'</td>'; 
 		       echo '<td>'.$email.'</td>'; 
 			
-			echo '<td>'.$diagnoza.'</td>'; 
+			echo '<td>'.$verejtje.'</td>'; 
                         echo '<td><a class="btn btn-default" href="CRUD/read.php?id='.$id_termini.'" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Termini</a></td>'; 
                         echo '<td><a class="btn btn-default" href="CRUDv/read.php?id='.$vizita_id.'" ><span class="glyphicon glyphicon-th-list">&thinsp;</span>Lexo</a>';
                         echo ' ';

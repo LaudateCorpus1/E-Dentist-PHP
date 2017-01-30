@@ -16,7 +16,7 @@ if(!isset($_SESSION['logged_in']))
  $Tname = null;
  $Tsurname = null;
  $Temail = null;
- $Tverejtje = null;
+ $Tdiagnoza = null;
  $Ttermini = null;
  $id= null;
     if ( !empty($_GET['id'])) {
@@ -29,17 +29,17 @@ if(!isset($_SESSION['logged_in']))
         
         header("refresh:0 url=../index.php");
     } else {
-$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.verejtje FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id  WHERE v.id_historiku='".$id."'";
+$selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza FROM vizita AS v INNER JOIN termini as t ON t.id_termini=v.termin_id INNER JOIN user AS u ON t.id_users=u.user_id INNER JOIN diagnoza as d ON d.vizita_id=v.id_historiku  WHERE d.id_diagnoza='".$id."'";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $id_termini, $vizita_id, $verejtje )=$row;
+			list( $name, $surname,  $email, $vizita_id, $diagnoza )=$row;
                         $Tname = $name;
                         $Tsurname = $surname;
-                        $Ttermini = $id_termini;
-                        $Tverejtje = $verejtje;
+                        $Tvizita = $vizita_id;
+                        $Tdiagnoza = $diagnoza;
                         $Temail = $email;
 			
                 }
@@ -151,13 +151,13 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v
            
             </tr>
             <tr>
-                <td>Veretje</td>
-                <td><?php echo $Tverejtje ?></td>
+                <td>Diagnoza</td>
+                <td><?php echo $Tdiagnoza ?></td>
            
             </tr>
             <tr>
-                <td>Termini</td>
-                <td><a class="btn btn-default" href="../CRUD/read.php?id=<?php echo $Ttermini; ?>" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Termini</a></td>
+                <td>Vizita</td>
+                <td><a class="btn btn-default" href="historiku_read.php?id=<?php echo $Tvizita; ?>" ><span class="glyphicon glyphicon-folder-close">&thinsp;</span>Vizita</a></td>
                
             </tr>
             

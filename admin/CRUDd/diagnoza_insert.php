@@ -16,15 +16,22 @@ if(!isset($_SESSION['logged_in']))
       header("refresh:0 url=../index.php");
  }
      
- else{
+ else{ 
+		$diagnoza = $_POST['diagnose'];
+                $vizita_id = $_POST['vizita_id'];
+                
+        $selektimi ="SELECT * FROM diagnoza WHERE  vizita_id ='".$vizita_id."'";
+	$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
+        if(mysql_num_rows($result) > 0){
 
-
-		$titulli = $_POST['titulli'];
-                $permbajtja = $_POST['permbajtja'];
-                $imazhi = $_POST['foto'];
-        
-          $sql_insert = "INSERT INTO keshillat (titulli, permbajtja, imazhi)
-				VALUE ('$titulli','$permbajtja','$imazhi') ";
+            $message = "Diagnoza per kete vizite egziston.";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        header("refresh:0;url=create.php");
+        }
+        else{
+           
+          $sql_insert = "INSERT INTO diagnoza (diagnoza, vizita_id)
+				VALUE ('$diagnoza','$vizita_id') ";
 		
 		$query=mysql_query($sql_insert);
 		
@@ -32,7 +39,7 @@ if(!isset($_SESSION['logged_in']))
 		{
 			$message = "Te dhenat u ruajten me sukses. Shtyp OK per tu kthyer";
                         echo "<script type='text/javascript'>alert('$message');</script>";
-                        header("refresh: 0; url=../?admin=keshillat");
+                        header("refresh: 0; url=../?admin=diagnoza");
                          
                         
 			
@@ -49,6 +56,7 @@ if(!isset($_SESSION['logged_in']))
         }         
              
 		
+   }
 
 
 	

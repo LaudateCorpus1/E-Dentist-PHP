@@ -52,27 +52,40 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
     </head>
     <body>
     <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
-        <div class = "container">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>		
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class ="nav navbar-nav">
-                    <li><a href="../index.php" id="logo"></a></li>
-                    <li><a href="../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
+     
+   <div class = "container">
+       <div class="navbar-header">
+           <a class="navbar-brand" href= "../index.php?faqe=home" id="logo"></a> 
+       </div>
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+			
+                       
+		   <div class="collapse navbar-collapse" id="navbar-collapse">
+                       
+		   <ul class ="nav navbar-nav">
+			
+                       <li><a href="../index.php" class="hvr-underline-from-left" id="links"                 
+                                 ><span      class="glyphicon glyphicon-home"></span></a></li>
                     <li><a href="?admin=terminet" class="hvr-underline-from-left"<?php if($_GET['admin']=== "terminet" || $_GET['admin'] === "create")
-echo' id="active";';else echo 'id="links"';?> >TERMINET</a></li>
+echo' id="active";';else echo 'id="links"';?> >TERMINI</a></li>
                      <li><a href="?admin=vizita" class="hvr-underline-from-left"<?php if($_GET['admin']=== "vizita")
-echo' id="active";';else echo 'id="links"';?>>VIZITA </a></li>
+echo' id="active";';else echo 'id="links"';?>>VIZITA</a></li>
+                      <li><a href="?admin=diagnoza" class="hvr-underline-from-left"<?php if($_GET['admin']=== "diagnoza")
+echo' id="active";';else echo 'id="links"';?>>DIAGNOZA</a></li>
                     <li><a href="?admin=userat" class="hvr-underline-from-left"<?php if($_GET['admin']=== "userat")
-echo' id="active";';else echo 'id="links"';?>>PERDORUESIT </a></li>
+echo' id="active";';else echo 'id="links"';?>>PERDORUESI</a></li>
                     <li><a href="?admin=keshillat" class="hvr-underline-from-left"<?php if($_GET['admin']=== "keshillat")
-echo' id="active";';else echo 'id="links"';?>>KESHILLAT </a></li>
+echo' id="active";';else echo 'id="links"';?>>KESHILLA </a></li>
                     <li><a href="?admin=sherbimet" class="hvr-underline-from-left"<?php if($_GET['admin']=== "sherbimet")
-echo' id="active";';else echo 'id="links"';?>>SHERBIMET </a></li>
+echo' id="active";';else echo 'id="links"';?>>SHERBIMI</a></li>
+                    
+                    
+                   
                  </ul>
              </div>
         </div>
@@ -82,6 +95,12 @@ echo' id="active";';else echo 'id="links"';?>>SHERBIMET </a></li>
         if(isset($_SESSION['logged_in'])){ 
             switch (@$_GET['admin'])
             {
+                case "imazhet":
+                    include('imageManager.php');
+                    break;
+                case "diagnoza":
+                    include('diagnoza.php');
+                    break;
                  case "sherbimet":
                     include('sherbimet.php');
                     break;

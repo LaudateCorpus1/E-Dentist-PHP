@@ -34,8 +34,11 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
     
    
 <div class = "navbar navbar-inverse navbar-fixed-top" id="header" >
+     
    <div class = "container">
-  
+       <div class="navbar-header">
+           <a class="navbar-brand" href= "?faqe=home" id="logo"></a> 
+       </div>
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -43,16 +46,17 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
         <span class="icon-bar"></span>
       </button>
 			
-              
+                       
 		   <div class="collapse navbar-collapse" id="navbar-collapse">
                        
 		   <ul class ="nav navbar-nav">
-			  <li><a href= "?faqe=home" id="logo"></a></li>
-                          <li><a href="?faqe=home" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "home")
+			
+                          <li><a href="?faqe=home" class="hvr-underline-from-left"  <?php if($_GET['faqe']=== "home")
                                  echo' id="active"';
                           else echo 'id="links"';?>
                      
-                              >KRYEFAQJA</a></li>
+                                 ><span      class="glyphicon glyphicon-home"></span></a></li>
+
 			<li><a href="?faqe=services" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "services")
 echo' id="active"';else echo 'id="links"';?>>SHERBIMET </a></li>
                         <li><a href="?faqe=keshillat" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "keshillat")
@@ -62,28 +66,29 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                         <?php
                             if(isset($_SESSION['logged_in']) && $_SESSION['mof'] == 1   )
                             {
-                                echo '<li><a href="admin/?admin=terminet" class="hvr-underline-from-left" id="links">MENAXHIMI</a></li>';
+                                echo '<li><a href="admin/?admin=terminet" class="hvr-underline-from-left" id="links">MENAXHIM</a></li>';
                             }
                              if(isset($_SESSION['logged_in']) && $_SESSION['mof'] == 0)
                              {
                                  ?> <li><a href="?faqe=terminet" class="hvr-underline-from-left" <?php if($_GET['faqe']=== "terminet" || $_GET['faqe'] === "create" || $_GET['faqe'] === "historiku") echo' id="active"';else echo 'id="links"';?>
                                
-                               >TERMINET</a></li>
+                               >TERMINI</a></li>
 <?php
                              }
                             ?>
                         
 		 </ul>
-                      <ul class="nav  pull-right" id="navbar-collapse" style="margin-top:5px;">
+                      <ul class="nav  navbar-nav navbar-right">
+                          
                            <li class="dropdown" id="menuLogin">
-                               <a class="dropdown-toggle hvr-bubble-bottom " href="#" data-toggle="dropdown" id="links">
+                               <a href="#" id="links"class="dropdown-toggle hvr-bubble-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                    
                       
                         <?php
                         if(isset($_SESSION['logged_in']) )
                         {
                             echo 'LLOGARIA</a>';
-                            echo '<div class="dropdown-menu " style="margin-left: -200px; padding:20px; width:300px;">';
+                            echo '<ul class="dropdown-menu "   style="background-color: #FFFFFF;padding:20px; width:300px;" >';
                             echo '<p>Miresevini</p>';
                             echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';
                             echo "<form  method=\"post\" action=\"logout.php\">";
@@ -101,7 +106,7 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                         else 
                         {
                             echo 'LOG IN</a>';
-                            echo '<div class="dropdown-menu" style="margin-left: -200px; padding:20px; width:300px;">';
+                            echo '<div class="dropdown-menu"   style=" padding:20px; width:300px;">';
                             include 'login.php';  
                         }
                         ?>
@@ -115,6 +120,9 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
 					<?php
 					switch (@$_GET['faqe'])
 					{  
+                                              case "diagnoza":
+                                            include ('diagnoza.php');
+                                            break;
                                             case "sygjerimi":
                                             include ('inc/sygjerimet.php');
                                             break;

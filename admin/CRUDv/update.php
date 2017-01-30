@@ -20,7 +20,7 @@ if(!isset($_SESSION['logged_in']))
 $Tname = null;
  $Tsurname = null;
  $Temail = null;
- $Tdiagnoza = null;
+ $Tverejtje = null;
  $Ttermini = null;
  $id= null;
     if ( !empty($_GET['id'])) {
@@ -33,17 +33,17 @@ $Tname = null;
         
         header("refresh:0 url=../index.php");
     } else {
-$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.diagnose FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
+$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.verejtje FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $id_termini,$vizita_id,  $diagnoza )=$row;
+			list( $name, $surname,  $email, $id_termini,$vizita_id,  $verejtje )=$row;
                         $Tname = $name;
                         $Tsurname = $surname;
                         $Ttermini = $id_termini;
-                        $Tdiagnoza = $diagnoza;
+                        $Tverejtje = $verejtje;
                         $Temail = $email;
 			
                 }
@@ -123,9 +123,9 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v
        <span id="termini_validation" class="error"></span>
       </div>
       <div class="form-group">
-      <label class="required"  for="date">Diagnoza:</label>
-      <textarea  id="diagnose" name="diagnose"  class="form-control"><?php echo $Tdiagnoza; ?></textarea>
-       <span id="diagnose_validation" class="error"></span>
+      <label class="required"  for="date">Veretje:</label>
+      <textarea  id="verejtje" name="verejtje"  class="form-control"><?php echo $Tverejtje; ?></textarea>
+       <span id="verejtje_validation" class="error"></span>
      
      
     </div>
@@ -140,7 +140,7 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v
       
           <ul class="list-group">
   <li class="list-group-item"> <p>Zgjedheni terminin te cilit doni qe te i shtoni viziten nese pacienti ka ardhur ne terminin te cilin ai e ka caktuar. </p></li>
-  <li class="list-group-item"> <p>Shkruani diagnozen te cilen e ka pasur pacienti pasi e ka perfunduar viziten e tij.</p> </li> 
+  <li class="list-group-item"> <p>Shkruani ndonje verejtje te cilen e ka pasur  pacienti pasi e ka perfunduar viziten e tij.</p> </li> 
 </ul>
        
                 </div>

@@ -21,10 +21,15 @@ if(!isset($_SESSION['logged_in']))
                 <h3 >Sherbimet</h3>
                 <a href="CRUDsh/create.php" class="btn btn-success "><span class="glyphicon glyphicon-plus">&thinsp;</span>Krijo</a>
                  <span><br></span>
+                 
+       <div class="row">
+    <div class="col-sm-2">
+        <a class="btn btn-default" href="?admin=imazhet" > <span class="glyphicon glyphicon-folder-open">&thinsp;</span> Menaxho Imazhet</a>
+                            </div>
+           
+    </div>  
                   <span><br></span>
       
-      
-            </div>
     <div class="table-responsive">
                 <table class="table table-bordered">
                   <thead>

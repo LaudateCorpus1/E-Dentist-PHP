@@ -83,6 +83,29 @@ if(!isset($_SESSION['logged_in']))
           <input class="form-control" id="titulli" name="titulli">
        <span id="titulli_validation" class="error"></span>
       </div>
+          <div class="form-group">
+           <label class="required">Foto:</label>
+      <?php
+    $directory = "../../images/";
+
+//get all text files with a .txt extension.
+$texts = glob($directory . "*");
+
+//print each file name
+ echo "<select value='' class='form-control' id='foto' name='foto'><option>Foto</option>";
+foreach($texts as $text)
+{
+    $name = ( explode("/", $text));
+    $path = substr($text, 6);
+echo "<option value=".$path ."> ".$name[3]." </option>"; 
+    }
+         echo "</select>";
+    ?>
+       <span id="foto_validation" class="error"></span>
+     
+     
+    </div>
+            
         
       <div class="form-group">
       <label class="required"  for="date">Permbajtja:</label>

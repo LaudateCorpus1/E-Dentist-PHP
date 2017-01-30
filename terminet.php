@@ -21,8 +21,10 @@ if(!isset($_SESSION['logged_in']))
                 <a href="?faqe=create" class="btn btn-success "><span class="glyphicon glyphicon-plus">&thinsp;</span>Krijo</a>
             </div>
      <div class="row">
-          <div class="col-sm-2">
-              <a class="btn btn-default" href="?faqe=historiku" ><span class="glyphicon glyphicon-folder-close">&thinsp;</span>Vizitat</a>
+          <div class="col-sm-3">
+              <a class="btn btn-default"  href="?faqe=historiku" ><span class="glyphicon glyphicon-folder-close">&thinsp;</span>Vizitat</a>  
+              <a class="btn btn-default" href="?faqe=diagnoza" ><span class="glyphicon glyphicon-folder-close">&thinsp;</span>Diagnoza</a>
+           
                             </div>
                    <div class="col-sm-3 col-md-3 pull-right ">
                        

@@ -1,4 +1,73 @@
+function validateImageForm()
+{
+     var valid = 1;
+        var fileToUpload = document.getElementById('fileToUpload');
+	var file_validation = document.getElementById("file_validation");
+       
 
+        
+	
+	if(fileToUpload.value.length < 3)
+	{
+		valid   =0;
+		file_validation.innerHTML="Zgjedheni Imazhin";
+		file_validation.style.display = "block"; 
+                fileToUpload.className="form-control-error";
+		
+	}
+	else
+	{
+		file_validation.style.display = "none";
+		file_validation.parentNode.style.backgroundColor = "transparent";
+                fileToUpload.className="form-control-good";
+	}
+        
+	if(valid === 0)
+                return false;
+}
+function validateDiagnozaForm()
+{
+    var valid = 1;
+        var vizita_id = document.getElementById('vizita_id');
+	var vizita_validation = document.getElementById("vizita_validation");
+        var diagnose = document.getElementById("diagnose");
+        var diagnose_validation = document.getElementById("diagnose_validation");
+
+        
+	
+	if(vizita_id.value === "Vizita")
+	{
+		valid =0;
+		vizita_validation.innerHTML="Zgjedheni Viziten";
+		vizita_validation.style.display = "block"; 
+                vizita_id.className="form-control-error";
+		
+	}
+	else
+	{
+		vizita_validation.style.display = "none";
+		vizita_validation.parentNode.style.backgroundColor = "transparent";
+                vizita_id.className="form-control-good";
+	}
+        
+        if(diagnose.value.length < 10 )
+	{
+		valid =0;
+		diagnose_validation.innerHTML="Duhet te shkrunani diagnoze me te gjate";
+		diagnose_validation.style.display = "block"; 
+                diagnose.className="form-control-error";
+	}
+	else
+	{
+		diagnose_validation.style.display = "none";
+		diagnose_validation.parentNode.style.backgroundColor = "transparent";
+                diagnose.className="form-control-good";
+	}
+        
+	
+	if(valid === 0)
+                return false;
+}
 function validateSygjerimForm()
 {
         var valid = 1;
@@ -32,6 +101,9 @@ function validateSherbimiForm()
 	var pershkrimi_validation = document.getElementById("pershkrimi_validation");
         var qmimi = document.getElementById("qmimi");
         var qmimi_validation = document.getElementById("qmimi_validation");
+        var foto = document.getElementById("foto");
+        var foto_validation = document.getElementById("foto_validation");
+        
         var filter= /^[-0-9 ]*$/;
 
         
@@ -64,6 +136,20 @@ function validateSherbimiForm()
 		qmimi_validation.parentNode.style.backgroundColor = "transparent";
                 qmimi.className="form-control-good";
 	}
+        if(foto.value === "Foto")
+	{
+		valid =0;
+		foto_validation.innerHTML="Zgjedheni Foton";
+               foto.className = "form-control-error";
+               
+		
+	}
+	else
+	{
+		foto_validation.style.display = "none";
+		foto_validation.parentNode.style.backgroundColor = "transparent";
+                foto.className = "form-control-good";
+	}
         
 	
 	if(valid === 0)
@@ -77,6 +163,8 @@ function validateKeshillaForm()
 	var titulli_validation = document.getElementById("titulli_validation");
         var permbajtja = document.getElementById("permbajtja");
         var permbajtja_validation = document.getElementById("permbajtja_validation");
+        var foto = document.getElementById('foto');
+	var foto_validation = document.getElementById("foto_validation");
 
         
 	
@@ -108,7 +196,20 @@ function validateKeshillaForm()
                 permbajtja.className="form-control-good";
 	}
         
-	
+	if(foto.value === "Foto")
+	{
+		valid =0;
+		foto_validation.innerHTML="Zgjedheni Foton";
+               foto.className = "form-control-error";
+               
+		
+	}
+	else
+	{
+		foto_validation.style.display = "none";
+		foto_validation.parentNode.style.backgroundColor = "transparent";
+                foto.className = "form-control-good";
+	}
 	if(valid === 0)
             
 		return false;
@@ -118,8 +219,8 @@ function validateVizitaForm()
     var valid = 1;
         var termin_id = document.getElementById('termin_id');
 	var termini_validation = document.getElementById("termini_validation");
-        var diagnose = document.getElementById("diagnose");
-        var diagnose_validation = document.getElementById("diagnose_validation");
+        var verejtje = document.getElementById("verejtje");
+        var verejtje_validation = document.getElementById("verejtje_validation");
 
         
 	
@@ -138,18 +239,18 @@ function validateVizitaForm()
                 termin_id.className="form-control-good";
 	}
         
-        if(diagnose.value.length < 10 )
+        if(verejtje.value.length < 10 )
 	{
 		valid =0;
-		diagnose_validation.innerHTML="Duhet te shkrunani diagnoze me te gjate";
-		diagnose_validation.style.display = "block"; 
-                diagnose.className="form-control-error";
+		verejtje_validation.innerHTML="Duhet te shkrunani diagnoze me te gjate";
+		verejtje_validation.style.display = "block"; 
+                verejtje.className="form-control-error";
 	}
 	else
 	{
-		diagnose_validation.style.display = "none";
-		diagnose_validation.parentNode.style.backgroundColor = "transparent";
-                diagnose.className="form-control-good";
+		verejtje_validation.style.display = "none";
+		verejtje_validation.parentNode.style.backgroundColor = "transparent";
+                verejtje.className="form-control-good";
 	}
         
 	

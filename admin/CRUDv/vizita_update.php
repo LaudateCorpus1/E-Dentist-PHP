@@ -18,7 +18,7 @@ if(!isset($_SESSION['logged_in']))
  }
      
  else{ 
-		$diagnoza = $_POST['diagnose'];
+		$verejtje = $_POST['verejtje'];
                 $termini_id = $_POST['termin_id'];
                 $id =null;
                 
@@ -37,7 +37,7 @@ if(!isset($_SESSION['logged_in']))
             list($user_id)=$row;
             $id = $user_id;        
             }
-             $sql_insert = "UPDATE vizita SET diagnose = '".$diagnoza."' WHERE `vizita`.`id_historiku` = ".$id."" ;
+             $sql_insert = "UPDATE vizita SET verejtje = '".$verejtje."' WHERE `vizita`.`id_historiku` = ".$id."" ;
 		
 		$query=mysql_query($sql_insert);
 		

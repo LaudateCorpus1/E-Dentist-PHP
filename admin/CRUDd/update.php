@@ -1,6 +1,6 @@
-<?php
-include('../../inc/db_con.php');
-  if (session_status() == PHP_SESSION_NONE) {
+<?php 
+         include('../../inc/db_con.php');
+         if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if(!isset($_SESSION['logged_in']))
@@ -17,13 +17,11 @@ if(!isset($_SESSION['logged_in']))
  }
      
  else{ 
-
-         
- $Tname = null;
+$Tname = null;
  $Tsurname = null;
  $Temail = null;
- $Tverejtje = null;
- $Ttermini = null;
+ $Tdiagnoza = null;
+ $Tvizita = null;
  $id= null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
@@ -35,22 +33,26 @@ if(!isset($_SESSION['logged_in']))
         
         header("refresh:0 url=../index.php");
     } else {
-$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.verejtje FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
+$selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza, d.id_diagnoza FROM vizita AS v INNER JOIN termini as t ON t.id_termini=v.termin_id INNER JOIN user AS u ON t.id_users=u.user_id INNER JOIN diagnoza as d ON d.vizita_id=v.id_historiku   WHERE d.id_diagnoza='".$id."'";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $termini_id,$vizita_id,  $verejtje )=$row;
+			list( $name, $surname,  $email,  $vizita_id, $diagnose )=$row;
                         $Tname = $name;
                         $Tsurname = $surname;
-                        $Ttermini = $termini_id;
-                        $Tverejtje = $verejtje;
+                        $Tvizita = $vizita_id;
+                        $Tdiagnoza = $diagnose;
                         $Temail = $email;
 			
                 }
     }
 ?>
+<style>
+
+    label{float:left;} 
+</style>
 <!DOCTYPE html>
 <html>
     <head>
@@ -96,60 +98,53 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v
         </div>
     </div>
     <div class ="container" id="content" align="center">
-               
-                <div class="span10 offset1">
+<div class="span10 offset1">
                     <div class="row">
-                        <h3>Leximi i te dhenave</h3>
-                       
+                        <h3>Ndrysho Diagnozen</h3>
                     </div>
-                         <table class="table table-striped table-bordered">
-         <thead>
              
-        </thead>
-        <tbody>
-            <tr>
-                <td>Emri</td>
-                <td><?php echo $Tname ?></td>
-              
-            </tr>
-            <tr>
-                <td>Mbiemri</td>
-                <td><?php echo $Tsurname ?></td>
-               
-            </tr>
-            <tr>
-                <td>E-mail</td>
-                <td><?php echo $Temail ?></td>
-           
-            </tr>
-            <tr>
-                <td>Verejtje</td>
-                <td><?php echo $Tverejtje ?></td>
-           
-            </tr>
-            <tr>
-                <td>Termini</td>
-                <td><a class="btn btn-default" href="../CRUD/read.php?id=<?php echo $Ttermini ?>" ><span class="glyphicon glyphicon-calendar">&thinsp;</span>Termini</a></td>
-               
-            </tr>
-            
-           
-        </tbody>
-    </table>   
-                    <form class="form-horizontal" action="vizita_delete.php" method="post">
-                      <input type="hidden" name="id" value="<?php echo $id;?>"/>
-                        <div class="panel panel-danger">
-      <div class="panel-heading">A jeni i sigurt qe deshiron te shlyeni viziten ?</div>
-      <div class="panel-body">
-                      <div class="form-actions">
-                          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-ok">&thinsp;</span>Po</button>
-                          <a class="btn btn-default" href="../?admin=vizita"><span class="glyphicon glyphicon-remove    ">&thinsp;</span>Jo</a>
-                        </div>
-                      </div>
-                    </form>
+    <div class="col-sm-6">
+        
+    <form id="diagnoza_form" method="POST" action = "diagnoza_update.php" onsubmit="return validateDiagnozaForm();" >
+
+      <div class="form-group">
+           <label class="required">Termini:</label>
+      <?php
+
+    $query = "SELECT id_termini, date, time, name, surname, username, id_historiku FROM `termini` AS t INNER JOIN user AS u ON t.id_users=u.user_id INNER JOIN vizita AS v ON v.termin_id=t.id_termini WHERE v.id_historiku='".$Tvizita."'  ";
+    $result = mysql_query ($query);
+    echo "<select value='' class='form-control' id='vizita_id' name='vizita_id'>";
+    while($r = mysql_fetch_array($result)) {
+        
+    echo "<option value=". $r['id_historiku']."> ".$r['date']."  |  ".$r['time']."  |  ".$r['name']."  |  ".$r['surname']." (".$r['username'].")</option>"; 
+    }
+        echo "</select>";
+    ?>
+       <span id="vizita_validation" class="error"></span>
+      </div>
+      <div class="form-group">
+      <label class="required"  for="date">Diagnoza:</label>
+      <textarea  id="diagnose" name="diagnose"  class="form-control"><?php echo $Tdiagnoza; ?></textarea>
+       <span id="diagnose_validation" class="error"></span>
+     
+     
+    </div>
+    <button type="submit" value="Submit" form ="diagnoza_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Ndrysho</button>
+     <button type="reset" value="Reset" form ="diagnoza_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
+    <a class="btn btn-default" href="../?admin=diagnoza"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
+  </form>
                 </div>
-                 
-</div> <!-- /container -->
- 
-  </body>
- <?php }
+ <div class="col-sm-6">
+      <span><br></span>
+      
+      
+          <ul class="list-group">
+  <li class="list-group-item"> <p>Zgjedheni viziten te cilit doni qe te i shtoni diagnozen nese pacienti ka ardhur ne terminin te cilin ai e ka caktuar. </p></li>
+  <li class="list-group-item"> <p>Shkruani diagnozen te cilen e ka pasur pacienti pasi e ka perfunduar viziten e tij.</p> </li> 
+</ul>
+       
+                </div>
+                </div>
+    </div>
+    </body>
+ <?php } 

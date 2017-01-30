@@ -22,7 +22,7 @@ if(!isset($_SESSION['logged_in']))
  $Tname = null;
  $Tsurname = null;
  $Temail = null;
- $Tdiagnoza = null;
+ $Tverejtje = null;
  $Ttermini = null;
  $id= null;
     if ( !empty($_GET['id'])) {
@@ -35,17 +35,17 @@ if(!isset($_SESSION['logged_in']))
         
         header("refresh:0 url=../index.php");
     } else {
-$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.diagnose FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
+$selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v.verejtje FROM user AS u INNER JOIN termini as t INNER JOIN vizita AS v ON t.id_users=u.user_id AND t.id_termini=v.termin_id WHERE v.id_historiku='".$id."'";
 		$result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
                    
                        while($row = mysql_fetch_array($result))
 		{
 			
-			list( $name, $surname,  $email, $id_termini,  $vizita_id, $diagnoza )=$row;
+			list( $name, $surname,  $email, $id_termini,  $vizita_id, $verejtje )=$row;
                         $Tname = $name;
                         $Tsurname = $surname;
                         $Ttermini = $id_termini;
-                        $Tdiagnoza = $diagnoza;
+                        $Tverejtje = $verejtje;
                         $Temail = $email;
 			
                 }
@@ -123,8 +123,8 @@ $selektimi = "SELECT u.name, u.surname, u.email, t.id_termini, v.id_historiku, v
            
             </tr>
             <tr>
-                <td>Diagnoza</td>
-                <td><?php echo $Tdiagnoza ?></td>
+                <td>Verejtje</td>
+                <td><?php echo $Tverejtje ?></td>
            
             </tr>
             <tr>

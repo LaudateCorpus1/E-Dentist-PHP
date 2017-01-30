@@ -66,7 +66,7 @@
             <h3>SHERBIME TONA</h3>
             <p>Ordinanca jone ofron sherbime profesionale nga mjek te specializuar ne kete lami.</p>
             
-            <a href="?faqe=services" class="btn btn-warning hvr-pulse"><b>SHIKO ME SHUME</b></a>
+            <a href="?faqe=services" class=" hvr-pulse"><b>SHIKO ME SHUME</b></a>
         </div>
          <div class ="col-sm-4">
              <h3>NA KONTAKTONI</h3>

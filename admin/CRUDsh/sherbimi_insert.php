@@ -21,7 +21,7 @@ if(!isset($_SESSION['logged_in']))
 
 		$pershkrimi = $_POST['pershkrimi'];
                 $qmimi = $_POST['qmimi'];
-                $imazhi = "images/nopic.png";
+                $imazhi = $_POST['foto'];
         
           $sql_insert = "INSERT INTO `services` ( `photo`, `description`, `price`) 
 				VALUE ('$imazhi','$pershkrimi','$qmimi') ";

@@ -16,23 +16,21 @@ if(!isset($_SESSION['logged_in']))
       header("refresh:0 url=../index.php");
  }
      
- else{
-
-
-		$titulli = $_POST['titulli'];
-                $permbajtja = $_POST['permbajtja'];
-                $imazhi = $_POST['foto'];
+ else{ 
+        $path = $_POST['path'];
         
-          $sql_insert = "INSERT INTO keshillat (titulli, permbajtja, imazhi)
-				VALUE ('$titulli','$permbajtja','$imazhi') ";
-		
-		$query=mysql_query($sql_insert);
-		
-		if($query)
-		{
-			$message = "Te dhenat u ruajten me sukses. Shtyp OK per tu kthyer";
+        if(!file_exists($path))
+        {
+            $message = "Imazhi nuk egziston";
                         echo "<script type='text/javascript'>alert('$message');</script>";
-                        header("refresh: 0; url=../?admin=keshillat");
+                        header("refresh: 0; url=../?admin=imazhet");
+        }
+        else{
+     if(unlink($path))
+		{
+			$message = "Te dhenat u shlyen me sukses. Shtyp OK per tu kthyer";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        header("refresh: 0; url=../?admin=imazhet");
                          
                         
 			
@@ -41,14 +39,9 @@ if(!isset($_SESSION['logged_in']))
 		}
 		else{
 			
-		$message = "Te dhenat nuk u ruajten me sukses. Vertetoni nese personi ekziston";
+		$message = "Te dhenat nuk u shlyen me sukses. Vertetoni nese imazhi ekziston";
                         echo "<script type='text/javascript'>alert('$message');</script>" or die ('invalid query:'. mysql_error());
-			header( "refresh: 0; url=create.php" );
+			header( "refresh: 0; url=../?admin=imazhet" );
 		}
- 
-        }         
-             
-		
-
-
-	
+        }
+ }

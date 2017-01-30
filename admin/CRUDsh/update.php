@@ -116,6 +116,27 @@ $Timazhi = null;
        <input class="form-control" id="qmimi" name="qmimi" value="<?php echo $Tqmimi ?>">
        <span id="qmimi_validation" class="error"></span>
     </div>
+              <div class="form-group">
+           <label class="required">Foto:</label>
+      <?php
+    $directory = "../../images/";
+
+//get all text files with a .txt extension.
+$texts = glob($directory . "*");
+//print each file name
+ echo "<select value='' class='form-control' id='foto' name='foto'><option value=".$Timazhi.">".$Timazhi."</option>";
+foreach($texts as $text)
+{
+    $name = ( explode("/", $text));
+    $path = substr($text, 6);
+echo "<option value=".$path ."> ".$name[3]." </option>"; 
+    }
+         echo "</select>";
+    ?>
+       <span id="foto_validation" class="error"></span>
+     
+     
+    </div>
       <input type="hidden" value="<?php echo $id?>" name="sherbimi_id" />
     <button type="submit" value="Submit" form ="sherbimet_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Ndrysho</button>
      <button type="reset" value="Reset" form ="sherbimet_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>

@@ -58,7 +58,8 @@ if(!isset($_SESSION['logged_in']))
                     <li><a href="../index.php" id="logo"></a></li>
                     <li><a href="../index.php" class="hvr-underline-from-left" id="links">KRYEFAQJA</a></li>
                     <li><a href="../?admin=terminet" class="hvr-underline-from-left"id="links"> TERMINET</a></li>
-                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">VIZITA </a></li>
+                     <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="links">VIZITA </a></li>
+                       <li><a href="../?admin=vizita" class="hvr-underline-from-left"id="active">DIAGNOZA </a></li>
                     <li><a href="../?admin=userat" class="hvr-underline-from-left"id="links">PERDORUESIT </a></li>
                     <li><a href="../?admin=keshillat" class="hvr-underline-from-left"id="links">KESHILLAT </a></li>
                     <li><a href="../?admin=sherbimet" class="hvr-underline-from-left" id="links">SHERBIMET</a></li>
@@ -69,38 +70,38 @@ if(!isset($_SESSION['logged_in']))
     <div class ="container" id="content" align="center">
 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Krijo Vizita</h3>
+                        <h3>Krijo Diagnoze</h3>
                     </div>
              
     <div class="col-sm-6">
         
-    <form id="vizita_form" method="POST" action = "vizita_insert.php" onsubmit="return validateVizitaForm();" >
+        <form id="diagnoza_form" method="POST" action = "diagnoza_insert.php" onsubmit="return validateDiagnozaForm();" >
 
       <div class="form-group">
-           <label class="required">Termini:</label>
+           <label class="required">Vizita:</label>
       <?php
-
-    $query = "SELECT id_termini, date, time, name, surname, username FROM `termini` AS t INNER JOIN user AS u ON t.id_users=u.user_id ORDER BY `t`.`date` ASC, t.time ASC  ";
+      
+    $query = "SELECT id_termini, date, time, name, surname, username, id_historiku FROM `termini` AS t INNER JOIN user AS u ON t.id_users=u.user_id INNER JOIN vizita AS v ON v.termin_id=t.id_termini ORDER BY `t`.`date` ASC, t.time ASC  ";
     $result = mysql_query ($query);
-    echo "<select value='' class='form-control' id='termin_id' name='termin_id'><option>Termini</option>";
+    echo "<select value='' class='form-control' id='vizita_id' name='vizita_id'><option>Vizita</option>";
     while($r = mysql_fetch_array($result)) {
         
-    echo "<option value=". $r['id_termini']."> ".$r['date']."  |  ".$r['time']."  |  ".$r['name']."  |  ".$r['surname']." (".$r['username'].")</option>"; 
+    echo "<option value=". $r['id_historiku']."> ".$r['date']."  |  ".$r['time']."  |  ".$r['name']."  |  ".$r['surname']." (".$r['username'].")</option>"; 
     }
         echo "</select>";
     ?>
-       <span id="termini_validation" class="error"></span>
+       <span id="vizita_validation" class="error"></span>
       </div>
       <div class="form-group">
-      <label class="required"  for="date">Verejtje:</label>
-      <textarea  id="verejtje" name="verejtje"  class="form-control"></textarea>
-       <span id="verejtje_validation" class="error"></span>
+      <label class="required"  for="date">Diagnoza:</label>
+      <textarea  id="diagnose" name="diagnose"  class="form-control"></textarea>
+       <span id="diagnose_validation" class="error"></span>
      
      
     </div>
-    <button type="submit" value="Submit" form ="vizita_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Krijo</button>
-     <button type="reset" value="Reset" form ="vizita_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
-    <a class="btn btn-default" href="../?admin=vizita"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
+    <button type="submit" value="Submit" form ="diagnoza_form"class="btn btn-success"><span class="glyphicon glyphicon-ok">&thinsp;</span>Krijo</button>
+     <button type="reset" value="Reset" form ="diagnoza_form" class="btn btn-warning" ><span class="glyphicon glyphicon-remove">&thinsp;</span>Fshije</button>
+    <a class="btn btn-default" href="../?admin=diagnoza"><span class="glyphicon glyphicon-chevron-left">&thinsp;</span>Kthehu</a>
   </form>
                 </div>
  <div class="col-sm-6">
@@ -108,8 +109,8 @@ if(!isset($_SESSION['logged_in']))
       
       
           <ul class="list-group">
-  <li class="list-group-item"> <p>Zgjedheni terminin te cilit doni qe te i shtoni viziten nese pacienti ka ardhur ne terminin te cilin ai e ka caktuar. </p></li>
-  <li class="list-group-item"> <p>Shkruani ndonje verejtje te cilen e ka pasur pacienti pasi e ka perfunduar viziten e tij.</p> </li> 
+  <li class="list-group-item"> <p>Zgjedheni viziten te cilit doni qe te i shtoni diagnozen nese pacienti ka ardhur ne terminin te cilin ai e ka caktuar. </p></li>
+  <li class="list-group-item"> <p>Shkruani diagnozen te cilen e ka pasur pacienti pasi e ka perfunduar viziten e tij.</p> </li> 
 </ul>
        
                 </div>
