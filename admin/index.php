@@ -95,6 +95,7 @@ echo' id="active";';else echo 'id="links"';?>>SHERBIMI</a></li>
         if(isset($_SESSION['logged_in'])){ 
             switch (@$_GET['admin'])
             {
+                 
                 case "imazhet":
                     include('imageManager.php');
                     break;

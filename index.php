@@ -85,23 +85,40 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
                                    
                       
                         <?php
+                        $nr = 0;
                         if(isset($_SESSION['logged_in']) )
-                        {
+                        {   
+                           $selektimi = "SELECT count(*) FROM message WHERE reciever='".$_SESSION['username']."' AND open=0 ";
+                            $result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
+                   
+                                while($row = mysql_fetch_array($result))
+                                {
+			
+                                list( $id )=$row;
+                                $nr=$id;
+                                }
                             echo 'LLOGARIA</a>';
                             echo '<ul class="dropdown-menu "   style="background-color: #FFFFFF;padding:20px; width:300px;" >';
                             echo '<p>Miresevini</p>';
                             echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';
                             echo "<form  method=\"post\" action=\"logout.php\">";
+                            echo '<div class="btn-group" role="group" aria-label="...">';
                             if($_SESSION['mof'] == 0)
                             {
-                                echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=menaxho\">Menaxho</a>";
-                                echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=sygjerimi\">Sygjerimet</a>";
+                                echo "<a class=\"btn btn-default \" href=\"?faqe=menaxho\">Menaxho</a>";
+                                echo "<a  class=\"btn btn-default \" href=\"?faqe=sygjerimi\">Sygjerimet</a>";
+                                 echo "<a  class=\"btn btn-default   \" href=\"?faqe=message\">Mesazhi  <span class=\"badge\">".$nr."</span></a>";
                             }
                             else
                             {
-                                echo "<a class=\"btn btn-default pull-right\" href=\"?faqe=mesatarja\">Vlersimi Mesatar</a>";  
+                                
+                                
+                                echo "<a class=\"btn btn-default\" href=\"?faqe=mesatarja\">Vlersimi</a>"; 
+                                 echo "<a class=\"btn btn-default \" href=\"?faqe=adminmessage\">Mesazhi <span class=\"badge\">".$nr."</span></a>";
+                                  echo "<a  class=\"btn btn-default \" href=\"?faqe=sygjerimiadm\">Sygjerimet</a>";
                             }
-                            echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";  
+                                echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";  
+                            echo"</div>";
                         }
                         else 
                         {
@@ -120,6 +137,15 @@ echo' id="active"';else echo 'id="links"';?>>KONTAKTI</a></li>
 					<?php
 					switch (@$_GET['faqe'])
 					{  
+                                            case "sygjerimiadm":
+                                            include('inc/adm_sygjerimet.php');
+                                            break;
+                                            case "adminmessage":
+                                            include('admin/message.php');
+                                            break;
+                                          case "message":
+                                            include('inc/message.php');
+                                            break;
                                               case "diagnoza":
                                             include ('diagnoza.php');
                                             break;

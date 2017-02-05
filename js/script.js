@@ -1,3 +1,46 @@
+function validateMessageForm()
+{
+        var valid = 1;
+        var username = document.getElementById('username');
+	var username_validation = document.getElementById("username_validation");
+        var message = document.getElementById('message');
+	var message_validation = document.getElementById("message_validation");
+       
+
+        
+	
+	if(username.value === "Dentisti" || username.value === "Pacienti"  )
+	{
+		valid   =0;
+		username_validation.innerHTML="Zgjedheni Personin";
+		username_validation.style.display = "block"; 
+                username.className="form-control-error";
+		
+	}
+	else
+	{
+		username_validation.style.display = "none";
+		username_validation.parentNode.style.backgroundColor = "transparent";
+                username.className="form-control-good";
+	}
+        if(message.value.length < 3)
+	{
+		valid   =0;
+		message_validation.innerHTML="Shkruani mesazhin";
+		message_validation.style.display = "block"; 
+                message.className="form-control-error";
+		
+	}
+	else
+	{
+		message_validation.style.display = "none";
+		message_validation.parentNode.style.backgroundColor = "transparent";
+                message.className="form-control-good";
+	}
+        
+	if(valid === 0)
+                return false;
+}
 function validateImageForm()
 {
      var valid = 1;

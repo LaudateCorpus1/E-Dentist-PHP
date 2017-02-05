@@ -97,18 +97,41 @@ $selektimi = "SELECT u.name, u.surname, u.email, v.id_historiku, d.diagnoza FROM
                                <a href="#" id="links"class="dropdown-toggle hvr-bubble-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                    
                       
-                        <?php
+                      <?php
+                        $nr = 0;
                         if(isset($_SESSION['logged_in']) )
-                        {
+                        {   
+                           $selektimi = "SELECT * FROM message WHERE reciever='".$_SESSION['username']."' AND open=0 ";
+                            $result = mysql_query($selektimi) or die ('invalid query:'. mysql_error());
+                   
+                                while($row = mysql_fetch_array($result))
+                                {
+			
+                                list( $id )=$row;
+                                $nr=$id;
+                                }
                             echo 'LLOGARIA</a>';
                             echo '<ul class="dropdown-menu "   style="background-color: #FFFFFF;padding:20px; width:300px;" >';
                             echo '<p>Miresevini</p>';
                             echo '<p>'.$_SESSION['name'].'&nbsp;'.$_SESSION['surname'].'</p>';
-                            echo "<form  method=\"post\" action=\"../logout.php\">";
-                            echo "<a class=\"btn btn-default pull-right\" href=\"../index.php?faqe=menaxho\">Menaxho</a>";
-                                echo "<a class=\"btn btn-default pull-right\" href=\"../index.php?faqe=sygjerimi\">Sygjerimet</a>";
-                         
-                            echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";  
+                            echo "<form  method=\"post\" action=\"logout.php\">";
+                            echo '<div class="btn-group" role="group" aria-label="...">';
+                            if($_SESSION['mof'] == 0)
+                            {
+                                echo "<a class=\"btn btn-default \" href=\"?faqe=menaxho\">Menaxho</a>";
+                                echo "<a  class=\"btn btn-default \" href=\"?faqe=sygjerimi\">Sygjerimet</a>";
+                                 echo "<a  class=\"btn btn-default   \" href=\"?faqe=message\">Mesazhi <span class=\"badge\">".$nr."</span></a>";
+                            }
+                            else
+                            {
+                                
+                                
+                                echo "<a class=\"btn btn-default\" href=\"?faqe=mesatarja\">Vlersimi</a>"; 
+                                 echo "<a class=\"btn btn-default \" href=\"?faqe=adminmessage\">Mesazhi <span class=\"badge\">".$nr."</span></a>";
+                                   
+                                }
+                                echo"<button type=\"submit\" id=\"submit\" class=\"btn btn-default\">Log Out</button></form>";  
+                            echo"</div>";
                         }
                         else 
                         {

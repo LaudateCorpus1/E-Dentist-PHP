@@ -6,7 +6,11 @@
             <name>E-Dentist</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Derguesi</word>
+            <word>Emri</word>
+            <word>Mbiemri</word>
             <word>Permbajtja</word>
+            <word>Pranuesi</word>
             <word>Titulli</word>
         </spellchecker-wordlist>
     </configuration>
